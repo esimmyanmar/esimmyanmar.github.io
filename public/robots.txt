@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.env
+Disallow: /private
+
+Sitemap: https://esim.com.mm/sitemap.xml
+Sitemap: https://www.esim.com.mm/sitemap.xml

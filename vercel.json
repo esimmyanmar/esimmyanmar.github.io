@@ -1,38 +1,29 @@
 {
-  "version": 2,
-  "name": "esim-myanmar",
-  "builds": [
-    {
-      "src": "build-nextjs-enhanced.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "name": "eSIM Myanmar",
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "@site_url"
+  },
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/out/$1"
+      "dest": "/404.html",
+      "status": 404
     }
   ],
-  "functions": {
-    "build-nextjs-enhanced.js": {
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'nonce-gsap123' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; connect-src 'self'; frame-ancestors 'none'"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     }
