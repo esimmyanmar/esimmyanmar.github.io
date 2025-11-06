@@ -31,8 +31,8 @@
     }
   },
   "partners": {
-    "title": "Our Partners",
-    "subtitle": "Trusted partners enabling seamless eSIM activation across Myanmar and beyond",
+    "title": "Partner Ecosystem",
+    "subtitle": "16 Partner Network Integration - Complete EaaS Integration",
     "telecom": {
       "title": "Telecommunication Partners",
       "atom": "ATOM Myanmar",
@@ -64,7 +64,10 @@
     "eaas": {
       "integrated": "EaaS Integrated",
       "pending": "Integration Pending",
-      "verified": "Verified Partner"
+      "verified": "Primary EaaS Provider"
+    },
+    "design": {
+      "pearlGlass": "Pearl Glass Effect"
     }
   },
   "compatibility": {
