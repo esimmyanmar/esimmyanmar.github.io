@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Smartphone, BarChart3, RefreshCw, Plus, Settings } from 'lucide-react';
+import { Smartphone, BarChart3, RefreshCw, Plus, Settings, Loader2 } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Background3D from '@/components/animations/Background3D';

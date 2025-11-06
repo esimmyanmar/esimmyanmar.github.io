@@ -12,7 +12,8 @@ const inter = Inter({
 const notoSansMyanmar = Noto_Sans_Myanmar({
   subsets: ['myanmar'],
   variable: '--font-myanmar',
-  display: 'swap'
+  display: 'swap',
+  weight: ['400', '500', '600', '700']
 });
 
 export const metadata = {
