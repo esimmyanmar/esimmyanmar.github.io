@@ -535,22 +535,22 @@ const createNextJSEnhancedBuild = () => {
       
       <div class="features-grid">
         <div class="feature pearl-glass">
-          <div class="feature-icon">📱</div>
+          <div class="feature-icon">DEV</div>
           <h3>Device Entitlement Check</h3>
           <p>GSMA SGP.22 v4.0 compliant device verification with real-time carrier eligibility across ATOM, Mytel, MPT, and U9 networks</p>
         </div>
         <div class="feature pearl-glass">
-          <div class="feature-icon">⬇️</div>
+          <div class="feature-icon">DL</div>
           <h3>Profile Download & Activation</h3>
           <p>Seamless eSIM profile download with QR code generation and instant activation through NetLync EaaS platform</p>
         </div>
         <div class="feature pearl-glass">
-          <div class="feature-icon">🔄</div>
+          <div class="feature-icon">MGT</div>
           <h3>Multi-eSIM Management</h3>
           <p>Comprehensive dashboard for managing multiple eSIM profiles with partner filtering and usage analytics</p>
         </div>
         <div class="feature pearl-glass">
-          <div class="feature-icon">📊</div>
+          <div class="feature-icon">MON</div>
           <h3>Real-time Monitoring</h3>
           <p>Live usage tracking, data consumption analytics, and automated renewal alerts with partner integration</p>
         </div>
@@ -875,7 +875,7 @@ const createNextJSEnhancedBuild = () => {
         handleDevToolsDetection() {
           document.body.innerHTML = \`
             <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#1e2f3c;color:#00ffff;font-family:monospace;flex-direction:column;">
-              <h1 style="margin-bottom:20px;">🛡️ Access Denied</h1>
+              <h1 style="margin-bottom:20px;">ACCESS DENIED</h1>
               <p>Security Violation Detected</p>
               <p style="font-size:0.8em;margin-top:20px;">eSIM Myanmar - Enterprise Security</p>
             </div>
@@ -946,7 +946,7 @@ const createNextJSEnhancedBuild = () => {
         handleBotDetection() {
           document.body.innerHTML = \`
             <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#1e2f3c;color:#ff0000;font-family:monospace;flex-direction:column;">
-              <h1 style="margin-bottom:20px;">🤖 Automated Access Blocked</h1>
+              <h1 style="margin-bottom:20px;">AUTOMATED ACCESS BLOCKED</h1>
               <p>Bot Detection System Active</p>
             </div>
           \`;
