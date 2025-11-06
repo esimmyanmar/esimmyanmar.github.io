@@ -30,8 +30,8 @@ const checkSecurity = () => {
 const buildProject = () => {
   try {
     log('Building project...');
-    execSync('node build.js', { stdio: 'inherit' });
-    log('Build completed', 'success');
+    execSync('node build-enhanced.js', { stdio: 'inherit' });
+    log('Enhanced build completed', 'success');
   } catch (error) {
     throw new Error(`Build failed: ${error.message}`);
   }
