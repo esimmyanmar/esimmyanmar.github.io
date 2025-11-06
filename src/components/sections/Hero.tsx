@@ -46,7 +46,7 @@ export default function Hero() {
       gsap.fromTo('.stat-number', 
         { textContent: 0 },
         {
-          textContent: (i, target) => {
+          textContent: (i: number, target: any) => {
             const finalValue = target.getAttribute('data-value');
             return finalValue;
           },
