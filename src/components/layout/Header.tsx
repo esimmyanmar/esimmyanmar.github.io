@@ -1,23 +1,24 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Menu, X, Globe } from 'lucide-react';
 
 export default function Header() {
-  const t = useTranslations();
-  const locale = useLocale();
+  const params = useParams();
+  const pathname = usePathname();
+  const locale = (params?.locale as string) || 'en';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: t('nav.home'), href: `/${locale}` },
-    { name: t('nav.about'), href: `/${locale}/about` },
-    { name: t('nav.compatibility'), href: `/${locale}/compatibility` },
-    { name: t('nav.howItWorks'), href: `/${locale}/how-it-works` },
-    { name: t('nav.faq'), href: `/${locale}/faq` },
-    { name: t('nav.partners'), href: `/${locale}/partners` },
-    { name: t('nav.contact'), href: `/${locale}/contact` }
+    { name: locale === 'my' ? 'မွန်းပိုင်' : 'Home', href: `/${locale}` },
+    { name: locale === 'my' ? 'အဖွဲ့ကြီး' : 'About', href: `/${locale}/about` },
+    { name: locale === 'my' ? 'လိုက်ဖာက်မှု' : 'Compatibility', href: `/${locale}/compatibility` },
+    { name: locale === 'my' ? 'အဖွဲ့ကြီးပိုင်' : 'How It Works', href: `/${locale}/how-it-works` },
+    { name: locale === 'my' ? 'မှန်းချားမှု' : 'FAQ', href: `/${locale}/faq` },
+    { name: locale === 'my' ? 'လုပ်ဖောင်ကိုင်' : 'Partners', href: `/${locale}/partners` },
+    { name: locale === 'my' ? 'ဆက်ဆွဲ' : 'Contact', href: `/${locale}/contact` }
   ];
 
   const toggleLanguage = () => {
@@ -68,7 +69,7 @@ export default function Header() {
               href={`/${locale}/dashboard`}
               className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 transition-colors duration-200"
             >
-              {t('nav.dashboard')}
+              {locale === 'my' ? 'ဒက်ရှေးဘုတ်' : 'Dashboard'}
             </Link>
 
             <div className="md:hidden">
@@ -105,7 +106,7 @@ export default function Header() {
                 className="text-white bg-cyan-600 hover:bg-cyan-700 block px-3 py-2 rounded-md text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t('nav.dashboard')}
+                {locale === 'my' ? 'ဒက်ရှေးဘုတ်' : 'Dashboard'}
               </Link>
             </div>
           </div>

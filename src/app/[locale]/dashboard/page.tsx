@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useParams } from 'next/navigation';
 import { Smartphone, BarChart3, RefreshCw, Plus, Settings, Loader2 } from 'lucide-react';
 import Background3D from '@/components/animations/Background3D';
+import { useTranslations } from '@/lib/translations';
 
 interface eSIMProfile {
   id: string;
@@ -16,8 +17,9 @@ interface eSIMProfile {
 }
 
 export default function DashboardPage() {
-  const t = useTranslations();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations(locale);
   const [profiles, setProfiles] = useState<eSIMProfile[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -75,7 +77,7 @@ export default function DashboardPage() {
                 {t('dashboard.title')}
               </h1>
               <p className="text-xl text-gray-300">
-                Manage your eSIM profiles and monitor usage
+                {locale === 'my' ? 'မင်းရှိ eSIM ပရိုဖိုင်များကို အဖွဲ့ကြီးပံနှင့် အဖွဲ့ကြီးမှုကို စိတ်ဆေးပါ' : 'Manage your eSIM profiles and monitor usage'}
               </p>
             </div>
 

@@ -1,17 +1,19 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useParams } from 'next/navigation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Shield, CheckCircle } from 'lucide-react';
 import Background3D from '@/components/animations/Background3D';
+import { useTranslations } from '@/lib/translations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function PartnersPage() {
-  const t = useTranslations();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations(locale);
   const sectionRef = useRef<HTMLDivElement>(null);
 
 
@@ -231,7 +233,7 @@ export default function PartnersPage() {
                 {t('partners.title')}
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our ecosystem of trusted partners enables seamless eSIM activation and management across Myanmar and beyond.
+                {locale === 'my' ? 'ကျွန်ုပ်တိ့များရှိ ယုံကြည်အားထားခံရသည် လုပ်ဖောင်ကိုင်များသည် eSIM ဖွင့်အဖွင့်မှုနှင့် အဖွဲ့ကြီးမှုကို အဆိုးပြည်ဆေးကောင်းပါပါ။' : 'Our ecosystem of trusted partners enables seamless eSIM activation and management across Myanmar and beyond.'}
               </p>
             </div>
 

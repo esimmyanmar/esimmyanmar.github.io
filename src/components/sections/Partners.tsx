@@ -1,15 +1,19 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield } from 'lucide-react';
+import { useTranslations } from '@/lib/translations';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Partners() {
-  const t = useTranslations();
+interface PartnersProps {
+  locale?: string;
+}
+
+export default function Partners({ locale = 'en' }: PartnersProps) {
+  const t = useTranslations(locale);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const partners = {
@@ -151,7 +155,7 @@ export default function Partners() {
             {t('partners.title')}
           </h2>
           <p className="hero-subtitle text-lg text-gray-300 max-w-2xl mx-auto">
-            Trusted by leading telecommunications, financial, and payment providers across Myanmar
+            {locale === 'my' ? 'မြန်မာနိုင်ငံရှိ ဦးဆောင်သော ဆက်သွယ်ရေး၊ ဘဏ္ဍာရေးနှင့် ငွေပေးချေမှု ဝန်ဆောင်မှုပေးသူများမှ ယုံကြည်အားထားခံရသည်' : 'Trusted by leading telecommunications, financial, and payment providers across Myanmar'}
           </p>
         </div>
 

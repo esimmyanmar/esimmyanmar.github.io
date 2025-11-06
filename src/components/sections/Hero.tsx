@@ -1,17 +1,20 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { CheckCircle, Zap, Shield } from 'lucide-react';
+import { useTranslations } from '@/lib/translations';
 
 gsap.registerPlugin(TextPlugin);
 
-export default function Hero() {
-  const t = useTranslations();
-  const locale = useLocale();
+interface HeroProps {
+  locale?: string;
+}
+
+export default function Hero({ locale = 'en' }: HeroProps) {
+  const t = useTranslations(locale);
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -107,7 +110,7 @@ export default function Hero() {
               className="pearl-glass px-8 py-4 text-lg font-semibold text-white hover:scale-105 transition-all duration-300 flex items-center space-x-2 min-w-[200px] min-h-[48px]"
             >
               <CheckCircle className="w-5 h-5" />
-              <span>{t('hero.cta')}</span>
+              <span>{t('compatibility.form.check')}</span>
             </Link>
             
             <Link
@@ -115,7 +118,7 @@ export default function Hero() {
               className="glass px-8 py-4 text-lg font-semibold text-cyan-400 border-cyan-400 hover:bg-cyan-400 hover:text-white transition-all duration-300 flex items-center space-x-2 min-w-[200px] min-h-[48px]"
             >
               <Zap className="w-5 h-5" />
-              <span>{t('nav.dashboard')}</span>
+              <span>{t('dashboard.title')}</span>
             </Link>
           </div>
         </div>
@@ -126,21 +129,21 @@ export default function Hero() {
             <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
               <span className="stat-number" data-value="250000">0</span>+
             </div>
-            <p className="text-gray-300">{t('hero.stats.activations')}</p>
+            <p className="text-gray-300">{locale === 'my' ? 'eSIM ဖွင့်အဖွင့်မှု' : 'eSIM Activations'}</p>
           </div>
           
           <div className="glass p-6 text-center fade-in">
             <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
               <span className="stat-number" data-value="4">0</span>
             </div>
-            <p className="text-gray-300">{t('hero.stats.carriers')}</p>
+            <p className="text-gray-300">{locale === 'my' ? 'ဆေက်သွယ်ရေး ကံပနီများ' : 'Telecom Carriers'}</p>
           </div>
           
           <div className="glass p-6 text-center fade-in">
             <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
               <span className="stat-number" data-value="99.9">0</span>%
             </div>
-            <p className="text-gray-300">{t('hero.stats.uptime')}</p>
+            <p className="text-gray-300">{locale === 'my' ? 'အဖွင့်အမြို့ အချိန်' : 'Uptime Guarantee'}</p>
           </div>
         </div>
 
@@ -149,7 +152,7 @@ export default function Hero() {
           <div className="pearl-glass px-6 py-3 flex items-center space-x-2">
             <Shield className="w-5 h-5 text-cyan-400" />
             <span className="text-sm font-medium text-gray-300">
-              GSMA SGP.22 v4.0 Compliant
+              {locale === 'my' ? 'GSMA SGP.22 v4.0 အနုးပါန်' : 'GSMA SGP.22 v4.0 Compliant'}
             </span>
           </div>
         </div>

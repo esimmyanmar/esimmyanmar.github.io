@@ -1,40 +1,42 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Smartphone, Download, Settings, BarChart3 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function EaaSFeatures() {
-  const t = useTranslations();
+interface EaaSFeaturesProps {
+  locale?: string;
+}
+
+export default function EaaSFeatures({ locale = 'en' }: EaaSFeaturesProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const features = [
     {
       icon: Smartphone,
-      title: t('eaas.features.entitlementCheck'),
-      description: 'TAC validation and RSP eligibility verification with real-time carrier availability',
+      title: locale === 'my' ? 'အဖွင့်အမြို့ စိတ်ဆေးမှု' : 'Device Entitlement Check',
+      description: locale === 'my' ? 'TAC အချက်ဆုံးမှုနှင့် RSP အဖွင့်အမြို့ စိတ်ဆေးမှု' : 'TAC validation and RSP eligibility verification with real-time carrier availability',
       step: '01'
     },
     {
       icon: Download,
-      title: t('eaas.features.profileDownload'),
-      description: 'LPA QR code generation and SM-DP+ profile download with activation binding',
+      title: locale === 'my' ? 'ပရိုဖိုင် ဒေါင်လိုဒ်မှု' : 'Profile Download',
+      description: locale === 'my' ? 'LPA QR ကိုဒ် အဖွင့်အမြို့နှင့် SM-DP+ ပရိုဖိုင် ဒေါင်လိုဒ်မှု' : 'LPA QR code generation and SM-DP+ profile download with activation binding',
       step: '02'
     },
     {
       icon: Settings,
-      title: t('eaas.features.multiProfile'),
-      description: 'Multiple eSIM profile management with enable/disable/delete lifecycle control',
+      title: locale === 'my' ? 'မြုးပရိုဖိုင် အဖွဲ့ကြီးမှု' : 'Multi-Profile Management',
+      description: locale === 'my' ? 'မြုး eSIM ပရိုဖိုင် အဖွဲ့ကြီးမှုနှင့် ဖွင့်/ပိတ်/ဖြက်ပြဲ့မှု' : 'Multiple eSIM profile management with enable/disable/delete lifecycle control',
       step: '03'
     },
     {
       icon: BarChart3,
-      title: t('eaas.features.realTime'),
-      description: 'Live usage monitoring, quota management, and entitlement renewal automation',
+      title: locale === 'my' ? 'အချိန်အချိန် အဖွဲ့ကြီးမှု' : 'Real-Time Monitoring',
+      description: locale === 'my' ? 'အချိန်အချိန် အဖွဲ့ကြီးမှုနှင့် အဖွင့်အမြို့ အဖွင့်အမြို့ အဖွဲ့ကြီးမှု' : 'Live usage monitoring, quota management, and entitlement renewal automation',
       step: '04'
     }
   ];
@@ -87,10 +89,10 @@ export default function EaaSFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">
-            {t('eaas.title')}
+            {locale === 'my' ? 'NetLync EaaS ပလက့ဖောင်' : 'NetLync EaaS Platform'}
           </h2>
           <p className="text-xl text-cyan-400 mb-4">
-            {t('eaas.subtitle')}
+            {locale === 'my' ? 'Entitlements-as-a-Service အဖွင့်အမြို့ ပလက့ဖောင်' : 'Entitlements-as-a-Service Platform'}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 mx-auto rounded-full" />
         </div>

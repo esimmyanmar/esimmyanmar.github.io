@@ -1,12 +1,12 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Mail, Phone, Twitter } from 'lucide-react';
 
 export default function Footer() {
-  const t = useTranslations();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = (params?.locale as string) || 'en';
 
   const partnerLinks = [
     { name: 'ATOM', url: 'https://atom.com.mm' },
@@ -32,16 +32,16 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              {t('hero.subtitle')}
+              {locale === 'my' ? 'Entitlements-as-a-Service' : 'Entitlements-as-a-Service'}
             </p>
             <p className="text-sm text-gray-400">
-              {t('footer.company')}
+              {locale === 'my' ? 'ESIM MYANMAR COMPANY LIMITED' : 'ESIM MYANMAR COMPANY LIMITED'}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">
-              Contact
+              {locale === 'my' ? 'ဆက်ဆွဲ' : 'Contact'}
             </h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
@@ -50,7 +50,7 @@ export default function Footer() {
                   href="mailto:info@esim.com.mm"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                 >
-                  {t('footer.contact.email')}
+                  info@esim.com.mm
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -59,7 +59,7 @@ export default function Footer() {
                   href="tel:+959650000172"
                   className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                 >
-                  {t('footer.contact.phone')}
+                  09650000172
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -70,7 +70,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {t('footer.contact.social')}
+                  @eSIMMyanmar
                 </a>
               </div>
             </div>
@@ -78,26 +78,26 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">
-              Legal
+              {locale === 'my' ? 'ခရက်ရေး' : 'Legal'}
             </h3>
             <div className="space-y-3">
               <Link
                 href={`/${locale}/privacy`}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
-                {t('footer.legal.privacy')}
+                {locale === 'my' ? 'အချိန်းဆိုက်မှု' : 'Privacy Policy'}
               </Link>
               <Link
                 href={`/${locale}/terms`}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
-                {t('footer.legal.terms')}
+                {locale === 'my' ? 'အဖွဲ့ကြီးမှု အခွန်အကြန်' : 'Terms of Service'}
               </Link>
               <Link
                 href={`/${locale}/compliance`}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
-                {t('footer.legal.compliance')}
+                {locale === 'my' ? 'အနုးပါမှု' : 'Compliance'}
               </Link>
             </div>
           </div>

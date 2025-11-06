@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Smartphone, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import Background3D from '@/components/animations/Background3D';
+import { useTranslations } from '@/lib/translations';
 
 const imeiSchema = z.object({
   imei: z.string()
@@ -18,8 +19,9 @@ const imeiSchema = z.object({
 type ImeiForm = z.infer<typeof imeiSchema>;
 
 export default function CompatibilityPage() {
-  const t = useTranslations();
-  const locale = useLocale();
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations(locale);
   const [isChecking, setIsChecking] = useState(false);
   const [result, setResult] = useState<{
     eligible: boolean;
