@@ -1,0 +1,197 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --color-primary: #1e2f3c;
+  --color-secondary: #00ffff;
+  --color-accent: #c0c0c0;
+  --color-glass: rgba(30, 47, 60, 0.55);
+  --color-pearl: rgba(192, 192, 192, 0.3);
+  --blur-glass: 18px;
+  --border-radius: 20px;
+  --perspective: 1500px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[lang="my"] {
+  font-family: var(--font-myanmar), 'Pyidaungsu', system-ui, sans-serif;
+}
+
+body {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0a1a2a 100%);
+  min-height: 100vh;
+  perspective: var(--perspective);
+  overflow-x: hidden;
+}
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(var(--blur-glass)) saturate(200%);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.pearl-glass {
+  background: var(--color-pearl);
+  backdrop-filter: blur(20px) brightness(1.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  box-shadow: 0 12px 40px rgba(192, 192, 192, 0.15);
+}
+
+.glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(0, 255, 255, 0.1) 0%, 
+    transparent 50%, 
+    rgba(192, 192, 192, 0.1) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.pearl-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, 
+    rgba(192, 192, 192, 0.7) 0%, 
+    rgba(0, 255, 255, 0.3) 50%, 
+    transparent 100%);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: pearlShimmer 8s ease-in-out infinite;
+}
+
+@keyframes pearlShimmer {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.transparent-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    transparent 0%, 
+    rgba(30, 47, 60, 0.2) 25%, 
+    transparent 50%, 
+    rgba(0, 255, 255, 0.1) 75%, 
+    transparent 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #00ffff 0%, #c0c0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.esim-chip {
+  width: 24px;
+  height: 18px;
+  background: linear-gradient(45deg, #00ffff, #c0c0c0);
+  border-radius: 4px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #1e2f3c;
+    border-radius: 2px;
+  }
+}
+
+.myanmar-text {
+  line-height: 1.6;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass, .pearl-glass {
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+  }
+}
+
+.watermark {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 8px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.watermark::after {
+  content: 'UUID: 550e8400-e29b-41d4-a716-446655440000';
+}
+
+.partner-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partner-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+}
+
+.eaas-badge {
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.2) 0%, 
+    rgba(192, 192, 192, 0.2) 100%);
+  backdrop-filter: blur(15px) brightness(1.2);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  animation: eaasPulse 3s ease-in-out infinite;
+}
+
+@keyframes eaasPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
+}
