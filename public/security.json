@@ -1,0 +1,27 @@
+{
+  "security": {
+    "certifications": [
+      {
+        "name": "GSMA SGP.22 v4.0",
+        "status": "certified",
+        "expiry": "2026-12-31"
+      },
+      {
+        "name": "GSMA SGP.32 2025",
+        "status": "certified",
+        "expiry": "2026-12-31"
+      }
+    ],
+    "compliance": ["Myanmar Electronic Transactions Law 2021", "GDPR Article 30", "PDPA Singapore", "WCAG 2.1 AA+"],
+    "encryption": {
+      "algorithm": "AES-256",
+      "tls_version": "1.3",
+      "key_exchange": "ECDH"
+    },
+    "security_headers": {
+      "hsts_max_age": 63072000,
+      "csp_nonce": true,
+      "x_frame_options": "DENY"
+    }
+  }
+}

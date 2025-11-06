@@ -1,18 +1,7 @@
 {
-  "version": 2,
   "name": "esim-myanmar",
-  "builds": [
-    {
-      "src": "build-nextjs-enhanced.js",
-      "use": "@vercel/node"
-    }
-  ],
-
-  "functions": {
-    "build-nextjs-enhanced.js": {
-      "maxDuration": 30
-    }
-  },
+  "buildCommand": "node build-nextjs-enhanced.js",
+  "outputDirectory": "out",
   "headers": [
     {
       "source": "/(.*)",
