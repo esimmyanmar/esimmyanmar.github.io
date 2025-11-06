@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,6 +15,7 @@ export default function PartnersPage() {
   const t = useTranslations();
   const locale = useLocale();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [linkStatus, setLinkStatus] = useState<Record<string, boolean>>({});
 
   const partnerCategories = [
     {
@@ -169,6 +170,24 @@ export default function PartnersPage() {
       }
     );
 
+    // Verify partner links
+    const verifyLinks = async () => {
+      const allPartners = partnerCategories.flatMap(cat => cat.partners);
+      const status: Record<string, boolean> = {};
+      
+      for (const partner of allPartners) {
+        try {
+          const response = await fetch(`/api/verify-link?url=${encodeURIComponent(partner.url)}`);
+          status[partner.url] = response.ok;
+        } catch {
+          status[partner.url] = false;
+        }
+      }
+      
+      setLinkStatus(status);
+    };
+
+    verifyLinks();
   }, []);
 
   const renderLogo = (logo: string, name: string) => {

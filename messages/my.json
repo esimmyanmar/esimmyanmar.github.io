@@ -1,86 +1,92 @@
 {
   "nav": {
-    "home": "",
-    "about": "",
-    "compatibility": "",
-    "howItWorks": "",
-    "faq": "",
-    "contact": "",
-    "partners": "",
-    "dashboard": ""
+    "home": "ပင်မ",
+    "about": "အကြောင်း",
+    "compatibility": "လိုက်ဖက်မှု",
+    "howItWorks": "အလုပ်လုပ်ပုံ",
+    "faq": "မေးလေ့ရှိသောမေးခွန်းများ",
+    "contact": "ဆက်သွယ်ရန်",
+    "partners": "လုပ်ဖော်ကိုင်ဖက်များ",
+    "dashboard": "ထိန်းချုပ်မှုပြားခုံ"
   },
   "hero": {
-    "title": "eSIM ",
-    "subtitle": "NetLync Entitlements-as-a-Service    ",
-    "description": "GSMA SGP.22 v4.0   eSIM       eSIM   ",
-    "cta": "",
+    "title": "eSIM မြန်မာ",
+    "subtitle": "NetLync Entitlements-as-a-Service® – ပထမဆုံး။ အမြန်ဆုံး။ တစ်ခုတည်း။",
+    "description": "GSMA SGP.22 v4.0 လိုက်နာမှုဖြင့် တော်လှန်ရေး eSIM အသက်သွင်းခြင်း။ စက်ပစ္စည်း ခွင့်ပြုချက်စစ်ဆေးပါ၊ ပရိုဖိုင်များ ဒေါင်းလုဒ်လုပ်ပါ၊ နှင့် eSIM များစွာကို ချောမွေ့စွာ စီမံခန့်ခွဲပါ။",
+    "cta": "ခွင့်ပြုချက်စစ်ဆေးပါ",
     "stats": {
-      "activations": ",+ ",
-      "carriers": "  ",
-      "uptime": ".% "
+      "activations": "၂၅၀,၀၀၀+ အသက်သွင်းမှုများ",
+      "carriers": "၄ လုပ်ဖော်ကိုင်ဖက် ဆက်သွယ်ရေးကုမ္ပဏီများ",
+      "uptime": "၉၉.၉% အလုပ်လုပ်ချိန်"
     }
   },
   "eaas": {
-    "title": "Entitlements-as-a-Service",
-    "subtitle": "GSMA SGP.22 v4.0  eSIM ",
+    "title": "Entitlements-as-a-Service®",
+    "subtitle": "GSMA SGP.22 v4.0 လိုက်နာသော eSIM ပလပ်ဖောင်း",
     "features": {
-      "entitlementCheck": " ",
-      "profileDownload": "  ",
-      "multiProfile": "eSIM  ",
-      "realTime": "  "
+      "entitlementCheck": "စက်ပစ္စည်း ခွင့်ပြုချက်စစ်ဆေးခြင်း",
+      "profileDownload": "ပရိုဖိုင် ဒေါင်းလုဒ်နှင့် အသက်သွင်းခြင်း",
+      "multiProfile": "eSIM ပရိုဖိုင်များစွာ စီမံခန့်ခွဲခြင်း",
+      "realTime": "အချိန်နှင့်တပြေးညီ အသုံးပြုမှု စောင့်ကြည့်ခြင်း"
     }
   },
   "partners": {
-    "title": " ",
+    "title": "ကျွန်ုပ်တို့၏ လုပ်ဖော်ကိုင်ဖက်များ",
+    "subtitle": "မြန်မာနိုင်ငံနှင့် ကမ္ဘာတစ်ဝှမ်းရှိ ယုံကြည်စိတ်ချရသော လုပ်ဖော်ကိုင်ဖက်များ",
     "telecom": {
-      "title": " ",
-      "atom": "ATOM ",
+      "title": "ဆက်သွယ်ရေး လုပ်ဖော်ကိုင်ဖက်များ",
+      "atom": "ATOM မြန်မာ",
       "mytel": "Mytel",
       "mpt": "MPT",
       "u9": "U9 Telecom"
     },
     "financial": {
-      "title": " ",
-      "aya": "AYA ",
-      "uab": "UAB "
+      "title": "ဘဏ္ဍာရေး လုပ်ဖော်ကိုင်ဖက်များ",
+      "aya": "AYA ဘဏ်",
+      "uab": "UAB ဘဏ်"
     },
     "payment": {
-      "title": " ",
+      "title": "ငွေပေးချေမှု လုပ်ဖော်ကိုင်ဖက်များ",
       "wavepay": "WavePay",
       "ayapay": "AYA Pay",
       "uabpay": "UAB Pay",
       "mmqr": "MMQR",
-      "mpu": "  ",
-      "upi": "  ",
+      "mpu": "မြန်မာ ငွေပေးချေမှု သမဂ္ဂ",
+      "upi": "ပေါင်းစပ် ငွေပေးချေမှු အင်တာဖေ့စ်",
       "visa": "VISA",
       "mastercard": "Mastercard"
     },
     "digital": {
-      "title": "  ",
+      "title": "ဒစ်ဂျစ်တယ် မားကတ်တင်း လုပ်ဖော်ကိုင်ဖက်များ",
       "activ": "Activ Digital Marketing",
       "netlync": "NetLync"
+    },
+    "eaas": {
+      "integrated": "EaaS ပေါင်းစပ်ပြီး",
+      "pending": "ပေါင်းစပ်ရန် ကြိုတင်",
+      "verified": "အတည်ပြုပြီး"
     }
   },
   "compatibility": {
-    "title": "  ",
-    "subtitle": " eSIM   ",
+    "title": "စက်ပစ္စည်း လိုက်ဖက်မှု စစ်ဆေးပါ",
+    "subtitle": "သင့်စက်ပစ္စည်း၏ eSIM ခွင့်ပြုချက် အခြေအနေကို စစ်ဆေးပါ",
     "form": {
-      "imei": "IMEI/TAC ",
+      "imei": "IMEI/TAC ထည့်ပါ",
       "placeholder": "353285111234567",
-      "check": "",
-      "checking": "  ...",
-      "eligible": " eSIM  ",
-      "notEligible": " eSIM  ",
-      "error": "IMEI  "
+      "check": "ခွင့်ပြုချက်စစ်ဆေးပါ",
+      "checking": "စက်ပစ္စည်း ခွင့်ပြုချက် စစ်ဆေးနေသည်...",
+      "eligible": "စက်ပစ္စည်းသည် eSIM အသက်သွင်းရန် အရည်အချင်းပြည့်မီသည်",
+      "notEligible": "စက်ပစ္စည်းသည် eSIM အတွက် အရည်အချင်းမပြည့်မီပါ",
+      "error": "IMEI ပုံစံ မမှန်ကန်ပါ"
     }
   },
   "dashboard": {
-    "title": "eSIM ",
-    "profiles": "eSIM ",
-    "usage": " ",
-    "remaining": "",
-    "renew": "",
-    "activate": " "
+    "title": "eSIM ထိန်းချုပ်မှုပြားခုံ",
+    "profiles": "eSIM ပရိုဖိုင်များ",
+    "usage": "ဒေတာ အသုံးပြုမှု",
+    "remaining": "ကျန်ရှိသော",
+    "renew": "သက်တမ်းတိုးပါ",
+    "activate": "ပရိုဖိုင်အသစ် အသက်သွင်းပါ"
   },
   "footer": {
     "company": "ESIM MYANMAR COMPANY LIMITED",
@@ -91,9 +97,9 @@
       "domain": "esim.com.mm / www.esim.com.mm"
     },
     "legal": {
-      "privacy": " ",
-      "terms": " ",
-      "compliance": " "
+      "privacy": "ကိုယ်ရေးကိုယ်တာ မူဝါဒ",
+      "terms": "ဝန်ဆောင်မှု စည်းကမ်းများ",
+      "compliance": "စည်းမျဉ်း လိုက်နာမှု"
     }
   }
 }
