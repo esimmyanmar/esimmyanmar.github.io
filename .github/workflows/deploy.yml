@@ -17,11 +17,8 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install dependencies
-      run: npm install --legacy-peer-deps
-      
     - name: Build application
-      run: npm run build
+      run: node build-nextjs-enhanced.js
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
@@ -29,3 +26,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./out
         cname: esim.com.mm
+        
+    - name: Deploy to Vercel (Fallback)
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.ORG_ID }}
+        vercel-project-id: ${{ secrets.PROJECT_ID }}
+        working-directory: ./out
