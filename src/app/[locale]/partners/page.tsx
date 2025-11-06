@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Shield, CheckCircle } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import Background3D from '@/components/animations/Background3D';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,7 +13,7 @@ export default function PartnersPage() {
   const t = useTranslations();
   const locale = useLocale();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [linkStatus, setLinkStatus] = useState<Record<string, boolean>>({});
+
 
   const partnerCategories = [
     {
@@ -170,24 +168,7 @@ export default function PartnersPage() {
       }
     );
 
-    // Verify partner links
-    const verifyLinks = async () => {
-      const allPartners = partnerCategories.flatMap(cat => cat.partners);
-      const status: Record<string, boolean> = {};
-      
-      for (const partner of allPartners) {
-        try {
-          const response = await fetch(`/api/verify-link?url=${encodeURIComponent(partner.url)}`);
-          status[partner.url] = response.ok;
-        } catch {
-          status[partner.url] = false;
-        }
-      }
-      
-      setLinkStatus(status);
-    };
 
-    verifyLinks();
   }, []);
 
   const renderLogo = (logo: string, name: string) => {
@@ -242,7 +223,6 @@ export default function PartnersPage() {
     <div className="min-h-screen relative">
       <Background3D />
       <div className="relative z-10">
-        <Header />
         
         <main className="pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -345,7 +325,6 @@ export default function PartnersPage() {
           </div>
         </main>
 
-        <Footer />
       </div>
       <div className="watermark" />
     </div>

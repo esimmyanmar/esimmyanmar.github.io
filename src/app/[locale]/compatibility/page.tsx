@@ -6,8 +6,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Smartphone, CheckCircle, XCircle, Loader2 } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import Background3D from '@/components/animations/Background3D';
 
 const imeiSchema = z.object({
@@ -55,7 +53,6 @@ export default function CompatibilityPage() {
     <div className="min-h-screen relative">
       <Background3D />
       <div className="relative z-10">
-        <Header />
         
         <main className="pt-24 pb-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,7 +172,6 @@ export default function CompatibilityPage() {
           </div>
         </main>
 
-        <Footer />
       </div>
       <div className="watermark" />
     </div>

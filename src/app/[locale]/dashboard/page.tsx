@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Smartphone, BarChart3, RefreshCw, Plus, Settings, Loader2 } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import Background3D from '@/components/animations/Background3D';
 
 interface eSIMProfile {
@@ -69,7 +67,6 @@ export default function DashboardPage() {
     <div className="min-h-screen relative">
       <Background3D />
       <div className="relative z-10">
-        <Header />
         
         <main className="pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,7 +228,6 @@ export default function DashboardPage() {
           </div>
         </main>
 
-        <Footer />
       </div>
       <div className="watermark" />
     </div>

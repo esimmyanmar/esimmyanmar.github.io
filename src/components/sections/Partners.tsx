@@ -182,7 +182,7 @@ export default function Partners() {
           <div className="inline-flex items-center space-x-2 pearl-glass px-6 py-3">
             <Shield className="w-5 h-5 text-cyan-400" />
             <span className="text-sm font-medium text-gray-300">
-              NetLync EaaS Integration Ready
+              NetLync EaaS Integration Ready - 16 Partners Connected
             </span>
           </div>
         </div>

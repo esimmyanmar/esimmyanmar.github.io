@@ -1,6 +1,4 @@
 import { Inter, Noto_Sans_Myanmar } from 'next/font/google';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 import './globals.scss';
 
 const inter = Inter({
@@ -72,17 +70,13 @@ export const metadata = {
   }
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale }
+export default function RootLayout({
+  children
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
-  const messages = await getMessages();
-
   return (
-    <html lang={locale} className={`${inter.variable} ${notoSansMyanmar.variable}`}>
+    <html className={`${inter.variable} ${notoSansMyanmar.variable}`}>
       <head>
         <link rel="preload" href="/fonts/noto-sans-myanmar.woff2" as="font" type="font/woff2" crossOrigin="" />
         <link rel="icon" href="/favicon.ico" />
@@ -116,9 +110,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        {children}
       </body>
     </html>
   );
