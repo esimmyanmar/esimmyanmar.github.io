@@ -27,7 +27,7 @@ export const metadata = {
     address: false,
     telephone: false
   },
-  metadataBase: new URL('https://esimmyanmar.github.io'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://esimmyanmar.github.io'),
   alternates: {
     canonical: '/',
     languages: {
@@ -37,8 +37,8 @@ export const metadata = {
   },
   openGraph: {
     title: 'eSIM Myanmar - Entitlements-as-a-Service',
-    description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only.',
-    url: 'https://esimmyanmar.github.io',
+    description: 'NetLync Entitlements-as-a-Service Platform - The First. The Fastest. The Only.',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://esimmyanmar.github.io',
     siteName: 'eSIM Myanmar',
     images: [
       {
@@ -54,9 +54,9 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'eSIM Myanmar - Entitlements-as-a-Service',
-    description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only.',
+    description: 'NetLync Entitlements-as-a-Service Platform - The First. The Fastest. The Only.',
     images: ['/assets/twitter-image.jpg'],
-    creator: '@eSIMMyanmar'
+    creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@eSIMMyanmar'
   },
   robots: {
     index: true,

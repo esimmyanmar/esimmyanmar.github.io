@@ -1,13 +1,9 @@
-﻿<div align="center">
-
-![eSIM Myanmar Logo](https://esimmyanmar.github.io/assets/logo/esim-myanmar-logo.svg)
-
 # eSIM MYANMAR
 ## NetLync Entitlements-as-a-Service Platform
 
-<p align="center">
-  <strong>THE FIRST • THE FASTEST • THE ONLY</strong>
-</p>
+**THE FIRST • THE FASTEST • THE ONLY**
+
+Enterprise-grade eSIM activation platform with GSMA SGP.22 v4.0 compliance, pearl glassmorphic design, and 16-partner ecosystem integration.
 
 <p align="center">
   <a href="https://esimmyanmar.github.io">Live Platform</a> •
@@ -31,19 +27,25 @@
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://esimmyanmar.github.io/assets/icons/gsma-compliant.svg" width="64" height="64">
-<br><strong>GSMA SGP.22 v4.0</strong>
-<br>Certified Compliance
+<code>┌────────────────┐</code><br>
+<code>│ GSMA SGP.22 v4.0 │</code><br>
+<code>│ CERTIFIED       │</code><br>
+<code>│ COMPLIANCE      │</code><br>
+<code>└────────────────┘</code>
 </td>
 <td align="center" width="33%">
-<img src="https://esimmyanmar.github.io/assets/icons/pearl-glass.svg" width="64" height="64">
-<br><strong>Pearl Glassmorphic</strong>
-<br>8-Layer Design System
+<code>┌────────────────┐</code><br>
+<code>│ PEARL GLASS     │</code><br>
+<code>│ 8-LAYER DESIGN  │</code><br>
+<code>│ SYSTEM          │</code><br>
+<code>└────────────────┘</code>
 </td>
 <td align="center" width="33%">
-<img src="https://esimmyanmar.github.io/assets/icons/partner-ecosystem.svg" width="64" height="64">
-<br><strong>16 Partner Network</strong>
-<br>Comprehensive Integration
+<code>┌────────────────┐</code><br>
+<code>│ 16 PARTNER      │</code><br>
+<code>│ NETWORK         │</code><br>
+<code>│ INTEGRATION     │</code><br>
+<code>└────────────────┘</code>
 </td>
 </tr>
 </table>
@@ -112,38 +114,14 @@ Revolutionary eSIM activation platform delivering enterprise-grade security, pea
 
 </div>
 
-## PARTNER ECOSYSTEM
+## Partner Ecosystem
 
-<div align="center">
+**16 Partner Network Integration**
 
-### COMPREHENSIVE INTEGRATION NETWORK
-
-<table>
-<tr>
-<td align="center" width="25%">
-<img src="https://esimmyanmar.github.io/assets/partners/telecom.svg" width="80" height="80">
-<br><strong>TELECOMMUNICATION</strong>
-<br><code>4 Partners</code>
-</td>
-<td align="center" width="25%">
-<img src="https://esimmyanmar.github.io/assets/partners/financial.svg" width="80" height="80">
-<br><strong>FINANCIAL</strong>
-<br><code>2 Partners</code>
-</td>
-<td align="center" width="25%">
-<img src="https://esimmyanmar.github.io/assets/partners/payment.svg" width="80" height="80">
-<br><strong>PAYMENT</strong>
-<br><code>8 Partners</code>
-</td>
-<td align="center" width="25%">
-<img src="https://esimmyanmar.github.io/assets/partners/marketing.svg" width="80" height="80">
-<br><strong>DIGITAL MARKETING</strong>
-<br><code>2 Partners</code>
-</td>
-</tr>
-</table>
-
-</div>
+- **Telecommunication**: 4 partners (ATOM Myanmar, Mytel, MPT, U9 Telecom)
+- **Financial**: 2 partners (AYA Bank, UAB Bank)
+- **Payment**: 8 partners (WavePay, AYA Pay, UAB Pay, MMQR, etc.)
+- **Digital Marketing**: 2 partners (NetLync, Activ Digital)
 
 ### TELECOMMUNICATION PARTNERS
 ```
@@ -176,6 +154,19 @@ Revolutionary eSIM activation platform delivering enterprise-grade security, pea
 ■ NetLync           → netlync.com         [PRIMARY EaaS PROVIDER]
 □ Activ Digital     → activdigitalmarketing.com [INTEGRATION PENDING]
 ```
+
+## Security Features
+
+**Enterprise-Grade Protection**
+
+- Right-click context menu disabled
+- Text selection prevention
+- Keyboard shortcuts blocked (F12, Ctrl+C, Ctrl+A, etc.)
+- Developer tools detection and blocking
+- Image drag/save prevention
+- Print functionality disabled
+- Bot detection and filtering
+- Comprehensive security headers (CSP, HSTS, X-Frame-Options)
 
 ## Regulatory Compliance
 
@@ -260,39 +251,21 @@ Revolutionary eSIM activation platform delivering enterprise-grade security, pea
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18.0.0
-- npm 9.0.0
+- Node.js 18.0.0+
+- npm 9.0.0+
 
 ### Installation
 ```bash
-# Clone repository
 git clone https://github.com/esimmyanmar/esimmyanmar.github.io.git
 cd esimmyanmar.github.io
-
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
 ```
 
-### Development Commands
+### Commands
 ```bash
-# Development
-npm run dev          # Start dev server with Turbo
-npm run build        # Build for production
-npm run start        # Start production server
-
-# Quality Assurance
-npm run lint         # ESLint with auto-fix
-npm run lint:css     # Stylelint for SCSS
-npm run type-check   # TypeScript validation
-npm run audit        # Security vulnerability scan
-
-# Testing
-npm run test         # Playwright E2E tests
-npm run test:unit    # Jest unit tests
-npm run lighthouse-ci # Performance audit
+npm run dev    # Development server
+npm run build  # Production build
+npm run deploy # Deploy to GitHub Pages
 ```
 
 ## Project Structure
@@ -502,36 +475,14 @@ This project is proprietary software. Unauthorized copying, modification, distri
 
 ---
 
-<div align="center">
+---
 
-### ESIM MYANMAR COMPANY LIMITED
+**eSIM Myanmar Company Limited**
 
-<table>
-<tr>
-<td align="center">
-<img src="https://esimmyanmar.github.io/assets/badges/myanmar-built.svg" alt="Built in Myanmar" height="32">
-</td>
-<td align="center">
-<img src="https://esimmyanmar.github.io/assets/badges/netlync-powered.svg" alt="NetLync EaaS" height="32">
-</td>
-<td align="center">
-<img src="https://esimmyanmar.github.io/assets/badges/gsma-compliant.svg" alt="GSMA SGP.22 v4.0" height="32">
-</td>
-<td align="center">
-<img src="https://esimmyanmar.github.io/assets/badges/enterprise-security.svg" alt="Enterprise Security" height="32">
-</td>
-</tr>
-</table>
+Built in Myanmar | NetLync EaaS | GSMA SGP.22 | Enterprise Security
 
-**BUILT WITH PRECISION IN MYANMAR**  
-**POWERED BY NETLYNC EaaS PLATFORM**  
-**GSMA SGP.22 V4.0 COMPLIANT**  
-**ENTERPRISE SECURITY ENABLED**
+**CEO:** Kaung Htet Paung  
+**Contact:** info@esim.com.mm | +95-9650000172  
+**Website:** https://esimmyanmar.github.io
 
-<p>
-<strong>CEO:</strong> Kaung Htet Paung<br>
-<strong>Copyright © 2025 eSIM Myanmar Company Limited</strong><br>
-<strong>All Rights Reserved</strong>
-</p>
-
-</div>
+Copyright 2025 eSIM Myanmar Company Limited. All Rights Reserved.
