@@ -9,7 +9,7 @@ test.describe('Homepage', () => {
 
   test('should display NetLync EaaS tagline prominently', async ({ page }) => {
     await page.goto('/en');
-    await expect(page.locator('text=NetLync Entitlements-as-a-Service® – The First. The Fastest. The Only.')).toBeVisible();
+    await expect(page.locator('text=NetLync Entitlements-as-a-Service  The First. The Fastest. The Only.')).toBeVisible();
   });
 
   test('should show hero statistics', async ({ page }) => {

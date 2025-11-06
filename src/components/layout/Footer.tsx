@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
           <div className="text-center">
             <p className="text-sm text-gray-400">
-              © 2025 ESIM MYANMAR COMPANY LIMITED. All rights reserved.
+               2025 ESIM MYANMAR COMPANY LIMITED. All rights reserved.
             </p>
             <p className="text-xs text-gray-500 mt-2">
               GSMA SGP.22 v4.0 Compliant | Myanmar ETL 2021 | GDPR | PDPA

@@ -1,7 +1,7 @@
 {
   "name": "esim-myanmar",
   "version": "1.0.0",
-  "description": "eSIM Myanmar - Entitlements-as-a-Service® Platform",
+  "description": "eSIM Myanmar - Entitlements-as-a-Service Platform",
   "private": true,
   "scripts": {
     "dev": "next dev",

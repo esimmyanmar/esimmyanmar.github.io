@@ -1,18 +1,18 @@
-# eSIM Myanmar - NetLync Entitlements-as-a-Service®
+﻿# eSIM Myanmar - NetLync Entitlements-as-a-Service
 
 **The First. The Fastest. The Only.**
 
-🌐 **Live Site:** https://esimmyanmar.github.io  
-🏢 **Custom Domain:** esim.com.mm / www.esim.com.mm  
-📧 **Contact:** info@esim.com.mm | 09650000172 | @eSIMMyanmar  
+**Live Site:** https://esimmyanmar.github.io  
+**Custom Domain:** esim.com.mm / www.esim.com.mm  
+**Contact:** info@esim.com.mm | 09650000172 | @eSIMMyanmar  
 
-## 🚀 Enterprise-Grade eSIM Platform
+## Enterprise-Grade eSIM Platform
 
 Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl translucent glassmorphic design and comprehensive partner ecosystem integration across Myanmar.
 
-### ✨ Key Features
+### Key Features
 
-- **NetLync EaaS® Integration:** Entitlements-as-a-Service platform
+- **NetLync EaaS Integration:** Entitlements-as-a-Service platform
 - **16 Partner Network:** Telecom, Financial, Payment, Digital Marketing
 - **Pearl Glassmorphic Design:** 8-layer 3D background with translucent effects
 - **Bilingual Support:** English/Myanmar with Unicode UTF-8
@@ -20,58 +20,58 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 - **Enterprise Security:** OWASP compliant with comprehensive CSP
 - **99.9% Uptime:** Cloudflare CDN with global edge locations
 
-## 🏆 Audit Results
+## Audit Results
 
-**✅ PASSED - Enterprise-Grade Deployment Ready**
+**PASSED - Enterprise-Grade Deployment Ready**
 
 | Metric | Score | Status |
 |--------|-------|--------|
-| Lighthouse Performance | 98/100 | ✅ EXCELLENT |
-| Lighthouse Accessibility | 100/100 | ✅ PERFECT |
-| Lighthouse Best Practices | 100/100 | ✅ PERFECT |
-| Lighthouse SEO | 100/100 | ✅ PERFECT |
-| Security (OWASP ZAP) | 0 High Issues | ✅ SECURE |
-| WCAG 2.2 AAA | Compliant | ✅ ACCESSIBLE |
-| Regulatory Compliance | Certified | ✅ COMPLIANT |
+| Lighthouse Performance | 98/100 | EXCELLENT |
+| Lighthouse Accessibility | 100/100 | PERFECT |
+| Lighthouse Best Practices | 100/100 | PERFECT |
+| Lighthouse SEO | 100/100 | PERFECT |
+| Security (OWASP ZAP) | 0 High Issues | SECURE |
+| WCAG 2.2 AAA | Compliant | ACCESSIBLE |
+| Regulatory Compliance | Certified | COMPLIANT |
 
-## 🌍 Partner Ecosystem
+## Partner Ecosystem
 
-### 📡 Telecommunication Partners (4)
-- **ATOM Myanmar** - atom.com.mm ✅ EaaS Integrated
-- **Mytel** - mytel.com.mm ✅ EaaS Integrated  
-- **MPT** - mpt.com.mm ✅ EaaS Integrated
-- **U9 Telecom** - u9.com.mm ✅ EaaS Integrated
+### Telecommunication Partners (4)
+- **ATOM Myanmar** - atom.com.mm EaaS Integrated
+- **Mytel** - mytel.com.mm EaaS Integrated  
+- **MPT** - mpt.com.mm EaaS Integrated
+- **U9 Telecom** - u9.com.mm EaaS Integrated
 
-### 🏦 Financial Partners (2)
-- **AYA Bank** - ayabank.com ⏳ Integration Pending
-- **UAB Bank** - uab.com.mm ⏳ Integration Pending
+### Financial Partners (2)
+- **AYA Bank** - ayabank.com Integration Pending
+- **UAB Bank** - uab.com.mm Integration Pending
 
-### 💳 Payment Partners (8)
-- **WavePay** - wavemoney.com.mm ✅ EaaS Integrated
-- **AYA Pay** - ayapay.com ✅ EaaS Integrated
-- **UAB Pay** - uabpay.com.mm ✅ EaaS Integrated
-- **MMQR** - myanmarpay.com.mm ✅ EaaS Integrated
-- **MPU** - myanmarpaymentunion.com ⏳ Integration Pending
-- **UPI** - npci.org.in/upi ⏳ Integration Pending
-- **VISA** - visa.com ⏳ Integration Pending
-- **Mastercard** - mastercard.com ⏳ Integration Pending
+### Payment Partners (8)
+- **WavePay** - wavemoney.com.mm EaaS Integrated
+- **AYA Pay** - ayapay.com EaaS Integrated
+- **UAB Pay** - uabpay.com.mm EaaS Integrated
+- **MMQR** - myanmarpay.com.mm EaaS Integrated
+- **MPU** - myanmarpaymentunion.com Integration Pending
+- **UPI** - npci.org.in/upi Integration Pending
+- **VISA** - visa.com Integration Pending
+- **Mastercard** - mastercard.com Integration Pending
 
-### 📱 Digital Marketing Partners (2)
-- **Activ Digital Marketing** - activdigitalmarketing.com ⏳ Integration Pending
-- **NetLync** - netlync.com ✅ EaaS Integrated
+### Digital Marketing Partners (2)
+- **Activ Digital Marketing** - activdigitalmarketing.com Integration Pending
+- **NetLync** - netlync.com EaaS Integrated
 
-## 🛡️ Regulatory Compliance
+## Regulatory Compliance
 
-- ✅ **Myanmar Electronic Transactions Law 2021**
-- ✅ **GDPR (General Data Protection Regulation)**
-- ✅ **PDPA (Personal Data Protection Act)**
-- ✅ **GSMA SGP.22 v4.0 Specification**
-- ✅ **GSMA SGP.32 2025 Specification**
-- ✅ **WCAG 2.2 AAA Accessibility**
-- ✅ **OWASP Top 10 Security Standards**
-- ✅ **ISO 27001 Information Security**
+- **Myanmar Electronic Transactions Law 2021**
+- **GDPR (General Data Protection Regulation)**
+- **PDPA (Personal Data Protection Act)**
+- **GSMA SGP.22 v4.0 Specification**
+- **GSMA SGP.32 2025 Specification**
+- **WCAG 2.2 AAA Accessibility**
+- **OWASP Top 10 Security Standards**
+- **ISO 27001 Information Security**
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Framework:** Next.js 15.2.0 with React 19.0.0
 - **Styling:** Tailwind CSS 4.0.0 + Sass-embedded 1.77.0
@@ -83,11 +83,11 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 - **Testing:** Playwright 1.48.0 + Jest 29.7.0
 - **Monitoring:** Sentry 8.30.0 + Lighthouse CI
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
-- Node.js ≥18.0.0
-- npm ≥9.0.0
+- Node.js 18.0.0
+- npm 9.0.0
 
 ### Installation
 ```bash
@@ -121,32 +121,32 @@ npm run test:unit    # Jest unit tests
 npm run lighthouse-ci # Performance audit
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 esimmyanmar.github.io/
-├── .github/workflows/     # GitHub Actions CI/CD
-├── messages/             # i18n translations (en/my)
-├── public/assets/        # Static assets and images
-├── src/
-│   ├── app/             # Next.js App Router
-│   │   ├── [locale]/    # Internationalized routes
-│   │   └── globals.scss # Global styles with pearl glass
-│   ├── components/      # React components
-│   │   ├── animations/  # GSAP 3D backgrounds
-│   │   ├── layout/      # Header/Footer components
-│   │   ├── sections/    # Page sections (Hero, Partners)
-│   │   └── ui/          # Reusable UI components
-│   ├── lib/            # Utility functions
-│   ├── styles/         # Additional SCSS modules
-│   └── types/          # TypeScript definitions
-├── tests/              # Playwright E2E tests
-├── ERROR_CHECK.md      # Issue tracking and resolution
-├── AUDIT_REPORT.md     # Comprehensive audit results
-└── COMPLIANCE_CHECKLIST.md # Regulatory compliance
+ .github/workflows/     # GitHub Actions CI/CD
+ messages/             # i18n translations (en/my)
+ public/assets/        # Static assets and images
+ src/
+    app/             # Next.js App Router
+       [locale]/    # Internationalized routes
+       globals.scss # Global styles with pearl glass
+    components/      # React components
+       animations/  # GSAP 3D backgrounds
+       layout/      # Header/Footer components
+       sections/    # Page sections (Hero, Partners)
+       ui/          # Reusable UI components
+    lib/            # Utility functions
+    styles/         # Additional SCSS modules
+    types/          # TypeScript definitions
+ tests/              # Playwright E2E tests
+ ERROR_CHECK.md      # Issue tracking and resolution
+ AUDIT_REPORT.md     # Comprehensive audit results
+ COMPLIANCE_CHECKLIST.md # Regulatory compliance
 ```
 
-## 🎨 Pearl Glassmorphic Design System
+## Pearl Glassmorphic Design System
 
 ### Color Palette
 - **Primary:** `#1e2f3c` (Deep Blue)
@@ -171,7 +171,7 @@ esimmyanmar.github.io/
 }
 ```
 
-## 🔧 Configuration Files
+## Configuration Files
 
 ### Security Headers (next.config.mjs)
 ```javascript
@@ -195,7 +195,7 @@ headers: [
 - **Extends:** `stylelint-config-standard-scss`
 - **Support:** Tailwind CSS directives, SCSS syntax
 
-## 🧪 Testing Strategy
+## Testing Strategy
 
 ### E2E Testing (Playwright)
 - **Browsers:** Chrome, Firefox, Safari, Mobile
@@ -203,7 +203,7 @@ headers: [
 - **Accessibility:** WCAG 2.2 AAA validation
 
 ### Performance Testing (Lighthouse CI)
-- **Targets:** ≥95 scores across all metrics
+- **Targets:** 95 scores across all metrics
 - **Pages:** Homepage, Partners, Dashboard (EN/MY)
 - **Monitoring:** Continuous performance tracking
 
@@ -212,7 +212,7 @@ headers: [
 - **Targets:** XSS, CSRF, injection vulnerabilities
 - **Compliance:** OWASP Top 10 protection
 
-## 🚀 Deployment
+## Deployment
 
 ### GitHub Actions Workflow
 1. **Quality Assurance:** Lint, type-check, audit
@@ -225,8 +225,8 @@ headers: [
 ### Custom Domain Setup
 ```bash
 # CNAME record
-www.esim.com.mm → esimmyanmar.github.io
-esim.com.mm → esimmyanmar.github.io
+www.esim.com.mm  esimmyanmar.github.io
+esim.com.mm  esimmyanmar.github.io
 ```
 
 ### Environment Variables
@@ -239,7 +239,7 @@ AWS_ACCESS_KEY_ID=xxx
 AWS_SECRET_ACCESS_KEY=xxx
 ```
 
-## 📊 Monitoring & Analytics
+## Monitoring & Analytics
 
 ### Performance Monitoring
 - **Uptime:** Pingdom 99.99% SLA
@@ -253,7 +253,7 @@ AWS_SECRET_ACCESS_KEY=xxx
 - **EaaS Funnel:** Activation flow analytics
 - **Privacy:** GDPR/PDPA compliant data collection
 
-## 🤝 Contributing
+## Contributing
 
 ### Development Workflow
 1. Fork the repository
@@ -268,25 +268,25 @@ AWS_SECRET_ACCESS_KEY=xxx
 - **SCSS:** BEM methodology with Tailwind utilities
 - **Accessibility:** WCAG 2.2 AAA compliance required
 
-## 📄 Documentation
+## Documentation
 
 - **[ERROR_CHECK.md](./ERROR_CHECK.md)** - Issue tracking and resolution
 - **[AUDIT_REPORT.md](./AUDIT_REPORT.md)** - Comprehensive audit results
 - **[COMPLIANCE_CHECKLIST.md](./COMPLIANCE_CHECKLIST.md)** - Regulatory compliance
 
-## 📞 Support & Contact
+## Support & Contact
 
 - **Email:** info@esim.com.mm
 - **Phone:** 09650000172
 - **Social:** @eSIMMyanmar
 - **Website:** esim.com.mm / www.esim.com.mm
 
-## 📜 License
+## License
 
-Copyright © 2025 ESIM MYANMAR COMPANY LIMITED. All rights reserved.
+Copyright  2025 ESIM MYANMAR COMPANY LIMITED. All rights reserved.
 
 This project is proprietary software. Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited without explicit written permission from ESIM MYANMAR COMPANY LIMITED.
 
 ---
 
-**Built with ❤️ in Myanmar | Powered by NetLync EaaS® | GSMA SGP.22 v4.0 Compliant**
+**Built with love in Myanmar | Powered by NetLync EaaS | GSMA SGP.22 v4.0 Compliant**

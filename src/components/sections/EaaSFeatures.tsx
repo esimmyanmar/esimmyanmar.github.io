@@ -143,7 +143,7 @@ export default function EaaSFeatures() {
         <div className="mt-8 flex justify-center">
           <div className="glass px-6 py-3 flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
-              <span className="text-white text-xs font-bold">✓</span>
+              <span className="text-white text-xs font-bold"></span>
             </div>
             <div>
               <p className="text-sm font-medium text-white">GSMA Certified</p>

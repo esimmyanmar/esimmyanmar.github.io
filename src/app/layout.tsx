@@ -16,8 +16,8 @@ const notoSansMyanmar = Noto_Sans_Myanmar({
 });
 
 export const metadata = {
-  title: 'eSIM Myanmar - Entitlements-as-a-Service®',
-  description: 'NetLync Entitlements-as-a-Service – The First. The Fastest. The Only. GSMA SGP.22 v4.0 compliant eSIM platform.',
+  title: 'eSIM Myanmar - Entitlements-as-a-Service',
+  description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only. GSMA SGP.22 v4.0 compliant eSIM platform.',
   keywords: 'eSIM, Myanmar, NetLync, EaaS, Entitlements-as-a-Service, GSMA, SGP.22',
   authors: [{ name: 'ESIM MYANMAR COMPANY LIMITED' }],
   creator: 'ESIM MYANMAR COMPANY LIMITED',
@@ -36,8 +36,8 @@ export const metadata = {
     }
   },
   openGraph: {
-    title: 'eSIM Myanmar - Entitlements-as-a-Service®',
-    description: 'NetLync Entitlements-as-a-Service – The First. The Fastest. The Only.',
+    title: 'eSIM Myanmar - Entitlements-as-a-Service',
+    description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only.',
     url: 'https://esimmyanmar.github.io',
     siteName: 'eSIM Myanmar',
     images: [
@@ -45,7 +45,7 @@ export const metadata = {
         url: '/assets/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'eSIM Myanmar - Entitlements-as-a-Service®'
+        alt: 'eSIM Myanmar - Entitlements-as-a-Service'
       }
     ],
     locale: 'en_US',
@@ -53,8 +53,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'eSIM Myanmar - Entitlements-as-a-Service®',
-    description: 'NetLync Entitlements-as-a-Service – The First. The Fastest. The Only.',
+    title: 'eSIM Myanmar - Entitlements-as-a-Service',
+    description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only.',
     images: ['/assets/twitter-image.jpg'],
     creator: '@eSIMMyanmar'
   },
@@ -96,7 +96,7 @@ export default async function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'TelecommunicationsServiceProvider',
               name: 'eSIM Myanmar',
-              description: 'Entitlements-as-a-Service® platform',
+              description: 'Entitlements-as-a-Service platform',
               url: 'https://esimmyanmar.github.io',
               logo: 'https://esimmyanmar.github.io/assets/logo.png',
               contactPoint: {
@@ -107,7 +107,7 @@ export default async function RootLayout({
               },
               offers: {
                 '@type': 'Offer',
-                name: 'Entitlements-as-a-Service®',
+                name: 'Entitlements-as-a-Service',
                 description: 'GSMA SGP.22 v4.0 compliant eSIM activation service'
               }
             })
