@@ -57,8 +57,8 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 - **Mastercard** - mastercard.com Integration Pending
 
 ### Digital Marketing Partners (2)
+- **NetLync** - netlync.com EaaS Platform Provider (Primary Partner)
 - **Activ Digital Marketing** - activdigitalmarketing.com Integration Pending
-- **NetLync** - netlync.com EaaS Integrated
 
 ## Regulatory Compliance
 
@@ -73,15 +73,15 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 
 ## Technology Stack
 
-- **Framework:** Next.js 15.2.0 with React 19.0.0
-- **Styling:** Tailwind CSS 4.0.0 + Sass-embedded 1.77.0
+- **Framework:** Next.js 14.2.5 with React 18.3.1
+- **Styling:** Tailwind CSS 3.4.0 + Sass 1.77.0
 - **Animations:** GSAP 3.12.5 with ScrollTrigger
-- **3D Graphics:** Three.js 0.158.0 + React Three Fiber
-- **Internationalization:** next-intl 3.17.0
-- **State Management:** Zustand 5.0.0-rc.2
-- **Forms:** React Hook Form 8.0.0 + Zod validation
-- **Testing:** Playwright 1.48.0 + Jest 29.7.0
-- **Monitoring:** Sentry 8.30.0 + Lighthouse CI
+- **Internationalization:** Static Translation System (GitHub Pages Compatible)
+- **State Management:** Zustand 4.4.7
+- **Forms:** React Hook Form 7.48.2 + Zod 3.22.4 validation
+- **Security:** Content Protection System + OWASP Headers
+- **Partner Integration:** NetLync EaaS Platform API
+- **Deployment:** GitHub Pages Static Export
 
 ## Quick Start
 
@@ -289,4 +289,4 @@ This project is proprietary software. Unauthorized copying, modification, distri
 
 ---
 
-**Built with love in Myanmar | Powered by NetLync EaaS | GSMA SGP.22 v4.0 Compliant**
+**Built with precision in Myanmar | Powered by NetLync EaaS Platform | GSMA SGP.22 v4.0 Compliant | Enterprise Security Enabled**

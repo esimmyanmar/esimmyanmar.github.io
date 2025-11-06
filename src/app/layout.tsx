@@ -1,5 +1,6 @@
 import { Inter, Noto_Sans_Myanmar } from 'next/font/google';
 import './globals.scss';
+import { SecurityProvider } from '@/components/SecurityProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -109,8 +110,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">
-        {children}
+      <body className="antialiased protected-content">
+        <SecurityProvider>
+          {children}
+        </SecurityProvider>
       </body>
     </html>
   );

@@ -32,10 +32,21 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              {locale === 'my' ? 'Entitlements-as-a-Service' : 'Entitlements-as-a-Service'}
+              {locale === 'my' ? 'NetLync Entitlements-as-a-Service ပလပ်ဖောင်း' : 'NetLync Entitlements-as-a-Service Platform'}
             </p>
-            <p className="text-sm text-gray-400">
-              {locale === 'my' ? 'ESIM MYANMAR COMPANY LIMITED' : 'ESIM MYANMAR COMPANY LIMITED'}
+            <p className="text-sm text-gray-400 mb-2">
+              ESIM MYANMAR COMPANY LIMITED
+            </p>
+            <p className="text-xs text-cyan-400">
+              Powered by{' '}
+              <a 
+                href="https://netlync.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-cyan-300 transition-colors duration-200"
+              >
+                NetLync EaaS Platform
+              </a>
             </p>
           </div>
 

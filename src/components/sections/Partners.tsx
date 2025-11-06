@@ -181,13 +181,24 @@ export default function Partners({ locale = 'en' }: PartnersProps) {
           />
         </div>
 
-        {/* EaaS Integration Badge */}
+        {/* NetLync EaaS Integration Badge */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-2 pearl-glass px-6 py-3">
-            <Shield className="w-5 h-5 text-cyan-400" />
-            <span className="text-sm font-medium text-gray-300">
-              NetLync EaaS Integration Ready - 16 Partners Connected
-            </span>
+          <div className="inline-flex items-center space-x-2 pearl-glass px-8 py-4 eaas-badge">
+            <Shield className="w-6 h-6 text-cyan-400" />
+            <div className="text-left">
+              <div className="text-lg font-bold text-cyan-400">NetLync EaaS Platform</div>
+              <div className="text-sm text-gray-300">16 Partners Connected | Enterprise Security</div>
+            </div>
+          </div>
+          <div className="mt-4">
+            <a 
+              href="https://netlync.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-cyan-400 hover:text-cyan-300 transition-colors duration-200 text-sm font-medium"
+            >
+              Visit NetLync Platform →
+            </a>
           </div>
         </div>
       </div>
