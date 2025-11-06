@@ -17,7 +17,7 @@ const notoSansMyanmar = Noto_Sans_Myanmar({
 
 export const metadata = {
   title: 'eSIM Myanmar - Entitlements-as-a-Service',
-  description: 'NetLync Entitlements-as-a-Service  The First. The Fastest. The Only. GSMA SGP.22 v4.0 compliant eSIM platform.',
+  description: 'NetLync Entitlements-as-a-Service Platform. Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, pearl glassmorphic design, and 16-partner ecosystem integration across Myanmar telecommunications.',
   keywords: 'eSIM, Myanmar, NetLync, EaaS, Entitlements-as-a-Service, GSMA, SGP.22',
   authors: [{ name: 'ESIM MYANMAR COMPANY LIMITED' }],
   creator: 'ESIM MYANMAR COMPANY LIMITED',

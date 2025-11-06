@@ -91,11 +91,57 @@ export class ContentProtection {
     watermark.style.opacity = '0.01';
     watermark.style.zIndex = '9999';
     document.body.appendChild(watermark);
+    
+    // Advanced bot detection
+    this.detectBots();
+    this.preventAutomation();
+  }
+
+  private static detectBots() {
+    // Detect headless browsers and automation tools
+    const botIndicators = [
+      !window.navigator.webdriver === undefined,
+      window.navigator.languages === '',
+      window.navigator.plugins.length === 0,
+      window.outerHeight === 0,
+      window.outerWidth === 0
+    ];
+    
+    if (botIndicators.some(indicator => indicator)) {
+      window.location.href = 'about:blank';
+    }
+  }
+
+  private static preventAutomation() {
+    // Prevent automated scraping
+    let mouseMovements = 0;
+    document.addEventListener('mousemove', () => {
+      mouseMovements++;
+    });
+    
+    setTimeout(() => {
+      if (mouseMovements === 0) {
+        document.body.style.display = 'none';
+      }
+    }, 5000);
   }
 }
 
 export const initSecurity = () => {
   if (typeof window !== 'undefined') {
     ContentProtection.init();
+    
+    // Additional runtime protection
+    Object.defineProperty(window, 'console', {
+      value: {
+        log: () => {},
+        warn: () => {},
+        error: () => {},
+        info: () => {},
+        debug: () => {}
+      },
+      writable: false,
+      configurable: false
+    });
   }
 };

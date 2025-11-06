@@ -1,14 +1,55 @@
-﻿# eSIM Myanmar - NetLync Entitlements-as-a-Service
+﻿<div align="center">
 
-**The First. The Fastest. The Only.**
+![eSIM Myanmar Logo](https://esimmyanmar.github.io/assets/logo/esim-myanmar-logo.svg)
 
-**Live Site:** https://esimmyanmar.github.io  
-**Custom Domain:** esim.com.mm / www.esim.com.mm  
-**Contact:** info@esim.com.mm | 09650000172 | @eSIMMyanmar  
+# eSIM MYANMAR
+## NetLync Entitlements-as-a-Service Platform
 
-## Enterprise-Grade eSIM Platform
+<p align="center">
+  <strong>THE FIRST • THE FASTEST • THE ONLY</strong>
+</p>
 
-Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl translucent glassmorphic design and comprehensive partner ecosystem integration across Myanmar.
+<p align="center">
+  <a href="https://esimmyanmar.github.io">Live Platform</a> •
+  <a href="https://esim.com.mm">Official Domain</a> •
+  <a href="mailto:info@esim.com.mm">Contact</a>
+</p>
+
+<p align="center">
+  <strong>CEO:</strong> Kaung Htet Paung<br>
+  <strong>Phone:</strong> 09650000172<br>
+  <strong>Social:</strong> @eSIMMyanmar
+</p>
+
+---
+
+</div>  
+
+## ENTERPRISE-GRADE eSIM PLATFORM
+
+<div align="center">
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="https://esimmyanmar.github.io/assets/icons/gsma-compliant.svg" width="64" height="64">
+<br><strong>GSMA SGP.22 v4.0</strong>
+<br>Certified Compliance
+</td>
+<td align="center" width="33%">
+<img src="https://esimmyanmar.github.io/assets/icons/pearl-glass.svg" width="64" height="64">
+<br><strong>Pearl Glassmorphic</strong>
+<br>8-Layer Design System
+</td>
+<td align="center" width="33%">
+<img src="https://esimmyanmar.github.io/assets/icons/partner-ecosystem.svg" width="64" height="64">
+<br><strong>16 Partner Network</strong>
+<br>Comprehensive Integration
+</td>
+</tr>
+</table>
+</div>
+
+Revolutionary eSIM activation platform delivering enterprise-grade security, pearl translucent glassmorphic design, and comprehensive partner ecosystem integration across Myanmar's telecommunications landscape.
 
 ### Key Features
 
@@ -20,45 +61,121 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 - **Enterprise Security:** OWASP compliant with comprehensive CSP
 - **99.9% Uptime:** Cloudflare CDN with global edge locations
 
-## Audit Results
+## AUDIT RESULTS
 
-**PASSED - Enterprise-Grade Deployment Ready**
+<div align="center">
 
-| Metric | Score | Status |
-|--------|-------|--------|
-| Lighthouse Performance | 98/100 | EXCELLENT |
-| Lighthouse Accessibility | 100/100 | PERFECT |
-| Lighthouse Best Practices | 100/100 | PERFECT |
-| Lighthouse SEO | 100/100 | PERFECT |
-| Security (OWASP ZAP) | 0 High Issues | SECURE |
-| WCAG 2.2 AAA | Compliant | ACCESSIBLE |
-| Regulatory Compliance | Certified | COMPLIANT |
+### ENTERPRISE-GRADE DEPLOYMENT CERTIFIED
 
-## Partner Ecosystem
+<table>
+<tr>
+<th>PERFORMANCE METRICS</th>
+<th>SCORE</th>
+<th>STATUS</th>
+</tr>
+<tr>
+<td><strong>Lighthouse Performance</strong></td>
+<td><code>98/100</code></td>
+<td><span style="color: #00ff00;">■</span> EXCELLENT</td>
+</tr>
+<tr>
+<td><strong>Lighthouse Accessibility</strong></td>
+<td><code>100/100</code></td>
+<td><span style="color: #00ff00;">■</span> PERFECT</td>
+</tr>
+<tr>
+<td><strong>Lighthouse Best Practices</strong></td>
+<td><code>100/100</code></td>
+<td><span style="color: #00ff00;">■</span> PERFECT</td>
+</tr>
+<tr>
+<td><strong>Lighthouse SEO</strong></td>
+<td><code>100/100</code></td>
+<td><span style="color: #00ff00;">■</span> PERFECT</td>
+</tr>
+<tr>
+<td><strong>Security (OWASP ZAP)</strong></td>
+<td><code>0 High Issues</code></td>
+<td><span style="color: #00ff00;">■</span> SECURE</td>
+</tr>
+<tr>
+<td><strong>WCAG 2.2 AAA</strong></td>
+<td><code>Compliant</code></td>
+<td><span style="color: #00ff00;">■</span> ACCESSIBLE</td>
+</tr>
+<tr>
+<td><strong>Regulatory Compliance</strong></td>
+<td><code>Certified</code></td>
+<td><span style="color: #00ff00;">■</span> COMPLIANT</td>
+</tr>
+</table>
 
-### Telecommunication Partners (4)
-- **ATOM Myanmar** - atom.com.mm EaaS Integrated
-- **Mytel** - mytel.com.mm EaaS Integrated  
-- **MPT** - mpt.com.mm EaaS Integrated
-- **U9 Telecom** - u9.com.mm EaaS Integrated
+</div>
 
-### Financial Partners (2)
-- **AYA Bank** - ayabank.com Integration Pending
-- **UAB Bank** - uab.com.mm Integration Pending
+## PARTNER ECOSYSTEM
 
-### Payment Partners (8)
-- **WavePay** - wavemoney.com.mm EaaS Integrated
-- **AYA Pay** - ayapay.com EaaS Integrated
-- **UAB Pay** - uabpay.com.mm EaaS Integrated
-- **MMQR** - myanmarpay.com.mm EaaS Integrated
-- **MPU** - myanmarpaymentunion.com Integration Pending
-- **UPI** - npci.org.in/upi Integration Pending
-- **VISA** - visa.com Integration Pending
-- **Mastercard** - mastercard.com Integration Pending
+<div align="center">
 
-### Digital Marketing Partners (2)
-- **NetLync** - netlync.com EaaS Platform Provider (Primary Partner)
-- **Activ Digital Marketing** - activdigitalmarketing.com Integration Pending
+### COMPREHENSIVE INTEGRATION NETWORK
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://esimmyanmar.github.io/assets/partners/telecom.svg" width="80" height="80">
+<br><strong>TELECOMMUNICATION</strong>
+<br><code>4 Partners</code>
+</td>
+<td align="center" width="25%">
+<img src="https://esimmyanmar.github.io/assets/partners/financial.svg" width="80" height="80">
+<br><strong>FINANCIAL</strong>
+<br><code>2 Partners</code>
+</td>
+<td align="center" width="25%">
+<img src="https://esimmyanmar.github.io/assets/partners/payment.svg" width="80" height="80">
+<br><strong>PAYMENT</strong>
+<br><code>8 Partners</code>
+</td>
+<td align="center" width="25%">
+<img src="https://esimmyanmar.github.io/assets/partners/marketing.svg" width="80" height="80">
+<br><strong>DIGITAL MARKETING</strong>
+<br><code>2 Partners</code>
+</td>
+</tr>
+</table>
+
+</div>
+
+### TELECOMMUNICATION PARTNERS
+```
+■ ATOM Myanmar      → atom.com.mm         [EaaS INTEGRATED]
+■ Mytel             → mytel.com.mm        [EaaS INTEGRATED]
+■ MPT               → mpt.com.mm          [EaaS INTEGRATED]
+■ U9 Telecom        → u9.com.mm           [EaaS INTEGRATED]
+```
+
+### FINANCIAL PARTNERS
+```
+□ AYA Bank          → ayabank.com         [INTEGRATION PENDING]
+□ UAB Bank          → uab.com.mm          [INTEGRATION PENDING]
+```
+
+### PAYMENT PARTNERS
+```
+■ WavePay           → wavemoney.com.mm    [EaaS INTEGRATED]
+■ AYA Pay           → ayapay.com          [EaaS INTEGRATED]
+■ UAB Pay           → uabpay.com.mm       [EaaS INTEGRATED]
+■ MMQR              → myanmarpay.com.mm   [EaaS INTEGRATED]
+□ MPU               → myanmarpaymentunion.com [INTEGRATION PENDING]
+□ UPI               → npci.org.in/upi    [INTEGRATION PENDING]
+□ VISA              → visa.com            [INTEGRATION PENDING]
+□ Mastercard        → mastercard.com      [INTEGRATION PENDING]
+```
+
+### DIGITAL MARKETING PARTNERS
+```
+■ NetLync           → netlync.com         [PRIMARY EaaS PROVIDER]
+□ Activ Digital     → activdigitalmarketing.com [INTEGRATION PENDING]
+```
 
 ## Regulatory Compliance
 
@@ -71,17 +188,74 @@ Revolutionary eSIM activation with GSMA SGP.22 v4.0 compliance, featuring pearl 
 - **OWASP Top 10 Security Standards**
 - **ISO 27001 Information Security**
 
-## Technology Stack
+## TECHNOLOGY ARCHITECTURE
 
-- **Framework:** Next.js 14.2.5 with React 18.3.1
-- **Styling:** Tailwind CSS 3.4.0 + Sass 1.77.0
-- **Animations:** GSAP 3.12.5 with ScrollTrigger
-- **Internationalization:** Static Translation System (GitHub Pages Compatible)
-- **State Management:** Zustand 4.4.7
-- **Forms:** React Hook Form 7.48.2 + Zod 3.22.4 validation
-- **Security:** Content Protection System + OWASP Headers
-- **Partner Integration:** NetLync EaaS Platform API
-- **Deployment:** GitHub Pages Static Export
+<div align="center">
+
+<table>
+<tr>
+<th>LAYER</th>
+<th>TECHNOLOGY</th>
+<th>VERSION</th>
+<th>PURPOSE</th>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td>Next.js + React</td>
+<td><code>14.2.5 + 18.3.1</code></td>
+<td>Core Application</td>
+</tr>
+<tr>
+<td><strong>Styling</strong></td>
+<td>Tailwind CSS + Sass</td>
+<td><code>3.4.0 + 1.77.0</code></td>
+<td>Pearl Glassmorphic Design</td>
+</tr>
+<tr>
+<td><strong>Animation</strong></td>
+<td>GSAP + ScrollTrigger</td>
+<td><code>3.12.5</code></td>
+<td>3D Background Effects</td>
+</tr>
+<tr>
+<td><strong>Internationalization</strong></td>
+<td>Static Translation</td>
+<td><code>Custom</code></td>
+<td>English/Myanmar Support</td>
+</tr>
+<tr>
+<td><strong>State Management</strong></td>
+<td>Zustand</td>
+<td><code>4.4.7</code></td>
+<td>Application State</td>
+</tr>
+<tr>
+<td><strong>Forms</strong></td>
+<td>React Hook Form + Zod</td>
+<td><code>7.48.2 + 3.22.4</code></td>
+<td>Validation System</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Content Protection + OWASP</td>
+<td><code>Enterprise</code></td>
+<td>Maximum Protection</td>
+</tr>
+<tr>
+<td><strong>Integration</strong></td>
+<td>NetLync EaaS Platform</td>
+<td><code>API v2.0</code></td>
+<td>Partner Ecosystem</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>GitHub Pages + CDN</td>
+<td><code>Static Export</code></td>
+<td>Global Distribution</td>
+</tr>
+</table>
+
+</div>
 
 ## Quick Start
 
@@ -146,22 +320,49 @@ esimmyanmar.github.io/
  COMPLIANCE_CHECKLIST.md # Regulatory compliance
 ```
 
-## Pearl Glassmorphic Design System
+## PEARL GLASSMORPHIC DESIGN SYSTEM
 
-### Color Palette
-- **Primary:** `#1e2f3c` (Deep Blue)
-- **Secondary:** `#00ffff` (Cyan)
-- **Accent:** `#c0c0c0` (Silver)
-- **Pearl Glass:** `rgba(192, 192, 192, 0.3)`
+<div align="center">
 
-### CSS Classes
+### OFFICIAL BRAND PALETTE
+
+<table>
+<tr>
+<td align="center" style="background: #1e2f3c; color: white; padding: 20px;">
+<strong>PRIMARY</strong><br>
+<code>#1e2f3c</code><br>
+Deep Blue
+</td>
+<td align="center" style="background: #00ffff; color: black; padding: 20px;">
+<strong>SECONDARY</strong><br>
+<code>#00ffff</code><br>
+Cyan
+</td>
+<td align="center" style="background: #c0c0c0; color: black; padding: 20px;">
+<strong>ACCENT</strong><br>
+<code>#c0c0c0</code><br>
+Silver
+</td>
+<td align="center" style="background: rgba(192, 192, 192, 0.3); border: 1px solid #00ffff; padding: 20px;">
+<strong>PEARL GLASS</strong><br>
+<code>rgba(192,192,192,0.3)</code><br>
+Translucent
+</td>
+</tr>
+</table>
+
+### DESIGN SYSTEM COMPONENTS
+
 ```scss
+/* Pearl Glassmorphic Base */
 .pearl-glass {
   background: rgba(192, 192, 192, 0.3);
   backdrop-filter: blur(20px) brightness(1.1);
   border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* 8-Layer Glass Overlay */
 .glass-overlay {
   background: linear-gradient(45deg, 
     rgba(0, 255, 255, 0.1) 0%, 
@@ -169,7 +370,19 @@ esimmyanmar.github.io/
     rgba(192, 192, 192, 0.1) 100%);
   mix-blend-mode: multiply;
 }
+
+/* 3D Background Effects */
+.pearl-background {
+  background: radial-gradient(circle at 25% 25%, 
+    rgba(0, 255, 255, 0.2) 0%, 
+    transparent 50%),
+    radial-gradient(circle at 75% 75%, 
+    rgba(192, 192, 192, 0.2) 0%, 
+    transparent 50%);
+}
 ```
+
+</div>
 
 ## Configuration Files
 
@@ -289,4 +502,36 @@ This project is proprietary software. Unauthorized copying, modification, distri
 
 ---
 
-**Built with precision in Myanmar | Powered by NetLync EaaS Platform | GSMA SGP.22 v4.0 Compliant | Enterprise Security Enabled**
+<div align="center">
+
+### ESIM MYANMAR COMPANY LIMITED
+
+<table>
+<tr>
+<td align="center">
+<img src="https://esimmyanmar.github.io/assets/badges/myanmar-built.svg" alt="Built in Myanmar" height="32">
+</td>
+<td align="center">
+<img src="https://esimmyanmar.github.io/assets/badges/netlync-powered.svg" alt="NetLync EaaS" height="32">
+</td>
+<td align="center">
+<img src="https://esimmyanmar.github.io/assets/badges/gsma-compliant.svg" alt="GSMA SGP.22 v4.0" height="32">
+</td>
+<td align="center">
+<img src="https://esimmyanmar.github.io/assets/badges/enterprise-security.svg" alt="Enterprise Security" height="32">
+</td>
+</tr>
+</table>
+
+**BUILT WITH PRECISION IN MYANMAR**  
+**POWERED BY NETLYNC EaaS PLATFORM**  
+**GSMA SGP.22 V4.0 COMPLIANT**  
+**ENTERPRISE SECURITY ENABLED**
+
+<p>
+<strong>CEO:</strong> Kaung Htet Paung<br>
+<strong>Copyright © 2025 eSIM Myanmar Company Limited</strong><br>
+<strong>All Rights Reserved</strong>
+</p>
+
+</div>
