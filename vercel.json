@@ -7,12 +7,7 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/out/$1"
-    }
-  ],
+
   "functions": {
     "build-nextjs-enhanced.js": {
       "maxDuration": 30
