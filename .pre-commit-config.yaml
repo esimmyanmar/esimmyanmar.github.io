@@ -1,0 +1,52 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.56.0
+    hooks:
+      - id: eslint
+        files: \.(js|jsx|ts|tsx)$
+        types: [file]
+        additional_dependencies:
+          - eslint@8.56.0
+          - '@typescript-eslint/eslint-plugin@6.17.0'
+          - '@typescript-eslint/parser@6.17.0'
+          - eslint-config-next@14.0.4
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        files: \.(js|jsx|ts|tsx|json|css|md|yml|yaml)$
+
+  - repo: local
+    hooks:
+      - id: no-emojis
+        name: Check for emojis
+        entry: bash -c 'if grep -r "[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}]" --include="*.tsx" --include="*.ts" --include="*.js" --include="*.md" --include="*.json" .; then echo "Emojis found in codebase"; exit 1; fi'
+        language: system
+        pass_filenames: false
+
+      - id: lowercase-filenames
+        name: Check lowercase filenames
+        entry: bash -c 'find . -name "*.tsx" -o -name "*.ts" -o -name "*.js" -o -name "*.css" | while read file; do basename=$(basename "$file"); if [[ "$basename" != "${basename,,}" ]]; then echo "Non-lowercase filename: $file"; exit 1; fi; done'
+        language: system
+        pass_filenames: false
+
+      - id: security-check
+        name: Security check
+        entry: npm audit --audit-level=moderate
+        language: system
+        pass_filenames: false

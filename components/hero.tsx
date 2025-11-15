@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Shield, Globe } from "lucide-react"
+import { ArrowRight, Zap, Shield, Globe } from "@fluentui/react-icons"
 import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
 

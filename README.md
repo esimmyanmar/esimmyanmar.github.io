@@ -2,6 +2,33 @@
 
 Premium entertainment server with 5G eSIM connectivity across Myanmar and ASEAN. Built exclusively with Microsoft technologies to serve 50 million users.
 
+## Production Status
+
+**LIVE DEPLOYMENT**: https://esim.com.mm  
+**STATUS**: Production Ready  
+**USERS**: 50+ million across ASEAN  
+**TECHNOLOGY**: 100% Microsoft Stack  
+
+## Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/esimmyanmar/esimmyanmar.github.io.git
+cd esimmyanmar.github.io
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to production
+npm run production-deploy
+```
+
 ## Microsoft Technology Stack
 
 ### Core Platform
@@ -25,46 +52,39 @@ Premium entertainment server with 5G eSIM connectivity across Myanmar and ASEAN.
 - **Dataverse** - 72 custom tables for business data
 - **SharePoint Online** - Document management with Microsoft Syntex
 
-### Communication & Collaboration
-- **Microsoft Teams** - Custom tabs, bots, and Adaptive Cards 4
-- **Outlook Add-ins** - Graph Mail API integration
-- **OneDrive for Business** - Files API for content storage
-- **Microsoft Lists** - Structured data management
+## Directory Structure
 
-### AI & Automation
-- **Copilot Studio** - Custom GPT with 180+ topics
-- **Power Automate** - 380+ cloud flows for automation
-- **Azure AI Translator** - Real-time translation (Myanmar/English/Chinese)
-- **Microsoft Graph API v6.2** - Change notifications and subscriptions
-
-### Monitoring & Compliance
-- **Azure Monitor** - Application Insights for performance tracking
-- **Log Analytics** - Centralized logging and alerting
-- **Microsoft Purview** - Data governance and loss prevention
-- **Microsoft Defender** - Cloud Apps, Endpoint, and Identity protection
-
-## Entertainment Features
-
-### Content Streaming
-- **4K HDR Quality** - Ultra-high definition streaming
-- **Live TV & Sports** - Real-time broadcasting across ASEAN
-- **Movies & TV Shows** - Premium content library
-- **Music & Podcasts** - High-fidelity audio streaming
-- **Gaming Platform** - Mobile and cloud gaming support
-
-### eSIM Technology
-- **Instant Activation** - QR code provisioning in under 60 seconds
-- **Global Roaming** - 200+ countries coverage
-- **5G Ultra Speed** - Up to 10Gbps download speeds
-- **Multi-Device Support** - iPhone, iPad, Android, IoT devices
-- **Enterprise Security** - Military-grade encryption
-
-### Network Infrastructure
-- **SM-DP+ v4.0 Compliance** - GSMA certified entitlement server
-- **VoLTE Support** - Voice over LTE technology
-- **Advanced Roaming** - Seamless international connectivity
-- **Cloud-native Architecture** - Microservices-based platform
-- **Zero Trust Security** - End-to-end protection
+```
+esimmyanmar.github.io/
+├── app/                    # Next.js App Router pages
+│   ├── company/           # Company information pages
+│   ├── coverage/          # Network coverage pages
+│   ├── technology/        # Technology details pages
+│   └── page.tsx          # Main app entry point
+├── pages/                 # Next.js Pages Router (legacy support)
+│   ├── entertainment/     # Entertainment hub
+│   ├── speed-test/       # 5G speed testing
+│   ├── coverage/         # Coverage maps
+│   ├── devices/          # Device compatibility
+│   └── support/          # Customer support
+├── components/            # Reusable React components
+│   ├── layout/           # Layout components
+│   ├── ui/               # UI components
+│   └── entertainment/    # Entertainment-specific components
+├── public/               # Static assets
+│   ├── images/           # Optimized images
+│   ├── icons/            # Icon assets
+│   ├── manifest.json     # PWA manifest
+│   ├── sitemap.xml       # SEO sitemap
+│   ├── robots.txt        # Search engine directives
+│   └── _headers          # Security headers
+├── styles/               # CSS and styling
+│   ├── globals.css       # Global styles
+│   └── design-system.css # Design system tokens
+├── lib/                  # Utility libraries
+├── scripts/              # Deployment and automation scripts
+└── .github/workflows/    # CI/CD pipelines
+```
 
 ## Design System
 
@@ -87,174 +107,191 @@ Premium entertainment server with 5G eSIM connectivity across Myanmar and ASEAN.
 - **iOS 26 Design** - Minimalist, edge-to-edge layouts with fluid motion
 - **Depth Layers** - Premium spatial hierarchy with shadow systems
 
-## Architecture Overview
+## Development Scripts
 
-### Frontend Stack
-- **Next.js 14** - React framework with static site generation
-- **TypeScript 5.3** - Type-safe development
-- **Tailwind CSS 3.4** - Utility-first styling with custom design system
-- **Fluent UI React 10** - Microsoft's design system components
-- **Framer Motion** - Advanced animations and interactions
+### Build & Development
+```bash
+npm run dev              # Start development server
+npm run build            # Build for production
+npm run start            # Start production server
+npm run export           # Export static files
+npm run deploy           # Build and export
+npm run production-deploy # Full production deployment
+```
 
-### Backend Services
-- **Azure Functions** - Serverless compute with Durable Functions
-- **Microsoft Graph** - Unified API for Microsoft 365 services
-- **Power Platform** - Low-code business process automation
-- **Azure Service Bus** - Enterprise messaging and event streaming
-- **Azure Cosmos DB** - Globally distributed NoSQL database
+### Code Quality
+```bash
+npm run lint             # Run ESLint with auto-fix
+npm run lint:css         # Run Stylelint with auto-fix
+npm run type-check       # TypeScript type checking
+npm run test             # Run Jest tests
+npm run test:coverage    # Test coverage report
+```
 
-### Real-time Features
-- **SignalR** - WebSocket connections for live updates
-- **Microsoft Graph Change Notifications** - Real-time data synchronization
-- **Power BI Streaming** - Live dashboard updates
-- **Azure Event Hubs** - High-throughput event ingestion
+### Validation & Testing
+```bash
+npm run lighthouse       # Performance testing
+npm run security-scan    # Security vulnerability scan
+npm run accessibility    # Accessibility testing
+npm run link-check       # Internal link validation
+npm run validate-html    # HTML validation
+npm run optimize-images  # Image optimization
+```
 
-## Security Implementation
+### Maintenance
+```bash
+npm run clean            # Clean build artifacts
+npm run pre-commit       # Run pre-commit hooks
+npm run prepare          # Setup Husky hooks
+```
 
-### Zero Trust Architecture
-- **Identity Verification** - Multi-factor authentication required
-- **Device Compliance** - Managed device policies
-- **Network Segmentation** - Micro-segmentation with Private Link
-- **Data Protection** - Always Encrypted with customer-managed keys
+## Security Configuration
+
+### Content Security Policy
+```
+default-src 'self';
+script-src 'self' 'unsafe-inline' *.microsoft.com *.microsoftonline.com *.azure.com;
+style-src 'self' 'unsafe-inline' *.microsoft.com;
+img-src 'self' data: blob: *.microsoft.com *.microsoftonline.com *.azure.com;
+connect-src 'self' *.microsoft.com *.microsoftonline.com *.azure.com *.sharepoint.com;
+```
+
+### Security Headers
+- **HSTS**: `max-age=31536000; includeSubDomains; preload`
+- **X-Frame-Options**: `SAMEORIGIN`
+- **X-Content-Type-Options**: `nosniff`
+- **Referrer-Policy**: `strict-origin-when-cross-origin`
 
 ### Content Protection
-- **Right-click Prevention** - Disabled context menus
-- **Text Selection Blocking** - Protected content areas
-- **Developer Tools Restriction** - F12 and inspect element disabled
-- **Image Download Prevention** - Protected media assets
-- **Print Functionality Control** - Restricted printing capabilities
+- Right-click prevention and text selection blocking
+- Developer tools restriction (F12, inspect element disabled)
+- Image download prevention and print functionality control
+- Military-grade encryption for all entertainment content
 
-### Compliance Standards
-- **GSMA SGP.22 v4.0** - eSIM remote provisioning compliance
-- **Myanmar Electronic Transactions Law 2021** - Local regulatory compliance
-- **ISO 27001** - Information security management
-- **GDPR** - European data protection regulation
-- **WCAG 2.2 AAA** - Web accessibility standards
+## Performance Optimization
 
-## Performance Targets
+### Core Web Vitals Targets
+- **Largest Contentful Paint**: < 2.5 seconds
+- **First Input Delay**: < 100 milliseconds
+- **Cumulative Layout Shift**: < 0.1
+- **First Contentful Paint**: < 1.8 seconds
 
-### Core Web Vitals
-- **Largest Contentful Paint** - < 2.5 seconds
-- **First Input Delay** - < 100 milliseconds
-- **Cumulative Layout Shift** - < 0.1
-- **First Contentful Paint** - < 1.8 seconds
+### Lighthouse Score Targets
+- **Performance**: 98/100
+- **Accessibility**: 100/100
+- **Best Practices**: 100/100
+- **SEO**: 100/100
 
-### Lighthouse Scores
-- **Performance** - Target 98/100
-- **Accessibility** - Target 100/100
-- **Best Practices** - Target 100/100
-- **SEO** - Target 100/100
-
-### Network Performance
-- **5G Speeds** - Up to 10Gbps download
-- **Latency** - < 20ms nationwide
-- **Uptime** - 99.9% availability SLA
-- **Global CDN** - < 100ms response time
-
-## Development Setup
-
-### Prerequisites
-- Node.js 18+ with npm 9+
-- Azure CLI 2.45+
-- Power Platform CLI
-- Visual Studio Code with Azure extensions
-
-### Installation
-```bash
-git clone https://github.com/esimmyanmar/esimmyanmar.github.io.git
-cd esimmyanmar.github.io
-npm install
-```
-
-### Environment Configuration
-```bash
-cp .env.example .env.local
-# Configure Microsoft credentials and endpoints
-```
-
-### Development Commands
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run deploy       # Deploy to Azure Static Web Apps
-npm run lint         # Run ESLint
-npm run type-check   # TypeScript validation
-```
-
-### Testing
-```bash
-npm run test         # Run Jest tests
-npm run test:watch   # Watch mode testing
-npm run test:coverage # Coverage reports
-```
+### Optimization Features
+- Image optimization with WebP/AVIF formats
+- Code splitting and lazy loading
+- Service worker for offline functionality
+- CDN caching with proper cache headers
+- Minification and compression
 
 ## Deployment
 
-### Azure Static Web Apps
-- **Automatic Deployment** - GitHub Actions integration
-- **Custom Domains** - esim.com.mm with SSL certificates
-- **Global CDN** - Azure Front Door with WAF protection
-- **Serverless Functions** - Azure Functions backend
+### GitHub Pages Deployment
+The site automatically deploys to GitHub Pages on push to main branch:
+
+1. **CI/CD Pipeline** runs automatically
+2. **Quality Checks** - Linting, testing, security scanning
+3. **Build Process** - Next.js static export
+4. **Deployment** - GitHub Pages with custom domain
+5. **Verification** - Post-deployment testing
+
+### Manual Deployment
+```bash
+# Full production deployment
+npm run production-deploy
+
+# Quick deployment
+npm run deploy
+```
 
 ### Environment Variables
 ```bash
 NEXT_PUBLIC_MICROSOFT_CLIENT_ID=your-client-id
 NEXT_PUBLIC_MICROSOFT_TENANT_ID=your-tenant-id
-NEXT_PUBLIC_SHAREPOINT_SITE=https://esimmyanmar.sharepoint.com
 NEXT_PUBLIC_DATAVERSE_URL=https://prod-esim-myanmar.crm5.dynamics.com
-NEXT_PUBLIC_COPILOT_BOT_ID=esim-myanmar-assistant
-NEXT_PUBLIC_POWER_BI_WORKSPACE=your-workspace-id
+NEXT_PUBLIC_SHAREPOINT_SITE=https://esimmyanmar.sharepoint.com
 ```
 
-### Production Checklist
-- [ ] Microsoft Entra ID application registered
-- [ ] Azure Static Web App configured
-- [ ] Custom domain SSL certificate installed
-- [ ] Power Platform environment provisioned
-- [ ] Dataverse tables and security roles configured
-- [ ] Power BI workspace and datasets deployed
-- [ ] Copilot Studio bot trained and published
-- [ ] Azure Monitor and Application Insights configured
+## Quality Assurance
+
+### Pre-commit Hooks
+- ESLint and Prettier formatting
+- TypeScript type checking
+- Emoji detection and removal
+- Lowercase filename enforcement
+- Security vulnerability scanning
+
+### CI/CD Pipeline
+- **Lint & Validate** - Code quality checks
+- **Security Scan** - Vulnerability assessment
+- **Accessibility Test** - WCAG 2.2 AAA compliance
+- **Link Check** - Internal link validation
+- **Performance Test** - Lighthouse scoring
+- **Build & Deploy** - Production deployment
+
+### Code Standards
+- **TypeScript** - Strict type checking enabled
+- **ESLint** - Airbnb configuration with custom rules
+- **Prettier** - Consistent code formatting
+- **Stylelint** - CSS/SCSS linting
+- **Husky** - Git hooks for quality enforcement
+
+## Accessibility
+
+### WCAG 2.2 AAA Compliance
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast ratios > 7:1
+- Focus management
+- Alternative text for images
+
+### Multi-language Support
+- **English** - Primary language
+- **Myanmar** - Native language with proper fonts
+- **Chinese** - Simplified Chinese support
+- **RTL Support** - Right-to-left text layout ready
 
 ## Monitoring & Analytics
 
-### Application Insights
-- **Performance Monitoring** - Response times and throughput
+### Performance Monitoring
+- **Application Insights** - Real-time performance tracking
+- **Core Web Vitals** - User experience metrics
 - **Error Tracking** - Exception logging and alerting
-- **User Analytics** - Page views and user journeys
 - **Custom Metrics** - Business-specific KPIs
 
-### Power BI Dashboards
-- **Network Performance** - Real-time speed and latency metrics
-- **User Engagement** - Content consumption analytics
-- **Device Analytics** - eSIM activation and usage patterns
-- **Business Metrics** - Revenue and growth indicators
+### Security Monitoring
+- **Microsoft Sentinel** - Security information and event management
+- **Vulnerability Scanning** - Automated security assessments
+- **Compliance Monitoring** - Regulatory adherence tracking
+- **Audit Logging** - Comprehensive activity logging
 
-### Alerting
-- **Performance Alerts** - Response time thresholds
-- **Error Rate Monitoring** - Exception rate alerting
-- **Availability Monitoring** - Uptime and health checks
-- **Security Alerts** - Threat detection and response
-
-## Support & Documentation
+## Support & Contact
 
 ### Technical Support
 - **Email**: support@esim.com.mm
 - **Phone**: +95-9650000172
-- **Teams**: eSIM Myanmar Support Channel
 - **Documentation**: https://docs.esim.com.mm
 
 ### Business Contact
-- **General Inquiries**: info@esim.com.mm
+- **General**: info@esim.com.mm
 - **Sales**: sales@esim.com.mm
 - **Partnerships**: partners@esim.com.mm
 - **Media**: media@esim.com.mm
 
-### Social Media
+### Company Information
+- **Company**: eSIM Myanmar Company Limited
+- **CEO**: Kaung Htet Paung
+- **Founded**: 2024
+- **Headquarters**: Yangon, Myanmar
 - **Website**: https://esim.com.mm
-- **LinkedIn**: /company/esim-myanmar
-- **Twitter**: @eSIMMyanmar
-- **Facebook**: /eSIMMyanmar
+- **Social**: @eSIMMyanmar
 
 ## License
 
@@ -262,14 +299,6 @@ Copyright 2025 eSIM Myanmar Company Limited. All Rights Reserved.
 
 This project contains proprietary software. Unauthorized copying, modification, distribution, or use of this software is strictly prohibited without explicit written permission from eSIM Myanmar Company Limited.
 
-## Company Information
+---
 
-**eSIM Myanmar Company Limited**
-- **CEO**: Kaung Htet Paung
-- **Founded**: 2024
-- **Headquarters**: Yangon, Myanmar
-- **Employees**: 50-100
-- **Coverage**: Myanmar and 200+ countries
-- **Users**: 50+ million across ASEAN
-
-Built with Microsoft technologies. Deployed on Azure.
+**Built with Microsoft Technologies | Deployed on Azure | Serving 50M+ Users**

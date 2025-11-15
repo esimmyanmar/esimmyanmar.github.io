@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, Dismiss } from "@fluentui/react-icons"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
@@ -56,7 +56,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <Dismiss size={24} /> : <Menu size={24} />}
           </button>
         </div>
 

@@ -1,0 +1,61 @@
+name: CI & Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Stylelint
+        run: npm run lint:css
+
+      - name: No-emoji scan
+        run: npm run no-emoji-scan
+
+      - name: Check filename case
+        run: npm run check-case
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Run tests
+        run: npm run test --silent
+
+      - name: Build and export
+        run: |
+          npm run build
+          npm run export
+
+      - name: Generate sitemap
+        run: npm run generate-sitemap
+
+      - name: Validate HTML
+        run: npm run validate-out
+
+      - name: Accessibility checks (axe)
+        run: npx @axe-core/cli out --output out/axe-report.json
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out

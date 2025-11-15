@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/app/language-provider"
-import { Globe } from "lucide-react"
+import { Globe } from "@fluentui/react-icons"
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()

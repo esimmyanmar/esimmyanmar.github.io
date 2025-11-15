@@ -1,7 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { Lock, Eye, Zap, Globe, ShieldAlert, Layers } from "lucide-react"
+import { Lock, Eye, Zap, Globe, Shield, Layers } from "@fluentui/react-icons"
 import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
 

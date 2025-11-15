@@ -4,7 +4,7 @@ import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
 import { telecomPartners, financialPartners, paymentPartners } from "@/lib/payment-partners"
 import { Card } from "@/components/ui/card"
-import { ExternalLink } from "lucide-react"
+import { OpenInNewTab } from "@fluentui/react-icons"
 
 export default function PartnersPage() {
   const { language } = useLanguage()
@@ -36,7 +36,7 @@ export default function PartnersPage() {
                     </div>
                     <h3 className="font-semibold text-center mb-2">{partner.displayName}</h3>
                     <p className="text-sm text-muted-foreground text-center mb-4">{partner.url}</p>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                    <OpenInNewTab className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
                   </Card>
                 </a>
               ))}

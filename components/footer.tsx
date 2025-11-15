@@ -1,7 +1,7 @@
 "use client"
 
 import { Separator } from "@/components/ui/separator"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Share, Mail } from "@fluentui/react-icons"
 import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
 
@@ -55,10 +55,10 @@ export default function Footer() {
           <p className="text-sm text-white/70">{t.footer.copyright}</p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-white/70 hover:text-white transition-colors">
-              <Github size={20} />
+              <Share size={20} />
             </a>
             <a href="#" className="text-white/70 hover:text-white transition-colors">
-              <Linkedin size={20} />
+              <Share size={20} />
             </a>
             <a href="#" className="text-white/70 hover:text-white transition-colors">
               <Mail size={20} />

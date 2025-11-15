@@ -1,47 +1,25 @@
 User-agent: *
+Disallow:
+Sitemap: https://esim.com.mm/sitemap.xml
+User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://esimmyanmar.github.io/sitemap.xml
 Sitemap: https://esim.com.mm/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
+# Disallow sensitive areas
+Disallow: /api/
+Disallow: /.next/
+Disallow: /scripts/
+Disallow: /compliance/
+Disallow: /power-bi/
 
-User-agent: Bingbot
-Allow: /
+# Allow important pages
+Allow: /app/
+Allow: /public/
 
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Block AI training crawlers (optional)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-# Company information
-# eSIM Myanmar Company Limited
-# Website: esim.com.mm
-# Email: info@esim.com.mm
-# Phone: 09650000172
+# Host
+Host: https://esim.com.mm

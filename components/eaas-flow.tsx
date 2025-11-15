@@ -1,7 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { ArrowRight, CheckCircle2, Cpu, Database, Send } from "lucide-react"
+import { ArrowRight, CheckmarkCircle, Cpu, Database, Send } from "@fluentui/react-icons"
 import { useLanguage } from "@/app/language-provider"
 import { translations } from "@/lib/translations"
 
