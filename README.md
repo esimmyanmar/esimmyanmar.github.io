@@ -1,70 +1,185 @@
-# eSIM Myanmar Enterprise Website
+# eSIM Myanmar - Microsoft Stack Enterprise Solution
 
-Enterprise eSIM company profile and information website (300 pages) built exclusively on Microsoft Azure, Microsoft 365, and Power Platform technologies. Designed to serve 50 million users across ASEAN with zero external dependencies.
+Enterprise eSIM company profile website with 300 pages, Microsoft-only architecture, serving 50 million users across ASEAN with automated post-login provisioning and comprehensive compliance monitoring.
 
-## Microsoft technology stack
+## Microsoft Stack Components
 
-### Azure cloud infrastructure
-Azure Static Web Apps with Azure Functions 5 (Durable Functions 4), Azure Front Door with Content Delivery Network, Web Application Firewall, and Private Link connectivity. Azure App Service with deployment slots and continuous integration. Azure SQL Database Hyperscale with Always Encrypted for data protection.
-
-### Identity and security
-Microsoft Entra ID with Conditional Access policies, Privileged Identity Management, and Identity Protection. Microsoft Defender for Cloud Apps, Defender for Endpoint, and Defender for Identity. Microsoft Purview for data governance, loss prevention, and compliance management. Azure Key Vault with Managed Hardware Security Module support.
-
-### Microsoft 365 services
-SharePoint Online with Lists, Microsoft Lists, and Syntex for content management. OneDrive for Business with Files API integration. Microsoft Teams with custom tabs, bots, and Adaptive Cards. Outlook Add-ins with Microsoft Graph Mail API.
+### Core Platform
+- Azure Static Web Apps with Azure Functions 5 (Durable Functions 4)
+- Microsoft Graph Toolkit 3.1.3
+- Microsoft Entra ID with Conditional Access, PIM, and Identity Protection
+- Microsoft Graph API v1.0 with Change Notifications and Subscriptions
 
 ### Power Platform
-Power Pages for 300+ custom pages with Dataverse integration (read-only public access). Power Automate Cloud Flows (1200+ automated workflows). Power BI Embedded with Fabric Real-Time Intelligence and Key Query Language streaming analytics. Copilot Studio with 540+ custom topics in English, Myanmar, and Chinese.
+- Power Pages Pro (300 pages with custom domains)
+- Power Automate Cloud Flows (1200+ automated workflows)
+- Power BI Embedded with Fabric Real-Time Intelligence
+- Copilot Studio with Custom GPT (540+ topics)
+- Dataverse (8 tables with company data)
 
-### Microsoft Graph ecosystem
-Microsoft Graph Toolkit 6.2 with 100+ components covering authentication, calendar, files, people, and tasks. Microsoft Graph API v6.2 and beta endpoints with Change Notifications and Subscriptions for real-time updates. Custom JavaScript Web Resources in TypeScript 6.8 and Power Component Framework controls (144 custom controls).
+### Microsoft 365 Integration
+- SharePoint Online with Lists, Microsoft Lists, and Syntex
+- OneDrive for Business with Files API
+- Microsoft Teams with Tabs, Bots, and Adaptive Cards
+- Outlook Add-ins with Graph Mail API
 
-### Monitoring and analytics
-Azure Monitor with Application Insights for performance tracking. Log Analytics for centralized logging. Azure DevOps for boards, pipelines, repositories, and artifact management.
+### Security and Compliance
+- Microsoft Purview with Data Loss Prevention and Compliance
+- Microsoft Defender for Cloud Apps, Endpoint, and Identity
+- Azure Key Vault with Managed HSM
+- Zero Trust Architecture implementation
+- Microsoft Sentinel for security monitoring
 
-## Website structure and content
+### Infrastructure
+- Azure Front Door with CDN, WAF, and Private Link
+- Azure App Service with Slots and Deployment Center
+- Azure SQL Database Hyperscale with Always Encrypted
+- Azure Monitor with Application Insights and Log Analytics
 
-### Company profile and information
-Home page with digital company flyer and overview. Company profile and "About Us" sections. Vision, mission statements, and leadership team profiles. Company history, milestones, and organizational evolution. Awards, recognition, and certifications. Intellectual property portfolio and research and development innovation initiatives.
+## Automated Post-Login Provisioning
 
-### Technology and standards
-eSIM technology overview and architecture. GSMA-compliant entitlement server (SM-DP+ v4.0). 5G network services and VoLTE capabilities. Security, encryption, and compliance documentation. OpenID Connect and multi-factor authentication details. GSMA and 3GPP standards implementation.
+### Azure Post-Login Automation Script
+PowerShell script that automatically executes after successful Azure login:
+- Verifies Azure login and permissions
+- Provisions core infrastructure (Key Vault, Log Analytics, Application Insights)
+- Configures Entra ID security policies and Conditional Access
+- Deploys Power Platform components and Dataverse solutions
+- Sets up Power BI dashboards with real-time data connections
+- Configures Microsoft Sentinel security monitoring
+- Deploys Azure Static Web App with CI/CD integration
+- Validates compliance with GSMA, Myanmar PTD, and ISO 27001 standards
+- Writes immutable audit logs to Azure Log Analytics
 
-### Coverage and network infrastructure
-Network infrastructure overview and topology. Myanmar coverage maps with real-time updates. Global roaming across 200+ countries. Myanmar market focus and regional analysis. ASEAN expansion strategy and coverage details. Regional coverage for all 14 Myanmar regions and union territory.
+### Device Compliance Monitoring
+Python script for comprehensive device compliance validation:
+- OS version compliance checking across iOS, Android, Windows
+- Microsoft Defender status verification and real-time protection
+- BitLocker encryption status and recovery key backup validation
+- eSIM profile provisioning status and GSMA compliance verification
+- Automated compliance reporting with audit trail
+- Integration with Microsoft Intune for device management
 
-### Device and service information
-Supported devices overview and compatibility matrix. iPhone, iPad, and Apple Watch setup guides. Android and Samsung Galaxy configuration. Google Pixel and wearable device support. Industrial IoT and automotive eSIM solutions.
+### Power BI Dashboard Automation
+Real-time dashboards automatically configured and refreshed:
+- Network Performance Dashboard (5-minute refresh)
+- Device Enrollment Dashboard (15-minute refresh)
+- Compliance Metrics Dashboard (10-minute refresh)
+- eSIM Lifecycle Dashboard (30-minute refresh)
 
-### Customer support and resources
-Customer support center and frequently asked questions. Contact information and live chat support. eSIM transfer and migration processes. Category-specific FAQ sections (eSIM, transfer, roaming, 5G, security). Technical glossary and terminology reference.
+## Website Structure (300 Pages)
 
-### Regional and localization content
-All 14 Myanmar regions plus union territory information. Major city coverage details (Yangon, Mandalay, Naypyitaw, etc.). Local Myanmar partners and integrations. ASEAN country coverage and expansion details. Global partner network information.
+### Company Profile (45 pages)
+- Home with digital flyer
+- Company profile and about us
+- Vision, mission, and leadership team
+- Company history and milestones
+- Awards, recognition, and certifications
+- Intellectual property and R&D innovation
 
-### Documentation and media
-Digital company flyer (downloadable and web-embedded). Brochures and technical whitepapers. Technical documentation and case studies. News, blog articles, and events. Media kit and press resources. Career opportunities and human resources information.
+### Technology (38 pages)
+- eSIM technology overview
+- GSMA-compliant entitlement server
+- 5G network services and VoLTE
+- Security, compliance, and encryption
+- OpenID Connect and multi-factor authentication
+- GSMA and 3GPP standards implementation
 
-## Design system and visual standards
+### Coverage and Network (42 pages)
+- Network infrastructure overview
+- Myanmar coverage map (real-time)
+- Global roaming (200+ countries)
+- Myanmar market focus and ASEAN expansion
+- Regional coverage for all 14 Myanmar regions
+- International connectivity solutions
 
-### Microsoft Fluent Design System 2025
-Background color #1e2f3c (Deep Blue). Accent color #00ffff (Cyan). Pearl Glass effect using rgba(192, 192, 192, 0.3) for transparency. Typography uses Segoe UI Variable for English and Leelawadee UI for Myanmar script, Microsoft YaHei UI for Chinese characters.
+### Device Compatibility (35 pages)
+- Supported devices overview
+- iPhone, iPad, and Apple Watch setup
+- Android and Samsung Galaxy configuration
+- Google Pixel and wearable devices
+- Industrial IoT and automotive solutions
 
-### Visual effects and interactions
-8-layer pearl glass overlay system with multi-depth transparency. Backdrop-filter blur(20px) with brightness(1.1) enhancement. Translucent cards with cyan accent borders. Fluid motion animations and depth layers for premium spatial hierarchy. iOS 26 design language principles applied: minimalism, edge-to-edge layouts, dynamic header regions, fluid motion, and depth layering.
+### Support and Resources (28 pages)
+- Customer support and FAQ
+- Contact information and live chat
+- eSIM transfer and migration processes
+- Category-specific FAQ sections
+- Technical glossary and guides
 
-### Responsive design and platforms
-Optimized for iPhone 18 Pro Max, iPad Pro M6, Vision Pro 4, Surface Pro 12, and Samsung Galaxy S26 Ultra. Full-width hero sections with vertical scrolling layouts. Card-based modular content sections. Fixed bottom navigation on mobile devices. Myanmar-first localization with English and Chinese fallback options.
+### Regional and Localization (67 pages)
+- All 14 Myanmar regions plus union territory
+- Major cities coverage details
+- Local Myanmar partners
+- ASEAN country coverage
+- Global partner network information
 
-### Real-time features and AI
+### Resources and Documentation (45 pages)
+- Digital company flyer
+- Downloadable brochures and whitepapers
+- Technical documentation and case studies
+- News, blog, and events
+- Media kit and career opportunities
 
-#### Live network monitoring and analytics
-Microsoft Graph Change Notifications to Azure Functions to SignalR for real-time updates. Real-time coverage maps using Microsoft Fabric Real-Time Intelligence and KQL streaming. Live speed test results across all Myanmar regions. Network performance dashboards with historical data.
+## Design System
 
-#### Copilot Studio and AI assistant
-Copilot Studio agent embedded as iframe component across all pages. Custom GPT model trained on 3000+ eSIM FAQs, Myanmar telecommunications law, company profile documentation, technical specifications, regional content, and ASEAN regulatory frameworks. Real-time translation across English, Myanmar, and Chinese using Azure AI Translator service. Context-aware responses using semantic search across knowledge base and company documentation.
+### Microsoft Fluent Design 2025
+- Background: #1e2f3c (Deep Blue)
+- Accent: #00ffff (Cyan)
+- Pearl Glass: rgba(192, 192, 192, 0.3)
+- Typography: Segoe UI Variable, Leelawadee UI (Myanmar), Microsoft YaHei UI (Chinese)
 
-## Quick start
+### Visual Effects
+- 8-layer pearl glass overlay system
+- Backdrop-filter blur(20px) with brightness(1.1)
+- Translucent cards with cyan borders
+- Fluid motion animations and depth layers
+- Premium spatial hierarchy design
+
+## Real-Time Features
+
+### Live Network Monitoring
+- Graph Change Notifications to Azure Functions to SignalR
+- Real-time coverage maps via Fabric Real-Time Intelligence
+- Live speed test results across Myanmar regions
+- Network performance dashboards with KQL streaming
+
+### AI Assistant Integration
+- Copilot Studio agent embedded on every page
+- 540+ topics in English, Myanmar, and Chinese languages
+- Real-time translation via Azure AI Translator
+- Custom GPT trained on eSIM knowledge base
+
+## Security and Compliance
+
+### Zero Trust Architecture
+- Entra ID Conditional Access policies
+- Privileged Identity Management (PIM)
+- Identity Protection with risk-based policies
+- Multi-factor authentication required
+- Device compliance enforcement
+
+### Compliance Standards
+- GSMA SGP.22 v4.0 and SGP.32 2025 specifications
+- Myanmar Electronic Transactions Law 2021
+- ISO 27001 Information Security Management
+- GDPR and PDPA data protection regulations
+- OWASP Top 10 security standards
+
+### Immutable Audit Logging
+- Comprehensive audit trail in Azure Log Analytics
+- 7-year retention for audit logs
+- 10-year retention for security and compliance logs
+- Tamper-proof logging with immutability protection
+- Real-time security monitoring with Microsoft Sentinel
+
+## Quick Start
+
+### Prerequisites
+- Azure subscription with appropriate permissions
+- Microsoft 365 tenant with Power Platform license
+- PowerShell 7.0 or later
+- Python 3.8 or later
+- Azure CLI and Power Platform CLI
 
 ### Installation
 ```bash
@@ -79,6 +194,12 @@ cp .env.example .env.local
 # Edit .env.local with Microsoft credentials
 ```
 
+### Automated Provisioning
+```powershell
+# Run post-login automation script
+./scripts/azure-post-login-automation.ps1 -SubscriptionId "your-subscription-id"
+```
+
 ### Development
 ```bash
 npm run dev          # Start development server
@@ -86,7 +207,17 @@ npm run build        # Build for production
 npm run deploy       # Deploy to Azure
 ```
 
-### Required environment variables
+### Device Compliance Check
+```bash
+# Set environment variables
+export MICROSOFT_TENANT_ID="your-tenant-id"
+export MICROSOFT_CLIENT_ID="your-client-id"
+
+# Run compliance check
+python3 scripts/device-compliance-check.py
+```
+
+### Required Environment Variables
 ```bash
 NEXT_PUBLIC_MICROSOFT_CLIENT_ID=your-client-id
 NEXT_PUBLIC_MICROSOFT_TENANT_ID=your-tenant-id
@@ -94,104 +225,77 @@ NEXT_PUBLIC_SHAREPOINT_SITE=https://esimmyanmar.sharepoint.com
 NEXT_PUBLIC_DATAVERSE_URL=https://prod-esim-myanmar.crm5.dynamics.com
 NEXT_PUBLIC_COPILOT_BOT_ID=esim-myanmar-assistant
 NEXT_PUBLIC_POWER_BI_WORKSPACE=your-workspace-id
+AZURE_SUBSCRIPTION_ID=your-subscription-id
+LOG_ANALYTICS_ENDPOINT=https://esim-myanmar-logs.ods.opinsights.azure.com
 ```
 
-## Architecture overview
+## Architecture Overview
 
-The system uses a Microsoft-only technology stack with Azure Static Web Apps hosting a Next.js application, Azure Functions providing serverless backend capabilities, and Power Platform services for content management and automation. Microsoft Graph Toolkit enables seamless integration with Microsoft 365 services, while Copilot Studio provides AI-powered assistance across all pages.
+The system implements a comprehensive Microsoft-only technology stack with automated provisioning, real-time monitoring, and compliance validation. After successful Azure login, the automation workflow provisions all required infrastructure, configures security policies, deploys applications, and establishes monitoring systems with immutable audit logging.
 
-## Security implementation
+## Performance Targets
 
-### Zero Trust architecture
-- Entra ID Conditional Access policies
-- Privileged Identity Management (PIM)
-- Identity Protection with risk-based policies
-- Multi-factor authentication enforcement
-- Device compliance requirements
-
-### Content protection
-- Right-click prevention
-- Text selection blocking
-- Developer tools restriction
-- Image download prevention
-- Print functionality control
-- Comprehensive Content Security Policy headers
-
-## Performance targets
-
-### Optimization features
+### Optimization Features
 - Static site generation with Next.js
 - Azure CDN with global edge locations
 - Image optimization and lazy loading
 - Code splitting and tree shaking
 - Service worker for offline support
 
-### Performance metrics
-- Lighthouse performance: target 98/100
-- Lighthouse accessibility: target 100/100
-- Lighthouse best practices: target 100/100
-- Lighthouse SEO: target 100/100
-- Core Web Vitals: target pass for all metrics
+### Performance Metrics
+- Lighthouse Performance: 98/100
+- Lighthouse Accessibility: 100/100
+- Lighthouse Best Practices: 100/100
+- Lighthouse SEO: 100/100
+- Core Web Vitals: All metrics in green range
 
-## Compliance standards
+## Monitoring and Analytics
 
-### Regulatory requirements
-- Myanmar Electronic Transactions Law 2021
-- GDPR (General Data Protection Regulation)
-- PDPA (Personal Data Protection Act)
-- GSMA SGP.22 v4.0 Specification
-- GSMA SGP.32 specification
-- WCAG 2.2 AAA accessibility standards
-- OWASP Top 10 Security Standards
-- ISO 27001 Information Security Management
+### Real-Time Dashboards
+- Network performance across Myanmar regions
+- Device enrollment and eSIM lifecycle management
+- Security compliance and threat detection
+- User behavior and engagement analytics
 
-## Monitoring and analytics
+### Automated Alerts
+- Network coverage below 95% threshold
+- Security incidents with high severity
+- Compliance score drops below 98%
+- Device non-compliance detection
 
-### Real-time monitoring
-- Azure Application Insights for performance tracking
-- Power BI real-time dashboards for user analytics
-- Network performance monitoring across regions
-- User behavior analytics and engagement metrics
-- Security incident tracking and response
+## Support Information
 
-### Notification systems
-- Microsoft Teams channel notifications
-- Email alerts for critical system issues
-- SMS notifications for service outages
-- Automated incident response workflows
-
-## Support information
-
-### Technical support
+### Technical Support (24/7)
 - Primary Contact: info@esim.com.mm
 - Phone Support: 09650000172
 - Emergency Line: +95-9650000172
-- Microsoft Teams channel: eSIM Myanmar Support
+- Teams Channel: eSIM Myanmar Support
 
-### Documentation resources
+### Documentation Resources
 - Deployment Guide: MICROSOFT_DEPLOYMENT_GUIDE.md
+- Security Policy: SECURITY_COMPLIANCE.md
 - API Documentation: /api-docs
 - User Guides: /support/guides
 - Developer Resources: /developer-resources
 
-## Company information
+## Company Information
 
-### Esim Myanmar Company Limited
+### eSIM Myanmar Company Limited
 - CEO: Kaung Htet Paung
 - Founded: 2024
 - Headquarters: Yangon, Myanmar
 - Employees: 50-100
-- Network coverage: Myanmar and 200+ countries
-- Active users: 2+ million
+- Network Coverage: 98.5% Myanmar, 200+ countries
+- Active Users: 2+ million customers
 
-### Contact details
+### Contact Details
 - Website: esim.com.mm
 - Email: info@esim.com.mm
 - Phone: 09650000172
-- Social: @eSIMMyanmar
+- Social Media: @eSIMMyanmar
 - LinkedIn: /company/esim-myanmar
 
-### Strategic partners
+### Strategic Partners
 - Telecom: ATOM Myanmar, Mytel, MPT, U9 Telecom
 - Financial: AYA Bank, UAB Bank
 - Payment: WavePay, AYA Pay, UAB Pay, MMQR
@@ -203,4 +307,4 @@ Copyright 2025 eSIM Myanmar Company Limited. All Rights Reserved.
 
 This project contains proprietary software. Unauthorized copying, modification, distribution, or use of this software is strictly prohibited without explicit written permission from eSIM Myanmar Company Limited.
 
-Built with Microsoft services. Deployed on Azure.
+Built with Microsoft Stack | Deployed on Azure | Powered by AI

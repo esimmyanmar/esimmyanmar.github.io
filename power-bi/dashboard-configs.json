@@ -1,0 +1,69 @@
+{
+  "dashboards": [
+    {
+      "name": "Network Performance Dashboard",
+      "id": "network-performance",
+      "description": "Real-time network performance metrics across Myanmar regions",
+      "dataSource": "Azure Log Analytics",
+      "refreshSchedule": "Every 5 minutes",
+      "tiles": [
+        {
+          "title": "Network Coverage",
+          "type": "gauge",
+          "query": "NetworkMetrics_CL | where TimeGenerated > ago(5m) | summarize avg(CoveragePercentage_d) by Region_s",
+          "visualization": "gauge",
+          "target": 98.5
+        },
+        {
+          "title": "Speed Test Results",
+          "type": "line_chart",
+          "query": "SpeedTestResults_CL | where TimeGenerated > ago(1h) | summarize avg(DownloadSpeed_d), avg(UploadSpeed_d) by bin(TimeGenerated, 5m)",
+          "visualization": "line_chart"
+        },
+        {
+          "title": "Regional Performance",
+          "type": "map",
+          "query": "NetworkMetrics_CL | where TimeGenerated > ago(15m) | summarize avg(CoveragePercentage_d), avg(DownloadSpeed_d) by Region_s, Latitude_d, Longitude_d",
+          "visualization": "map"
+        }
+      ]
+    },
+    {
+      "name": "Device Enrollment Dashboard",
+      "id": "device-enrollment",
+      "description": "eSIM device enrollment and lifecycle management metrics",
+      "dataSource": "Microsoft Graph API",
+      "refreshSchedule": "Every 15 minutes",
+      "tiles": [
+        {
+          "title": "Active eSIM Profiles",
+          "type": "card",
+          "query": "DeviceEnrollment_CL | where TimeGenerated > ago(1d) | summarize count() by Status_s",
+          "visualization": "card"
+        },
+        {
+          "title": "Device Types",
+          "type": "pie_chart",
+          "query": "DeviceEnrollment_CL | where Status_s == 'Active' | summarize count() by DeviceType_s",
+          "visualization": "pie_chart"
+        }
+      ]
+    },
+    {
+      "name": "Compliance Metrics Dashboard",
+      "id": "compliance-metrics",
+      "description": "Security and compliance monitoring across all systems",
+      "dataSource": "Microsoft Sentinel",
+      "refreshSchedule": "Every 10 minutes",
+      "tiles": [
+        {
+          "title": "GSMA Compliance Score",
+          "type": "gauge",
+          "query": "ComplianceMetrics_CL | where ComplianceType_s == 'GSMA' | summarize avg(Score_d)",
+          "visualization": "gauge",
+          "target": 100
+        }
+      ]
+    }
+  ]
+}

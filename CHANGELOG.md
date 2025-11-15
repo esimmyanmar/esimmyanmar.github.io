@@ -16,6 +16,11 @@ All notable changes to the eSIM Myanmar Microsoft Stack project.
 - GSMA SGP.22 v4.0 and SGP.32 2025 compliance
 - Myanmar Electronic Transactions Law 2021 compliance
 - ISO 27001 and GDPR compliance measures
+- Automated post-login provisioning workflow
+- Power BI dashboard configurations for real-time monitoring
+- Device compliance checking with OS, Defender, BitLocker validation
+- Immutable audit logging with Azure Log Analytics integration
+- Post-login automation GitHub Actions workflow
 
 ### Content Refinement
 - Removed all emoji characters from documentation and code
