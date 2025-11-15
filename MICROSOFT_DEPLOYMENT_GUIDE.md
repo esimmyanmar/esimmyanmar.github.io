@@ -1,58 +1,59 @@
-# eSIM Myanmar Microsoft Stack Deployment Guide
+# Microsoft Stack Deployment Guide
 
-## 300-Page Company Profile Website - Microsoft-Only Architecture
+Complete deployment guide for eSIM Myanmar company profile website using Microsoft-only architecture.
 
-### Overview
-Complete Microsoft-only solution for eSIM Myanmar company profile website with 300 pages, serving 50 million users across ASEAN.
+## Overview
 
-### Microsoft Stack Components
+This guide covers deployment of a 300-page company profile website built entirely with Microsoft technologies, designed to serve 50 million users across ASEAN.
 
-#### 1. Azure Static Web Apps + Azure Functions 5
-- **Static Web App**: `esim-myanmar`
-- **Functions App**: `esim-myanmar-functions`
-- **Runtime**: Node.js 18, Durable Functions 4
-- **Custom Domain**: esim.com.mm
+## Microsoft Stack Components
 
-#### 2. Microsoft Graph Toolkit 6.2
-- **Components**: Person, Files, Agenda, Search, Login
-- **Provider**: MSAL2Provider with Entra ID
-- **Scopes**: user.read, files.read, sites.read.all, calendars.read
+### Azure Services
+- **Azure Static Web Apps**: Primary hosting platform
+- **Azure Functions 5**: Serverless backend with Durable Functions 4
+- **Azure Front Door**: Global CDN with WAF protection
+- **Azure Key Vault**: Secrets and certificate management
+- **Azure Monitor**: Application monitoring and analytics
 
-#### 3. Power Platform
-- **Power Pages**: 300 pages with custom domains
-- **Dataverse**: 8 tables with company data
-- **Power Automate**: 1200+ flows for automation
-- **Power BI**: Real-time dashboards and analytics
+### Power Platform
+- **Power Pages**: 300 pages with custom domain support
+- **Dataverse**: 8 tables for company data storage
+- **Power Automate**: 1200+ automated workflows
+- **Power BI**: Real-time dashboards and reporting
+- **Copilot Studio**: AI assistant with 540+ topics
 
-#### 4. Copilot Studio
-- **Bot ID**: esim-myanmar-assistant
-- **Topics**: 540+ multilingual topics (en/my/zh)
-- **Integration**: Embedded via iframe on all pages
-
-#### 5. Microsoft 365 Integration
-- **SharePoint Online**: Document management and lists
-- **Teams**: Notifications and collaboration
+### Microsoft 365 Integration
+- **Microsoft Graph Toolkit**: Version 3.1.3 for seamless integration
+- **SharePoint Online**: Document management and collaboration
+- **Microsoft Teams**: Notifications and team communication
 - **Outlook**: Email automation and calendar integration
+- **OneDrive for Business**: File storage and sharing
 
-### Deployment Steps
+## Prerequisites
 
-#### Prerequisites
+### Required Tools
 ```bash
-# Install required tools
 npm install -g @azure/static-web-apps-cli
 npm install -g @microsoft/powerplatform-cli
 npm install -g azure-functions-core-tools@4
 ```
 
-#### 1. Azure Resources Setup
+### System Requirements
+- Node.js 18.0.0 or higher
+- NPM 9.0.0 or higher
+- Azure CLI latest version
+- Power Platform CLI latest version
+
+## Azure Resources Setup
+
+### Resource Group Creation
 ```bash
-# Login to Azure
 az login
-
-# Create resource group
 az group create --name esim-myanmar-rg --location "Southeast Asia"
+```
 
-# Create Static Web App
+### Static Web App Deployment
+```bash
 az staticwebapp create \
   --name esim-myanmar \
   --resource-group esim-myanmar-rg \
@@ -62,8 +63,10 @@ az staticwebapp create \
   --app-location "/" \
   --api-location "src/microsoft-stack/azure-functions" \
   --output-location "out"
+```
 
-# Create Functions App
+### Azure Functions Configuration
+```bash
 az functionapp create \
   --resource-group esim-myanmar-rg \
   --consumption-plan-location "Southeast Asia" \
@@ -74,80 +77,71 @@ az functionapp create \
   --storage-account esimmyanmarfunctions
 ```
 
-#### 2. Power Platform Environment
+## Power Platform Configuration
+
+### Environment Setup
 ```bash
-# Authenticate with Power Platform
 pac auth create \
   --url https://prod-esim-myanmar.crm5.dynamics.com \
   --applicationId YOUR_CLIENT_ID \
   --clientSecret YOUR_CLIENT_SECRET \
   --tenant YOUR_TENANT_ID
 
-# Create environment (if not exists)
 pac admin create \
   --name "eSIM Myanmar Production" \
   --region "Asia" \
   --type Production
 ```
 
-#### 3. Dataverse Tables Deployment
+### Dataverse Tables Deployment
 ```bash
-# Import solution with tables
 pac solution import \
   --path ./dataverse-solution.zip \
   --environment prod-esim-myanmar
 
-# Import sample data
 pac data import \
   --file ./src/microsoft-stack/dataverse/sample-data.json \
   --environment prod-esim-myanmar
 ```
 
-#### 4. Power Pages Deployment
+### Power Pages Deployment
 ```bash
-# Deploy Power Pages site
 pac website create \
   --name "eSIM Myanmar" \
   --template "Company Profile" \
   --environment prod-esim-myanmar
 
-# Upload custom pages
 pac website upload \
   --path ./power-pages-content \
   --environment prod-esim-myanmar
 ```
 
-#### 5. Power Automate Flows
+### Power Automate Flows
 ```bash
-# Import all 1200+ flows
 pac flow import \
   --file ./src/microsoft-stack/power-automate/flows.zip \
   --environment prod-esim-myanmar
 
-# Enable critical flows
 pac flow enable \
   --name "Network Status Monitor" \
   --environment prod-esim-myanmar
 ```
 
-#### 6. Copilot Studio Bot
+### Copilot Studio Bot
 ```bash
-# Import bot configuration
 pac bot import \
   --file ./src/microsoft-stack/copilot-studio/esim-bot.zip \
   --environment prod-esim-myanmar
 
-# Publish bot
 pac bot publish \
   --name esim-myanmar-assistant \
   --environment prod-esim-myanmar
 ```
 
-### Environment Variables
+## Environment Configuration
 
-#### Azure Static Web Apps
+### Azure Static Web Apps Settings
 ```bash
-# Application Settings
 MICROSOFT_CLIENT_ID=your-client-id
 MICROSOFT_TENANT_ID=your-tenant-id
 SHAREPOINT_SITE_URL=https://esimmyanmar.sharepoint.com
@@ -156,9 +150,8 @@ COPILOT_BOT_ID=esim-myanmar-assistant
 POWER_BI_WORKSPACE_ID=your-workspace-id
 ```
 
-#### Azure Functions
+### Azure Functions Settings
 ```bash
-# Function App Settings
 AzureWebJobsStorage=your-storage-connection
 FUNCTIONS_WORKER_RUNTIME=node
 WEBSITE_NODE_DEFAULT_VERSION=~18
@@ -167,33 +160,32 @@ MICROSOFT_GRAPH_CLIENT_SECRET=your-client-secret
 MICROSOFT_GRAPH_TENANT_ID=your-tenant-id
 ```
 
-### Custom Domain Configuration
+## Custom Domain Setup
 
-#### 1. DNS Configuration
-```bash
-# CNAME records for esim.com.mm
+### DNS Configuration
+Configure CNAME records for esim.com.mm:
+```
 www.esim.com.mm -> esim-myanmar.azurestaticapps.net
 esim.com.mm -> esim-myanmar.azurestaticapps.net
 ```
 
-#### 2. SSL Certificate
+### SSL Certificate Setup
 ```bash
-# Add custom domain to Static Web App
 az staticwebapp hostname set \
   --name esim-myanmar \
   --resource-group esim-myanmar-rg \
   --hostname esim.com.mm
 
-# Validate domain
 az staticwebapp hostname show \
   --name esim-myanmar \
   --resource-group esim-myanmar-rg \
   --hostname esim.com.mm
 ```
 
-### Security Configuration
+## Security Configuration
 
-#### 1. Entra ID Application Registration
+### Entra ID Application Registration
+Create application registration with the following configuration:
 ```json
 {
   "displayName": "eSIM Myanmar Website",
@@ -218,17 +210,16 @@ az staticwebapp hostname show \
 }
 ```
 
-#### 2. Content Security Policy
+### Content Security Policy
+Configure CSP headers in next.config.mjs:
 ```javascript
-// next.config.mjs headers
 "Content-Security-Policy": "default-src 'self' https://*.microsoft.com https://*.microsoftonline.com https://*.graph.microsoft.com https://*.sharepoint.com https://*.office.com https://*.powerapps.com https://*.dynamics.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.microsoft.com; style-src 'self' 'unsafe-inline' https://*.microsoft.com; img-src 'self' data: blob: https://*.microsoft.com https://*.office.com; connect-src 'self' https://*.microsoft.com https://*.graph.microsoft.com; font-src 'self' https://*.microsoft.com"
 ```
 
-### Monitoring and Analytics
+## Monitoring Setup
 
-#### 1. Application Insights
+### Application Insights
 ```bash
-# Create Application Insights
 az monitor app-insights component create \
   --app esim-myanmar-insights \
   --location "Southeast Asia" \
@@ -236,35 +227,31 @@ az monitor app-insights component create \
   --application-type web
 ```
 
-#### 2. Power BI Dashboards
+### Power BI Dashboards
+Configure the following dashboards:
 - Network Performance Dashboard
 - User Analytics Dashboard
 - FAQ Analytics Dashboard
-- Partner Integration Status
+- Partner Integration Status Dashboard
 
-### Backup and Disaster Recovery
+## Backup and Recovery
 
-#### 1. Automated Backups
+### Automated Backups
 ```bash
-# Power Platform environment backup
 pac admin backup create \
   --environment prod-esim-myanmar \
   --label "Daily Backup $(date +%Y%m%d)"
-
-# SharePoint site backup via Power Automate
-# Configured in flows for daily execution
 ```
 
-#### 2. Multi-Region Deployment
-- Primary: Southeast Asia (Singapore)
-- Secondary: East Asia (Hong Kong)
+### Multi-Region Setup
+- Primary Region: Southeast Asia (Singapore)
+- Secondary Region: East Asia (Hong Kong)
 - CDN: Azure Front Door with global distribution
 
-### Performance Optimization
+## Performance Optimization
 
-#### 1. Caching Strategy
+### Caching Configuration
 ```javascript
-// Static Web Apps caching
 {
   "routes": [
     {
@@ -283,32 +270,31 @@ pac admin backup create \
 }
 ```
 
-#### 2. CDN Configuration
+### CDN Setup
 ```bash
-# Azure Front Door setup
 az network front-door create \
   --resource-group esim-myanmar-rg \
   --name esim-myanmar-fd \
   --backend-address esim-myanmar.azurestaticapps.net
 ```
 
-### Compliance and Governance
+## Compliance and Governance
 
-#### 1. Data Residency
+### Data Residency
 - All data stored in Southeast Asia region
 - Compliance with Myanmar Electronic Transactions Law 2021
 - GDPR compliance for international users
 
-#### 2. Access Controls
+### Access Controls
 - Entra ID Conditional Access policies
 - Privileged Identity Management (PIM)
-- Zero Trust security model
+- Zero Trust security model implementation
 
-### Maintenance and Updates
+## Maintenance Procedures
 
-#### 1. Automated Updates
+### Automated Updates
+Configure GitHub Actions workflow for automated updates:
 ```yaml
-# GitHub Actions workflow
 - name: Update Dependencies
   run: |
     npm update
@@ -320,44 +306,43 @@ az network front-door create \
     npm run deploy
 ```
 
-#### 2. Health Monitoring
-```bash
-# Health check endpoints
+### Health Monitoring
+Configure health check endpoints:
+```
 GET /api/health
 GET /api/network-status
 GET /api/system-status
 ```
 
-### Support and Documentation
+## Support Information
 
-#### 1. Technical Support
-- **Email**: tech-support@esim.com.mm
-- **Phone**: +95-9650000172
-- **Teams**: eSIM Myanmar Support Channel
+### Technical Support
+- Email: tech-support@esim.com.mm
+- Phone: +95-9650000172
+- Teams: eSIM Myanmar Support Channel
 
-#### 2. Documentation
+### Documentation Resources
 - API Documentation: /api-docs
 - User Guides: /support/guides
 - Developer Resources: /developer-resources
 
-### Cost Optimization
+## Cost Optimization
 
-#### 1. Resource Scaling
+### Resource Scaling
 - Azure Functions: Consumption plan
 - Static Web Apps: Free tier with custom domain
 - Power Platform: Per-user licensing
 - Dataverse: Pay-as-you-go storage
 
-#### 2. Monitoring Costs
+### Cost Monitoring
 ```bash
-# Azure Cost Management
 az consumption budget create \
   --budget-name esim-myanmar-budget \
   --amount 1000 \
   --resource-group esim-myanmar-rg
 ```
 
-### Deployment Checklist
+## Deployment Checklist
 
 - [ ] Azure resources provisioned
 - [ ] Power Platform environment configured
@@ -374,16 +359,14 @@ az consumption budget create \
 - [ ] Documentation updated
 - [ ] Team training completed
 
-### Contact Information
+## Contact Information
 
-**eSIM Myanmar Company Limited**
-- **Website**: esim.com.mm
-- **Email**: info@esim.com.mm
-- **Phone**: 09650000172
-- **Social**: @eSIMMyanmar
-- **CEO**: Kaung Htet Paung
-
----
+### eSIM Myanmar Company Limited
+- Website: esim.com.mm
+- Email: info@esim.com.mm
+- Phone: 09650000172
+- Social: @eSIMMyanmar
+- CEO: Kaung Htet Paung
 
 **Deployment Status**: Ready for Production
 **Last Updated**: 2025-01-27

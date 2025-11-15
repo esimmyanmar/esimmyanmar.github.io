@@ -5,7 +5,7 @@ import '../src/styles/microsoft-fluent.scss';
 
 export const metadata: Metadata = {
   title: 'eSIM Myanmar - Enterprise eSIM Solutions',
-  description: 'Myanmar\'s leading enterprise eSIM provider with GSMA SGP.22 compliance, serving 2M+ customers across all 14 regions with 98.5% network coverage.',
+  description: 'Myanmar\'s leading enterprise eSIM provider with GSMA SGP.22 compliance, serving 2+ million customers across all 14 regions with 98.5% network coverage.',
   keywords: 'eSIM, Myanmar, telecommunications, enterprise, GSMA, 5G, VoLTE, roaming',
   authors: [{ name: 'eSIM Myanmar Company Limited', url: 'https://esim.com.mm' }],
   creator: 'eSIM Myanmar Company Limited',
@@ -14,26 +14,19 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://esimmyanmar.github.io',
+    url: 'https://esim.com.mm',
     siteName: 'eSIM Myanmar',
     title: 'eSIM Myanmar - Enterprise eSIM Solutions',
     description: 'Myanmar\'s leading enterprise eSIM provider with GSMA SGP.22 compliance',
-    images: [
-      {
-        url: '/assets/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'eSIM Myanmar Company Profile'
-      }
-    ]
+    images: []
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     site: '@eSIMMyanmar',
     creator: '@eSIMMyanmar',
     title: 'eSIM Myanmar - Enterprise eSIM Solutions',
     description: 'Myanmar\'s leading enterprise eSIM provider with GSMA SGP.22 compliance',
-    images: ['/assets/twitter-image.png']
+    images: []
   },
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   themeColor: '#1e2f3c',
@@ -69,14 +62,12 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" className="fluent-theme">
       <head>
-        <link rel="preconnect" href="https://fonts.microsoft.com" />
         <link rel="preconnect" href="https://graph.microsoft.com" />
         <link rel="preconnect" href="https://login.microsoftonline.com" />
         <link rel="dns-prefetch" href="//esimmyanmar.sharepoint.com" />
         <link rel="dns-prefetch" href="//powerapps.microsoft.com" />
-        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -85,7 +76,6 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "eSIM Myanmar Company Limited",
               "url": "https://esim.com.mm",
-              "logo": "https://esimmyanmar.github.io/assets/logo.png",
               "description": "Myanmar's leading enterprise eSIM provider with GSMA SGP.22 compliance",
               "address": {
                 "@type": "PostalAddress",
@@ -97,18 +87,7 @@ export default function RootLayout({
                 "telephone": "+95-9650000172",
                 "email": "info@esim.com.mm",
                 "contactType": "customer service"
-              },
-              "sameAs": [
-                "https://twitter.com/eSIMMyanmar",
-                "https://linkedin.com/company/esim-myanmar"
-              ],
-              "founder": {
-                "@type": "Person",
-                "name": "Kaung Htet Paung"
-              },
-              "foundingDate": "2024",
-              "industry": "Telecommunications",
-              "numberOfEmployees": "50-100"
+              }
             })
           }}
         />
@@ -187,47 +166,29 @@ export default function RootLayout({
                 <span>@eSIMMyanmar</span>
               </div>
               <div className="copyright">
-                <p>&copy; 2025 eSIM Myanmar Company Limited. All Rights Reserved.</p>
+                <p>© 2025 eSIM Myanmar Company Limited. All Rights Reserved.</p>
               </div>
             </div>
           </footer>
         </div>
 
-        <div id="esim-copilot" className="copilot-container"></div>
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Initialize Copilot Studio
-              (function() {
-                const script = document.createElement('script');
-                script.src = 'https://cdn.botframework.com/botframework-webchat/latest/webchat.js';
-                script.onload = function() {
-                  if (window.WebChat) {
-                    window.WebChat.renderWebChat({
-                      directLine: window.WebChat.createDirectLine({
-                        token: '${process.env.NEXT_PUBLIC_COPILOT_TOKEN || ''}'
-                      }),
-                      userID: 'anonymous-user',
-                      username: 'eSIM Myanmar Visitor',
-                      locale: 'en-US',
-                      styleOptions: {
-                        backgroundColor: 'rgba(30, 47, 60, 0.9)',
-                        primaryFont: 'Segoe UI Variable, Segoe UI, system-ui, sans-serif',
-                        accent: '#00ffff',
-                        cardEmphasisBackgroundColor: 'rgba(192, 192, 192, 0.1)',
-                        paddingRegular: 12,
-                        paddingWide: 16,
-                        borderRadius: 8,
-                        botAvatarBackgroundColor: '#00ffff',
-                        userAvatarBackgroundColor: '#1e2f3c'
-                      }
-                    }, document.getElementById('esim-copilot'));
-                  }
-                };
-                document.head.appendChild(script);
-              })();
-            `
+        {/* Copilot Studio embedded via iframe to avoid third-party CDNs */}
+        <iframe
+          title="eSIM Myanmar Copilot"
+          id="copilot-frame"
+          src="https://copilotstudio.microsoft.com/embed/agents/esim-myanmar-public"
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          style={{
+            position: 'fixed',
+            bottom: '16px',
+            right: '16px',
+            width: '420px',
+            height: '560px',
+            border: '0',
+            borderRadius: '12px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+            backgroundColor: 'rgba(30, 47, 60, 0.85)'
           }}
         />
       </body>
