@@ -1,0 +1,55 @@
+name: Power Platform ALM
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'powerplatform/**'
+      - '.github/workflows/powerplatform-alm.yml'
+
+jobs:
+  export-solution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Power Platform CLI
+        run: |
+          curl -sSL https://aka.ms/pac-install.sh | bash
+
+      - name: Authenticate (service principal)
+        env:
+          PP_CLIENT_ID: ${{ secrets.PP_CLIENT_ID }}
+          PP_CLIENT_SECRET: ${{ secrets.PP_CLIENT_SECRET }}
+          PP_TENANT: ${{ secrets.PP_TENANT }}
+        run: |
+          pac auth create --url ${{ secrets.PP_ENV_URL }} --name github-action --clientId $PP_CLIENT_ID --clientSecret $PP_CLIENT_SECRET --tenant $PP_TENANT
+
+      - name: Export solution
+        run: |
+          pac solution clone --publisher-prefix esim --path ./powerplatform/solutions
+
+  import-solution:
+    runs-on: ubuntu-latest
+    needs: export-solution
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Power Platform CLI
+        run: |
+          curl -sSL https://aka.ms/pac-install.sh | bash
+
+      - name: Authenticate (service principal)
+        env:
+          PP_CLIENT_ID: ${{ secrets.PP_CLIENT_ID }}
+          PP_CLIENT_SECRET: ${{ secrets.PP_CLIENT_SECRET }}
+          PP_TENANT: ${{ secrets.PP_TENANT }}
+        run: |
+          pac auth create --url ${{ secrets.PP_ENV_URL }} --name github-action --clientId $PP_CLIENT_ID --clientSecret $PP_CLIENT_SECRET --tenant $PP_TENANT
+
+      - name: Import solution to target
+        run: |
+          pac solution import --path ./powerplatform/solutions --overwrite
+

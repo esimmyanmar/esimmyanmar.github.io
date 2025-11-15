@@ -80,3 +80,19 @@ All notable changes to the eSIM Myanmar Microsoft Stack project.
 **Release Date**: January 27, 2025  
 **Status**: Production Ready  
 **Compliance**: Fully Verified
+
+## [1.1.0] - 2025-11-15
+
+### Entertainment server iteration
+
+#### Added
+- Project scope updated to include eSIM Myanmar Entertainment Server (100 pages) built on Microsoft-only stack.
+- Design tokens file `DESIGN_TOKENS.md` added with color palette and glassmorphism guidelines.
+- Package metadata updated to `esim-myanmar-entertainment-server`.
+
+#### Notes
+- This iteration prepares repository metadata and design tokens for the entertainment server program. Full page content and Power Pages artifacts remain a separate delivery scope; this commit focuses on documentation, naming, and visual system tokens.
+
+**Current Version**: 1.1.0  
+**Release Date**: November 15, 2025  
+**Status**: Documentation and metadata updated

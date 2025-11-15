@@ -1,69 +1,498 @@
 {
   "dashboards": [
     {
-      "name": "Network Performance Dashboard",
       "id": "network-performance",
+      "name": "Network Performance Dashboard",
       "description": "Real-time network performance metrics across Myanmar regions",
-      "dataSource": "Azure Log Analytics",
-      "refreshSchedule": "Every 5 minutes",
-      "tiles": [
+      "refreshInterval": "PT5M",
+      "dataSource": {
+        "type": "AzureLogAnalytics",
+        "workspaceId": "${LOG_ANALYTICS_WORKSPACE_ID}",
+        "query": "NetworkPerformance_CL | where TimeGenerated >= ago(1h) | summarize avg(Latency_d), avg(Throughput_d), avg(PacketLoss_d) by Region_s, bin(TimeGenerated, 5m)"
+      },
+      "visualizations": [
         {
-          "title": "Network Coverage",
-          "type": "gauge",
-          "query": "NetworkMetrics_CL | where TimeGenerated > ago(5m) | summarize avg(CoveragePercentage_d) by Region_s",
-          "visualization": "gauge",
-          "target": 98.5
+          "type": "LineChart",
+          "title": "Network Latency by Region",
+          "xAxis": "TimeGenerated",
+          "yAxis": "avg_Latency_d",
+          "series": "Region_s",
+          "thresholds": {
+            "warning": 100,
+            "critical": 200
+          }
         },
         {
-          "title": "Speed Test Results",
-          "type": "line_chart",
-          "query": "SpeedTestResults_CL | where TimeGenerated > ago(1h) | summarize avg(DownloadSpeed_d), avg(UploadSpeed_d) by bin(TimeGenerated, 5m)",
-          "visualization": "line_chart"
+          "type": "AreaChart",
+          "title": "Throughput Trends",
+          "xAxis": "TimeGenerated",
+          "yAxis": "avg_Throughput_d",
+          "series": "Region_s",
+          "unit": "Mbps"
         },
         {
-          "title": "Regional Performance",
-          "type": "map",
-          "query": "NetworkMetrics_CL | where TimeGenerated > ago(15m) | summarize avg(CoveragePercentage_d), avg(DownloadSpeed_d) by Region_s, Latitude_d, Longitude_d",
-          "visualization": "map"
+          "type": "Gauge",
+          "title": "Packet Loss Rate",
+          "value": "avg_PacketLoss_d",
+          "min": 0,
+          "max": 5,
+          "thresholds": {
+            "good": 1,
+            "warning": 2,
+            "critical": 3
+          }
+        },
+        {
+          "type": "Map",
+          "title": "Myanmar Network Coverage",
+          "latitude": "Latitude_d",
+          "longitude": "Longitude_d",
+          "value": "avg_Throughput_d",
+          "regions": [
+            "Yangon", "Mandalay", "Naypyitaw", "Bago", "Magway",
+            "Tanintharyi", "Ayeyarwady", "Sagaing", "Mon", "Rakhine",
+            "Shan", "Kachin", "Kayah", "Kayin", "Chin"
+          ]
+        }
+      ],
+      "alerts": [
+        {
+          "name": "High Latency Alert",
+          "condition": "avg_Latency_d > 200",
+          "severity": "High",
+          "notification": "teams"
+        },
+        {
+          "name": "Low Throughput Alert",
+          "condition": "avg_Throughput_d < 10",
+          "severity": "Medium",
+          "notification": "email"
         }
       ]
     },
     {
-      "name": "Device Enrollment Dashboard",
       "id": "device-enrollment",
+      "name": "Device Enrollment Dashboard",
       "description": "eSIM device enrollment and lifecycle management metrics",
-      "dataSource": "Microsoft Graph API",
-      "refreshSchedule": "Every 15 minutes",
-      "tiles": [
+      "refreshInterval": "PT15M",
+      "dataSource": {
+        "type": "Dataverse",
+        "environment": "${DATAVERSE_ENVIRONMENT}",
+        "table": "esim_deviceenrollments",
+        "query": "SELECT devicetype, enrollmentstatus, region, createdon FROM esim_deviceenrollments WHERE createdon >= DATEADD(day, -7, GETDATE())"
+      },
+      "visualizations": [
         {
-          "title": "Active eSIM Profiles",
-          "type": "card",
-          "query": "DeviceEnrollment_CL | where TimeGenerated > ago(1d) | summarize count() by Status_s",
-          "visualization": "card"
+          "type": "BarChart",
+          "title": "Device Enrollments by Type",
+          "xAxis": "devicetype",
+          "yAxis": "count",
+          "categories": [
+            "iPhone", "iPad", "Apple Watch", "Android Phone",
+            "Android Tablet", "Samsung Galaxy", "Google Pixel",
+            "IoT Device", "Automotive", "Industrial"
+          ]
         },
         {
-          "title": "Device Types",
-          "type": "pie_chart",
-          "query": "DeviceEnrollment_CL | where Status_s == 'Active' | summarize count() by DeviceType_s",
-          "visualization": "pie_chart"
+          "type": "PieChart",
+          "title": "Enrollment Status Distribution",
+          "value": "count",
+          "category": "enrollmentstatus",
+          "colors": {
+            "Active": "#00ff00",
+            "Pending": "#ffff00",
+            "Failed": "#ff0000",
+            "Suspended": "#ff8800"
+          }
+        },
+        {
+          "type": "Funnel",
+          "title": "eSIM Provisioning Funnel",
+          "stages": [
+            "Device Registration",
+            "Profile Download",
+            "Profile Installation",
+            "Network Activation",
+            "Service Ready"
+          ]
+        },
+        {
+          "type": "Table",
+          "title": "Recent Enrollments",
+          "columns": [
+            "Device Type",
+            "ICCID",
+            "Region",
+            "Status",
+            "Enrollment Date"
+          ],
+          "sortBy": "createdon",
+          "sortOrder": "desc",
+          "pageSize": 20
+        }
+      ],
+      "kpis": [
+        {
+          "name": "Total Active Devices",
+          "query": "SELECT COUNT(*) FROM esim_deviceenrollments WHERE enrollmentstatus = 'Active'",
+          "format": "number",
+          "target": 2000000
+        },
+        {
+          "name": "Daily Enrollment Rate",
+          "query": "SELECT COUNT(*) FROM esim_deviceenrollments WHERE createdon >= DATEADD(day, -1, GETDATE())",
+          "format": "number",
+          "trend": "up"
+        },
+        {
+          "name": "Success Rate",
+          "query": "SELECT (COUNT(CASE WHEN enrollmentstatus = 'Active' THEN 1 END) * 100.0 / COUNT(*)) FROM esim_deviceenrollments WHERE createdon >= DATEADD(day, -7, GETDATE())",
+          "format": "percentage",
+          "target": 95
         }
       ]
     },
     {
-      "name": "Compliance Metrics Dashboard",
       "id": "compliance-metrics",
-      "description": "Security and compliance monitoring across all systems",
-      "dataSource": "Microsoft Sentinel",
-      "refreshSchedule": "Every 10 minutes",
-      "tiles": [
+      "name": "Compliance Metrics Dashboard",
+      "description": "Security compliance and regulatory adherence monitoring",
+      "refreshInterval": "PT10M",
+      "dataSource": {
+        "type": "AzureLogAnalytics",
+        "workspaceId": "${LOG_ANALYTICS_WORKSPACE_ID}",
+        "query": "DeviceCompliance_CL | where TimeGenerated >= ago(24h) | summarize ComplianceScore = avg(compliance_score_d), DeviceCount = count() by compliance_type_s, bin(TimeGenerated, 10m)"
+      },
+      "visualizations": [
         {
-          "title": "GSMA Compliance Score",
-          "type": "gauge",
-          "query": "ComplianceMetrics_CL | where ComplianceType_s == 'GSMA' | summarize avg(Score_d)",
-          "visualization": "gauge",
-          "target": 100
+          "type": "Scorecard",
+          "title": "Overall Compliance Score",
+          "value": "ComplianceScore",
+          "format": "percentage",
+          "thresholds": {
+            "excellent": 95,
+            "good": 85,
+            "warning": 75,
+            "critical": 65
+          }
+        },
+        {
+          "type": "StackedBarChart",
+          "title": "Compliance by Category",
+          "xAxis": "compliance_type_s",
+          "yAxis": "ComplianceScore",
+          "categories": [
+            "OS Version",
+            "Microsoft Defender",
+            "BitLocker Encryption",
+            "eSIM Profile",
+            "Network Security"
+          ]
+        },
+        {
+          "type": "HeatMap",
+          "title": "Compliance Trends",
+          "xAxis": "TimeGenerated",
+          "yAxis": "compliance_type_s",
+          "value": "ComplianceScore",
+          "colorScale": {
+            "min": 0,
+            "max": 100,
+            "colors": ["#ff0000", "#ffff00", "#00ff00"]
+          }
+        },
+        {
+          "type": "TreeMap",
+          "title": "Non-Compliant Devices by Issue",
+          "category": "issue_type_s",
+          "value": "DeviceCount",
+          "hierarchy": [
+            "Security",
+            "Configuration",
+            "Policy",
+            "Hardware"
+          ]
+        }
+      ],
+      "complianceStandards": [
+        {
+          "name": "GSMA SGP.22 v4.0",
+          "status": "Compliant",
+          "lastAudit": "2025-01-15",
+          "nextAudit": "2025-04-15",
+          "score": 98
+        },
+        {
+          "name": "Myanmar Electronic Transactions Law 2021",
+          "status": "Compliant",
+          "lastAudit": "2025-01-10",
+          "nextAudit": "2025-07-10",
+          "score": 96
+        },
+        {
+          "name": "ISO 27001",
+          "status": "Compliant",
+          "lastAudit": "2024-12-20",
+          "nextAudit": "2025-12-20",
+          "score": 94
+        },
+        {
+          "name": "GDPR",
+          "status": "Compliant",
+          "lastAudit": "2025-01-05",
+          "nextAudit": "2025-06-05",
+          "score": 97
+        }
+      ]
+    },
+    {
+      "id": "esim-lifecycle",
+      "name": "eSIM Lifecycle Dashboard",
+      "description": "Complete eSIM profile lifecycle management and analytics",
+      "refreshInterval": "PT30M",
+      "dataSource": {
+        "type": "MicrosoftGraph",
+        "endpoint": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices",
+        "filter": "deviceType eq 'eSIM' and complianceState eq 'compliant'"
+      },
+      "visualizations": [
+        {
+          "type": "Waterfall",
+          "title": "eSIM Profile States",
+          "categories": [
+            "Profiles Created",
+            "Profiles Downloaded",
+            "Profiles Installed",
+            "Profiles Activated",
+            "Profiles Suspended",
+            "Profiles Deleted"
+          ],
+          "values": "count"
+        },
+        {
+          "type": "Sankey",
+          "title": "Profile State Transitions",
+          "source": "previous_state_s",
+          "target": "current_state_s",
+          "value": "transition_count_d",
+          "states": [
+            "Created", "Downloaded", "Installed", "Activated",
+            "Suspended", "Deleted", "Error"
+          ]
+        },
+        {
+          "type": "Timeline",
+          "title": "Profile Lifecycle Events",
+          "timeField": "event_timestamp_t",
+          "eventField": "event_type_s",
+          "categoryField": "profile_id_s",
+          "events": [
+            "Profile Created",
+            "Download Initiated",
+            "Installation Started",
+            "Installation Completed",
+            "Activation Successful",
+            "Profile Active"
+          ]
+        },
+        {
+          "type": "Matrix",
+          "title": "Profile Performance by Operator",
+          "rows": "operator_name_s",
+          "columns": "profile_status_s",
+          "values": "profile_count_d",
+          "operators": [
+            "eSIM Myanmar",
+            "Mytel",
+            "MPT",
+            "Telenor Myanmar",
+            "Ooredoo Myanmar"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "name": "Profile Success Rate",
+          "calculation": "(Activated Profiles / Created Profiles) * 100",
+          "target": 98,
+          "unit": "percentage"
+        },
+        {
+          "name": "Average Activation Time",
+          "calculation": "AVG(activation_time_minutes)",
+          "target": 5,
+          "unit": "minutes"
+        },
+        {
+          "name": "Profile Utilization Rate",
+          "calculation": "(Active Profiles / Total Capacity) * 100",
+          "target": 85,
+          "unit": "percentage"
+        }
+      ]
+    },
+    {
+      "id": "security-monitoring",
+      "name": "Security Monitoring Dashboard",
+      "description": "Real-time security threat detection and incident response",
+      "refreshInterval": "PT2M",
+      "dataSource": {
+        "type": "MicrosoftSentinel",
+        "workspaceId": "${SENTINEL_WORKSPACE_ID}",
+        "query": "SecurityEvent | where TimeGenerated >= ago(1h) | summarize EventCount = count() by EventID, Computer, bin(TimeGenerated, 2m)"
+      },
+      "visualizations": [
+        {
+          "type": "SecurityMap",
+          "title": "Global Threat Intelligence",
+          "latitude": "src_latitude_d",
+          "longitude": "src_longitude_d",
+          "threatLevel": "threat_level_s",
+          "attackType": "attack_type_s"
+        },
+        {
+          "type": "AlertsTable",
+          "title": "Active Security Alerts",
+          "columns": [
+            "Alert Time",
+            "Severity",
+            "Alert Type",
+            "Source IP",
+            "Target",
+            "Status"
+          ],
+          "severityColors": {
+            "Critical": "#ff0000",
+            "High": "#ff8800",
+            "Medium": "#ffff00",
+            "Low": "#00ff00",
+            "Informational": "#0088ff"
+          }
+        },
+        {
+          "type": "ThreatTimeline",
+          "title": "Security Incidents Timeline",
+          "timeField": "incident_time_t",
+          "severityField": "severity_s",
+          "typeField": "incident_type_s"
+        },
+        {
+          "type": "ComplianceRadar",
+          "title": "Security Posture",
+          "metrics": [
+            "Identity Protection",
+            "Device Compliance",
+            "Network Security",
+            "Data Protection",
+            "Threat Detection",
+            "Incident Response"
+          ],
+          "values": "compliance_score_d"
+        }
+      ],
+      "securityKpis": [
+        {
+          "name": "Mean Time to Detection (MTTD)",
+          "value": "4.2",
+          "unit": "minutes",
+          "trend": "down",
+          "target": 5
+        },
+        {
+          "name": "Mean Time to Response (MTTR)",
+          "value": "12.8",
+          "unit": "minutes",
+          "trend": "down",
+          "target": 15
+        },
+        {
+          "name": "Security Score",
+          "value": "94",
+          "unit": "percentage",
+          "trend": "up",
+          "target": 95
         }
       ]
     }
-  ]
+  ],
+  "globalSettings": {
+    "theme": "fluent-dark",
+    "colorPalette": [
+      "#00ffff", "#1e2f3c", "#ffffff", "#00ff00",
+      "#ffff00", "#ff8800", "#ff0000", "#8800ff"
+    ],
+    "fonts": {
+      "primary": "Segoe UI Variable",
+      "secondary": "Leelawadee UI",
+      "monospace": "Cascadia Code"
+    },
+    "branding": {
+      "logo": "/assets/esim-myanmar-logo.png",
+      "companyName": "eSIM Myanmar Company Limited",
+      "website": "esim.com.mm",
+      "contact": "info@esim.com.mm"
+    },
+    "localization": {
+      "defaultLanguage": "en",
+      "supportedLanguages": ["en", "my", "zh"],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "timezone": "Asia/Yangon"
+    },
+    "security": {
+      "dataRetention": {
+        "operational": "90 days",
+        "audit": "7 years",
+        "compliance": "10 years"
+      },
+      "accessControl": {
+        "adminRole": "eSIM.Admin",
+        "viewerRole": "eSIM.Viewer",
+        "auditRole": "eSIM.Auditor"
+      }
+    }
+  },
+  "automatedReports": [
+    {
+      "name": "Daily Operations Report",
+      "schedule": "0 8 * * *",
+      "recipients": ["operations@esim.com.mm"],
+      "dashboards": ["network-performance", "device-enrollment"],
+      "format": "PDF"
+    },
+    {
+      "name": "Weekly Compliance Report",
+      "schedule": "0 9 * * 1",
+      "recipients": ["compliance@esim.com.mm", "ceo@esim.com.mm"],
+      "dashboards": ["compliance-metrics", "security-monitoring"],
+      "format": "PDF"
+    },
+    {
+      "name": "Monthly Executive Summary",
+      "schedule": "0 10 1 * *",
+      "recipients": ["executives@esim.com.mm"],
+      "dashboards": ["network-performance", "device-enrollment", "esim-lifecycle"],
+      "format": "PowerPoint"
+    }
+  ],
+  "integrations": {
+    "microsoftTeams": {
+      "webhookUrl": "${TEAMS_WEBHOOK_URL}",
+      "channels": {
+        "alerts": "Security Alerts",
+        "operations": "Operations",
+        "compliance": "Compliance"
+      }
+    },
+    "azureLogAnalytics": {
+      "workspaceId": "${LOG_ANALYTICS_WORKSPACE_ID}",
+      "workspaceKey": "${LOG_ANALYTICS_WORKSPACE_KEY}"
+    },
+    "microsoftSentinel": {
+      "workspaceId": "${SENTINEL_WORKSPACE_ID}",
+      "subscriptionId": "${AZURE_SUBSCRIPTION_ID}"
+    },
+    "dataverse": {
+      "environment": "${DATAVERSE_ENVIRONMENT}",
+      "clientId": "${DATAVERSE_CLIENT_ID}"
+    }
+  }
 }
