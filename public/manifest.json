@@ -1,0 +1,113 @@
+{
+  "name": "eSIM Myanmar - Enterprise eSIM Solutions",
+  "short_name": "eSIM Myanmar",
+  "description": "Myanmar's leading enterprise eSIM provider with GSMA SGP.22 compliance",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e2f3c",
+  "theme_color": "#00ffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "telecommunications", "technology"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Company Profile",
+      "short_name": "Company",
+      "description": "View company profile and information",
+      "url": "/company",
+      "icons": [
+        {
+          "src": "/icons/company-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Network Coverage",
+      "short_name": "Coverage",
+      "description": "Check network coverage maps",
+      "url": "/coverage",
+      "icons": [
+        {
+          "src": "/icons/coverage-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Technology",
+      "short_name": "Tech",
+      "description": "Learn about eSIM technology",
+      "url": "/technology",
+      "icons": [
+        {
+          "src": "/icons/technology-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact Support",
+      "short_name": "Support",
+      "description": "Get customer support",
+      "url": "/support",
+      "icons": [
+        {
+          "src": "/icons/support-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://esim.com.mm"
+    }
+  ],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "id": "esim-myanmar-company-profile"
+}
