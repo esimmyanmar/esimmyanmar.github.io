@@ -1,0 +1,38 @@
+# Code Owners for eSIM Myanmar Microsoft Stack
+
+# Global owners
+* @esimmyanmar/core-team @esimmyanmar/security-team
+
+# Microsoft Stack components
+/src/microsoft-stack/ @esimmyanmar/microsoft-architects @esimmyanmar/core-team
+/azure-static-web-apps.config.json @esimmyanmar/devops-team @esimmyanmar/security-team
+/power-pages-config.json @esimmyanmar/power-platform-team
+
+# Security and compliance
+/.github/workflows/ @esimmyanmar/devops-team @esimmyanmar/security-team
+/.github/SECURITY.md @esimmyanmar/security-team
+/LICENSE @esimmyanmar/legal-team @esimmyanmar/core-team
+
+# Documentation
+/README.md @esimmyanmar/core-team @esimmyanmar/technical-writers
+/MICROSOFT_DEPLOYMENT_GUIDE.md @esimmyanmar/devops-team @esimmyanmar/microsoft-architects
+/CHANGELOG.md @esimmyanmar/core-team
+/CONSISTENCY.md @esimmyanmar/quality-assurance
+
+# Configuration files
+/package.json @esimmyanmar/core-team @esimmyanmar/devops-team
+/next.config.mjs @esimmyanmar/core-team @esimmyanmar/security-team
+/tailwind.config.ts @esimmyanmar/frontend-team
+/playwright.config.ts @esimmyanmar/quality-assurance
+
+# Application code
+/app/ @esimmyanmar/frontend-team @esimmyanmar/core-team
+/components/ @esimmyanmar/frontend-team
+/src/components/ @esimmyanmar/frontend-team
+/src/styles/ @esimmyanmar/frontend-team
+
+# Tests
+/tests/ @esimmyanmar/quality-assurance @esimmyanmar/core-team
+
+# Environment and secrets
+/.env.example @esimmyanmar/devops-team @esimmyanmar/security-team

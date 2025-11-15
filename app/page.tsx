@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
             
             <div className="service-card glass-card">
-              <div className="service-icon">🌍</div>
+              <div className="service-icon">GLOBAL</div>
               <h3>Global Roaming</h3>
               <p>Seamless connectivity across 200+ countries with competitive roaming rates and local partnerships.</p>
               <a href="/roaming" className="service-link">Learn More</a>

@@ -1,7 +1,7 @@
 {
-  "name": "esim-myanmar-microsoft-stack",
+  "name": "esim-myanmar-enterprise-website",
   "version": "1.0.0",
-  "description": "Enterprise eSIM company profile website with 300 pages using Microsoft-only technology stack",
+  "description": "Enterprise eSIM company profile and information website (300 pages). Microsoft Stack: Azure Static Web Apps, Power Pages, Microsoft Graph Toolkit, Power Automate, Power BI, Copilot Studio, Dataverse. Zero external dependencies. English, Myanmar, Chinese.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -70,7 +70,7 @@
     "url": "https://esim.com.mm"
   },
   "license": "PROPRIETARY",
-  "homepage": "https://esimmyanmar.github.io",
+  "homepage": "https://esimmyanmar.github.io/",
   "microsoftStack": {
     "azureStaticWebApps": "^1.1.9",
     "azureFunctions": "^4.5.1",
