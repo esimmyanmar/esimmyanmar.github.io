@@ -1,0 +1,278 @@
+:root {
+  --esim-primary: #1e2f3c;
+  --esim-accent: #00ffff;
+  --esim-silver: #c0c0c0;
+  --esim-pearl-glass: rgba(192, 192, 192, 0.3);
+  --esim-glass-border: rgba(0, 255, 255, 0.3);
+  --esim-text-primary: #ffffff;
+  --esim-text-secondary: rgba(255, 255, 255, 0.8);
+  --esim-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --esim-blur: blur(20px);
+  --esim-brightness: brightness(1.1);
+  
+  --font-family-base: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-family-myanmar: 'Leelawadee UI', 'Myanmar Text', sans-serif;
+  --font-family-chinese: 'Microsoft YaHei UI', 'PingFang SC', sans-serif;
+  
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background: var(--esim-primary);
+  color: var(--esim-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.pearl-glass {
+  background: var(--esim-pearl-glass);
+  backdrop-filter: var(--esim-blur) var(--esim-brightness);
+  border: 1px solid var(--esim-glass-border);
+  box-shadow: var(--esim-shadow);
+  border-radius: var(--radius-md);
+}
+
+.glass-card {
+  background: var(--esim-pearl-glass);
+  backdrop-filter: var(--esim-blur) var(--esim-brightness);
+  border: 1px solid var(--esim-glass-border);
+  box-shadow: var(--esim-shadow);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    border-color: var(--esim-accent);
+  }
+}
+
+.company-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(192, 192, 192, 0.2) 0%, transparent 50%),
+    var(--esim-primary);
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--esim-text-primary) 0%, var(--esim-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 400;
+    color: var(--esim-accent);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .hero-description {
+    font-size: 1.125rem;
+    color: var(--esim-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 500px;
+  }
+  
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-item {
+      text-align: center;
+      
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--esim-accent);
+        display: block;
+      }
+      
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--esim-text-secondary);
+        margin-top: var(--spacing-xs);
+      }
+    }
+  }
+}
+
+.company-profile-flyer {
+  background: var(--esim-pearl-glass);
+  backdrop-filter: var(--esim-blur) var(--esim-brightness);
+  border: 1px solid var(--esim-glass-border);
+  box-shadow: var(--esim-shadow);
+  border-radius: var(--radius-md);
+  max-width: 800px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-xxl);
+  
+  .flyer-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--esim-glass-border);
+    
+    .company-name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--esim-accent);
+    }
+    
+    .company-tagline {
+      font-size: 1rem;
+      color: var(--esim-text-secondary);
+    }
+  }
+  
+  .flyer-section {
+    margin-bottom: var(--spacing-lg);
+    
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--esim-accent);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    p {
+      color: var(--esim-text-secondary);
+      line-height: 1.6;
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        color: var(--esim-text-secondary);
+        padding: var(--spacing-xs) 0;
+        position: relative;
+        padding-left: var(--spacing-md);
+        
+        &::before {
+          content: '▶';
+          position: absolute;
+          left: 0;
+          color: var(--esim-accent);
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+  
+  .tech-grid,
+  .coverage-grid,
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+  
+  .tech-item,
+  .cert-item {
+    background: var(--esim-pearl-glass);
+    backdrop-filter: var(--esim-blur) var(--esim-brightness);
+    border: 1px solid var(--esim-glass-border);
+    box-shadow: var(--esim-shadow);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+    text-align: center;
+    font-weight: 600;
+    color: var(--esim-accent);
+  }
+  
+  .coverage-item {
+    background: var(--esim-pearl-glass);
+    backdrop-filter: var(--esim-blur) var(--esim-brightness);
+    border: 1px solid var(--esim-glass-border);
+    box-shadow: var(--esim-shadow);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md);
+    text-align: center;
+    
+    .coverage-region {
+      font-weight: 600;
+      color: var(--esim-text-primary);
+    }
+    
+    .coverage-percent {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--esim-accent);
+      margin-top: var(--spacing-xs);
+    }
+  }
+  
+  .contact-details {
+    display: grid;
+    gap: var(--spacing-sm);
+    
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .contact-label {
+        font-weight: 600;
+        color: var(--esim-text-primary);
+      }
+      
+      .contact-value {
+        color: var(--esim-accent);
+        font-weight: 500;
+      }
+    }
+  }
+}

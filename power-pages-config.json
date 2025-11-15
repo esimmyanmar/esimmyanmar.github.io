@@ -1,0 +1,50 @@
+{
+  "name": "eSIM Myanmar Company Profile",
+  "description": "Enterprise eSIM Company Profile & Information Website - 300 Pages",
+  "version": "1.0.0",
+  "powerPlatform": {
+    "environment": "prod-esim-myanmar",
+    "solution": "eSIMMyanmar",
+    "publisher": "esim"
+  },
+  "pages": {
+    "total": 300,
+    "categories": {
+      "company": 45,
+      "technology": 38,
+      "coverage": 42,
+      "devices": 35,
+      "support": 28,
+      "regional": 67,
+      "resources": 45
+    }
+  },
+  "dataverse": {
+    "tables": [
+      "esim_company_info",
+      "esim_network_coverage",
+      "esim_device_compatibility",
+      "esim_partners",
+      "esim_news_articles",
+      "esim_faq_items",
+      "esim_certifications",
+      "esim_regional_data"
+    ]
+  },
+  "microsoftGraphToolkit": {
+    "version": "6.2.0",
+    "components": [
+      "mgt-person",
+      "mgt-people",
+      "mgt-agenda",
+      "mgt-file-list",
+      "mgt-search-box",
+      "mgt-login"
+    ]
+  },
+  "copilotStudio": {
+    "botId": "esim-myanmar-assistant",
+    "topics": 540,
+    "languages": ["en", "my", "zh"]
+  }
+}

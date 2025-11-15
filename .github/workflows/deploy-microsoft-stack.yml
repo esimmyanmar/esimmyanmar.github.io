@@ -1,0 +1,212 @@
+name: Deploy eSIM Myanmar Microsoft Stack
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  AZURE_RESOURCE_GROUP: esim-myanmar-rg
+  AZURE_STATIC_WEB_APP_NAME: esim-myanmar
+  AZURE_FUNCTIONS_APP_NAME: esim-myanmar-functions
+  POWER_PLATFORM_ENVIRONMENT: prod-esim-myanmar
+  MICROSOFT_CLIENT_ID: ${{ secrets.MICROSOFT_CLIENT_ID }}
+  MICROSOFT_TENANT_ID: ${{ secrets.MICROSOFT_TENANT_ID }}
+  SHAREPOINT_SITE_URL: ${{ secrets.SHAREPOINT_SITE_URL }}
+  DATAVERSE_URL: ${{ secrets.DATAVERSE_URL }}
+  COPILOT_BOT_ID: ${{ secrets.COPILOT_BOT_ID }}
+  POWER_BI_WORKSPACE_ID: ${{ secrets.POWER_BI_WORKSPACE_ID }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Microsoft Stack
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        lfs: false
+
+    - name: Setup Node.js 18
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Dependencies
+      run: |
+        npm ci
+        npm audit fix --audit-level moderate
+
+    - name: Setup Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Setup Power Platform CLI
+      run: |
+        npm install -g @microsoft/powerplatform-cli
+        pac auth create --url ${{ env.DATAVERSE_URL }} --applicationId ${{ env.MICROSOFT_CLIENT_ID }} --clientSecret ${{ secrets.MICROSOFT_CLIENT_SECRET }} --tenant ${{ env.MICROSOFT_TENANT_ID }}
+
+    - name: Lint and Type Check
+      run: |
+        npm run lint
+        npx tsc --noEmit
+
+    - name: Build Application
+      run: |
+        npm run build
+      env:
+        NEXT_PUBLIC_MICROSOFT_CLIENT_ID: ${{ env.MICROSOFT_CLIENT_ID }}
+        NEXT_PUBLIC_MICROSOFT_TENANT_ID: ${{ env.MICROSOFT_TENANT_ID }}
+        NEXT_PUBLIC_SHAREPOINT_SITE: ${{ env.SHAREPOINT_SITE_URL }}
+        NEXT_PUBLIC_DATAVERSE_URL: ${{ env.DATAVERSE_URL }}
+        NEXT_PUBLIC_COPILOT_BOT_ID: ${{ env.COPILOT_BOT_ID }}
+        NEXT_PUBLIC_POWER_BI_WORKSPACE: ${{ env.POWER_BI_WORKSPACE_ID }}
+
+    - name: Deploy Azure Functions
+      run: |
+        cd src/microsoft-stack/azure-functions
+        func azure functionapp publish ${{ env.AZURE_FUNCTIONS_APP_NAME }} --typescript
+
+    - name: Deploy to Azure Static Web Apps
+      id: builddeploy
+      uses: Azure/static-web-apps-deploy@v1
+      with:
+        azure_static_web_apps_api_token: ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        action: "upload"
+        app_location: "/"
+        api_location: "src/microsoft-stack/azure-functions"
+        output_location: "out"
+        app_build_command: "npm run build"
+
+    - name: Deploy Power Pages
+      run: |
+        pac solution import --path ./power-pages-solution.zip --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+        pac website upload --path ./out --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Update Dataverse Tables
+      run: |
+        pac data import --file ./src/microsoft-stack/dataverse/sample-data.json --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Deploy Power Automate Flows
+      run: |
+        pac flow import --file ./src/microsoft-stack/power-automate/flows.zip --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Update Copilot Studio Bot
+      run: |
+        pac bot publish --name esim-myanmar-assistant --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Refresh Power BI Datasets
+      run: |
+        az rest --method POST --url "https://api.powerbi.com/v1.0/myorg/groups/${{ env.POWER_BI_WORKSPACE_ID }}/datasets/refresh" --headers "Authorization=Bearer ${{ secrets.POWER_BI_ACCESS_TOKEN }}"
+
+    - name: Run Security Scan
+      run: |
+        npm audit --audit-level high
+        npx @microsoft/security-devops-azdevops
+
+    - name: Run Performance Tests
+      run: |
+        npx lighthouse https://esim-myanmar.azurestaticapps.net --chrome-flags="--headless" --output=json --output-path=./lighthouse-report.json
+        
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: deployment-artifacts
+        path: |
+          ./out
+          ./lighthouse-report.json
+          ./security-report.json
+
+  post-deployment-tests:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    name: Post-Deployment Validation
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js 18
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install Playwright
+      run: |
+        npm ci
+        npx playwright install --with-deps
+
+    - name: Run E2E Tests
+      run: |
+        npx playwright test --config=playwright.config.ts
+      env:
+        BASE_URL: https://esim-myanmar.azurestaticapps.net
+
+    - name: Validate Microsoft Graph Integration
+      run: |
+        curl -f "https://esim-myanmar.azurestaticapps.net/api/network-status" || exit 1
+        curl -f "https://esim-myanmar.azurestaticapps.net/api/health" || exit 1
+
+    - name: Check Power Platform Services
+      run: |
+        pac solution list --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+        pac website list --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Validate Copilot Studio Bot
+      run: |
+        pac bot list --environment ${{ env.POWER_PLATFORM_ENVIRONMENT }}
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: |
+          playwright-report/
+          test-results/
+
+  notify-deployment:
+    needs: [build-and-deploy, post-deployment-tests]
+    runs-on: ubuntu-latest
+    name: Notify Deployment Status
+    if: always()
+    
+    steps:
+    - name: Notify Teams Channel
+      uses: aliencube/microsoft-teams-actions@v0.8.0
+      with:
+        webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URL }}
+        title: "eSIM Myanmar Deployment Status"
+        summary: "Deployment completed for commit ${{ github.sha }}"
+        text: |
+          **Deployment Status**: ${{ needs.build-and-deploy.result }}
+          **Tests Status**: ${{ needs.post-deployment-tests.result }}
+          **Environment**: Production
+          **URL**: https://esim-myanmar.azurestaticapps.net
+          **Commit**: ${{ github.sha }}
+          **Author**: ${{ github.actor }}
+        theme_color: ${{ needs.build-and-deploy.result == 'success' && needs.post-deployment-tests.result == 'success' && '00ff00' || 'ff0000' }}
+
+    - name: Update SharePoint Deployment Log
+      run: |
+        curl -X POST "${{ env.SHAREPOINT_SITE_URL }}/_api/web/lists/getbytitle('Deployment Logs')/items" \
+          -H "Authorization: Bearer ${{ secrets.SHAREPOINT_ACCESS_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "Title": "Deployment ${{ github.sha }}",
+            "Status": "${{ needs.build-and-deploy.result }}",
+            "Environment": "Production",
+            "DeploymentDate": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'",
+            "CommitHash": "${{ github.sha }}",
+            "Author": "${{ github.actor }}"
+          }'

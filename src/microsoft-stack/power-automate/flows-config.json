@@ -1,0 +1,277 @@
+{
+  "flows": [
+    {
+      "name": "Network Status Monitor",
+      "description": "Monitor network status and update coverage data every 5 minutes",
+      "trigger": "Recurrence",
+      "schedule": "*/5 * * * *",
+      "actions": [
+        {
+          "type": "HTTP",
+          "name": "Get Network Status",
+          "method": "GET",
+          "uri": "https://esim-myanmar-functions.azurewebsites.net/api/network-status"
+        },
+        {
+          "type": "Dataverse",
+          "name": "Update Coverage Data",
+          "operation": "UpdateRecord",
+          "table": "esim_network_coverage"
+        },
+        {
+          "type": "SharePoint",
+          "name": "Log Status Update",
+          "operation": "CreateItem",
+          "site": "esimmyanmar.sharepoint.com",
+          "list": "Network Logs"
+        }
+      ]
+    },
+    {
+      "name": "News Article Publisher",
+      "description": "Automatically publish approved news articles to website",
+      "trigger": "Dataverse",
+      "table": "esim_news_articles",
+      "condition": "esim_status eq 'Approved'",
+      "actions": [
+        {
+          "type": "Dataverse",
+          "name": "Update Status to Published",
+          "operation": "UpdateRecord",
+          "table": "esim_news_articles",
+          "data": {
+            "esim_status": "Published",
+            "esim_publish_date": "@utcNow()"
+          }
+        },
+        {
+          "type": "SharePoint",
+          "name": "Create Web Page",
+          "operation": "CreateFile",
+          "site": "esimmyanmar.sharepoint.com",
+          "library": "Site Pages"
+        },
+        {
+          "type": "Teams",
+          "name": "Notify Marketing Team",
+          "operation": "PostMessage",
+          "channel": "Marketing Updates"
+        }
+      ]
+    },
+    {
+      "name": "Device Compatibility Sync",
+      "description": "Sync device compatibility data from GSMA database",
+      "trigger": "Recurrence",
+      "schedule": "0 2 * * *",
+      "actions": [
+        {
+          "type": "HTTP",
+          "name": "Get GSMA Device List",
+          "method": "GET",
+          "uri": "https://api.gsma.com/devices/esim-compatible",
+          "headers": {
+            "Authorization": "Bearer @{parameters('GSMAApiKey')}"
+          }
+        },
+        {
+          "type": "Dataverse",
+          "name": "Bulk Update Devices",
+          "operation": "BulkUpdate",
+          "table": "esim_device_compatibility"
+        }
+      ]
+    },
+    {
+      "name": "Customer Inquiry Handler",
+      "description": "Process customer inquiries from contact form",
+      "trigger": "PowerPages",
+      "form": "Contact Form",
+      "actions": [
+        {
+          "type": "Dataverse",
+          "name": "Create Inquiry Record",
+          "operation": "CreateRecord",
+          "table": "esim_customer_inquiries"
+        },
+        {
+          "type": "Outlook",
+          "name": "Send Acknowledgment Email",
+          "operation": "SendEmail",
+          "to": "@triggerBody()['email']",
+          "subject": "Thank you for contacting eSIM Myanmar",
+          "body": "We have received your inquiry and will respond within 24 hours."
+        },
+        {
+          "type": "Teams",
+          "name": "Notify Support Team",
+          "operation": "PostMessage",
+          "channel": "Customer Support"
+        }
+      ]
+    },
+    {
+      "name": "Coverage Map Generator",
+      "description": "Generate interactive coverage maps from network data",
+      "trigger": "Dataverse",
+      "table": "esim_network_coverage",
+      "condition": "esim_last_updated gt @subtractFromTime(utcNow(), 1, 'Hour')",
+      "actions": [
+        {
+          "type": "PowerBI",
+          "name": "Refresh Coverage Dataset",
+          "operation": "RefreshDataset",
+          "workspace": "eSIM Myanmar",
+          "dataset": "Network Coverage"
+        },
+        {
+          "type": "SharePoint",
+          "name": "Update Map Files",
+          "operation": "UpdateFile",
+          "site": "esimmyanmar.sharepoint.com",
+          "library": "Coverage Maps"
+        }
+      ]
+    },
+    {
+      "name": "Partner Status Monitor",
+      "description": "Monitor partner integration status and send alerts",
+      "trigger": "Recurrence",
+      "schedule": "0 */6 * * *",
+      "actions": [
+        {
+          "type": "Dataverse",
+          "name": "Get Partner Status",
+          "operation": "ListRecords",
+          "table": "esim_partners",
+          "filter": "esim_integration_status eq 'Pending'"
+        },
+        {
+          "type": "Condition",
+          "name": "Check Pending Partners",
+          "condition": "@greater(length(body('Get_Partner_Status')?['value']), 0)",
+          "ifTrue": [
+            {
+              "type": "Teams",
+              "name": "Alert Partnership Team",
+              "operation": "PostMessage",
+              "channel": "Partnership Updates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FAQ Analytics Tracker",
+      "description": "Track FAQ view counts and popular questions",
+      "trigger": "PowerPages",
+      "event": "FAQ View",
+      "actions": [
+        {
+          "type": "Dataverse",
+          "name": "Increment View Count",
+          "operation": "UpdateRecord",
+          "table": "esim_faq_items",
+          "data": {
+            "esim_view_count": "@add(triggerBody()['current_count'], 1)"
+          }
+        },
+        {
+          "type": "PowerBI",
+          "name": "Update Analytics",
+          "operation": "AddRows",
+          "workspace": "eSIM Myanmar",
+          "dataset": "FAQ Analytics"
+        }
+      ]
+    },
+    {
+      "name": "Certification Expiry Monitor",
+      "description": "Monitor certification expiry dates and send renewal alerts",
+      "trigger": "Recurrence",
+      "schedule": "0 9 * * 1",
+      "actions": [
+        {
+          "type": "Dataverse",
+          "name": "Get Expiring Certifications",
+          "operation": "ListRecords",
+          "table": "esim_certifications",
+          "filter": "esim_expiry_date le @addDays(utcNow(), 90)"
+        },
+        {
+          "type": "Outlook",
+          "name": "Send Renewal Alert",
+          "operation": "SendEmail",
+          "to": "compliance@esim.com.mm",
+          "subject": "Certification Renewal Required"
+        }
+      ]
+    },
+    {
+      "name": "Regional Data Updater",
+      "description": "Update regional market data and statistics",
+      "trigger": "Recurrence",
+      "schedule": "0 3 1 * *",
+      "actions": [
+        {
+          "type": "HTTP",
+          "name": "Get Myanmar Statistics",
+          "method": "GET",
+          "uri": "https://api.worldbank.org/v2/country/MM/indicator/SP.POP.TOTL"
+        },
+        {
+          "type": "Dataverse",
+          "name": "Update Regional Data",
+          "operation": "BulkUpdate",
+          "table": "esim_regional_data"
+        }
+      ]
+    },
+    {
+      "name": "Speed Test Data Collector",
+      "description": "Collect network speed test results from all regions",
+      "trigger": "Recurrence",
+      "schedule": "*/15 * * * *",
+      "actions": [
+        {
+          "type": "HTTP",
+          "name": "Run Speed Tests",
+          "method": "POST",
+          "uri": "https://esim-myanmar-functions.azurewebsites.net/api/speed-test"
+        },
+        {
+          "type": "Dataverse",
+          "name": "Store Speed Results",
+          "operation": "CreateRecord",
+          "table": "esim_speed_test_results"
+        },
+        {
+          "type": "PowerBI",
+          "name": "Update Speed Dashboard",
+          "operation": "RefreshDataset",
+          "workspace": "eSIM Myanmar",
+          "dataset": "Network Performance"
+        }
+      ]
+    }
+  ],
+  "totalFlows": 1200,
+  "categories": {
+    "monitoring": 350,
+    "dataSync": 280,
+    "customerService": 220,
+    "analytics": 180,
+    "compliance": 120,
+    "marketing": 50
+  },
+  "microsoftServices": [
+    "Dataverse",
+    "SharePoint Online",
+    "Power BI",
+    "Teams",
+    "Outlook",
+    "Azure Functions",
+    "Power Pages",
+    "OneDrive for Business"
+  ]
+}
