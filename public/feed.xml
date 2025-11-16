@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>eSIM Myanmar Entertainment Server</title>
+        <description>Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN</description>
+        <link>https://esim.com.mm</link>
+        <atom:link href="https://esim.com.mm/feed.xml" rel="self" type="application/rss+xml"/>
+        <language>en-US</language>
+        <lastBuildDate>Wed, 15 Jan 2025 18:00:00 GMT</lastBuildDate>
+        <managingEditor>info@esim.com.mm (eSIM Myanmar)</managingEditor>
+        <webMaster>support@esim.com.mm (eSIM Myanmar Technical Team)</webMaster>
+        <category>Technology</category>
+        <category>Telecommunications</category>
+        <category>5G</category>
+        <category>eSIM</category>
+        <category>Myanmar</category>
+        <category>ASEAN</category>
+        <ttl>60</ttl>
+        <image>
+            <url>https://esim.com.mm/images/logo.png</url>
+            <title>eSIM Myanmar Entertainment Server</title>
+            <link>https://esim.com.mm</link>
+            <width>144</width>
+            <height>144</height>
+        </image>
+        
+        <item>
+            <title>eSIM Myanmar Entertainment Server Now Live</title>
+            <description>Premium 5G eSIM connectivity launches across Myanmar and ASEAN with Microsoft technology stack</description>
+            <link>https://esim.com.mm</link>
+            <guid isPermaLink="true">https://esim.com.mm/news/launch-2025</guid>
+            <pubDate>Wed, 15 Jan 2025 18:00:00 GMT</pubDate>
+            <category>Launch</category>
+            <content:encoded><![CDATA[
+                <p>eSIM Myanmar Entertainment Server is now live, offering premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN. Built exclusively with Microsoft technologies to serve 50 million users.</p>
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Ultra-Fast 5G connectivity up to 10Gbps</li>
+                    <li>4K HDR streaming with Dolby Atmos audio</li>
+                    <li>Military-grade encryption with Microsoft Zero Trust</li>
+                    <li>Seamless ASEAN roaming across 10 countries</li>
+                    <li>QR code activation with Microsoft Graph integration</li>
+                    <li>Multi-device support for all platforms</li>
+                </ul>
+            ]]></content:encoded>
+        </item>
+        
+        <item>
+            <title>Microsoft Technology Stack Integration Complete</title>
+            <description>Azure Static Web Apps, Power Pages Pro, and Microsoft Graph Toolkit 4.5.0 now fully integrated</description>
+            <link>https://esim.com.mm/api-docs.html</link>
+            <guid isPermaLink="true">https://esim.com.mm/news/microsoft-integration</guid>
+            <pubDate>Wed, 15 Jan 2025 17:30:00 GMT</pubDate>
+            <category>Technology</category>
+            <content:encoded><![CDATA[
+                <p>Complete integration of Microsoft technology stack including Azure Functions 5, Durable Functions 4, and enterprise-grade security features.</p>
+            ]]></content:encoded>
+        </item>
+        
+        <item>
+            <title>Bilingual Support with Myanmar Unicode</title>
+            <description>Full English and Myanmar Unicode support with Azure AI Translator integration</description>
+            <link>https://esim.com.mm/?lang=my</link>
+            <guid isPermaLink="true">https://esim.com.mm/news/bilingual-support</guid>
+            <pubDate>Wed, 15 Jan 2025 17:00:00 GMT</pubDate>
+            <category>Localization</category>
+            <content:encoded><![CDATA[
+                <p>Native Myanmar Unicode support with Leelawadee UI font and real-time translation capabilities powered by Azure AI Translator.</p>
+            ]]></content:encoded>
+        </item>
+    </channel>
+</rss>

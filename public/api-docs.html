@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - eSIM Myanmar Entertainment Server</title>
+    <meta name="description" content="Complete API documentation for eSIM Myanmar Entertainment Server - Azure Functions, Microsoft Graph, Power Platform integration">
+    <link rel="canonical" href="https://esim.com.mm/api-docs.html">
+    <style>
+        body { font-family: 'Segoe UI Variable', sans-serif; background: #1e2f3c; color: #fff; margin: 0; padding: 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #00ffff; font-size: 2.5rem; margin-bottom: 2rem; }
+        .endpoint { background: rgba(192,192,192,0.1); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(0,255,255,0.2); }
+        .method { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 6px; font-weight: bold; margin-right: 1rem; }
+        .get { background: #28a745; }
+        .post { background: #007bff; }
+        .put { background: #ffc107; color: #000; }
+        .delete { background: #dc3545; }
+        code { background: rgba(0,255,255,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>eSIM Myanmar API Documentation</h1>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <strong>/api/coverage</strong>
+            <p>Retrieve 5G coverage maps for Myanmar and ASEAN regions</p>
+            <code>https://esim.com.mm/api/coverage?region=myanmar</code>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <strong>/api/speed-test</strong>
+            <p>Initiate network speed testing for connected devices</p>
+            <code>https://esim.com.mm/api/speed-test</code>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <strong>/api/activate</strong>
+            <p>Activate eSIM profile via QR code with Microsoft Graph integration</p>
+            <code>POST /api/activate { "qr_code": "string", "device_id": "string" }</code>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <strong>/api/devices</strong>
+            <p>List compatible devices and eSIM support status</p>
+            <code>https://esim.com.mm/api/devices</code>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <strong>/api/news</strong>
+            <p>Latest news and updates from eSIM Myanmar</p>
+            <code>https://esim.com.mm/api/news?lang=en</code>
+        </div>
+    </div>
+</body>
+</html>

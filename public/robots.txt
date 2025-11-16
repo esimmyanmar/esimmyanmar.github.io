@@ -3,12 +3,31 @@ Allow: /
 
 Sitemap: https://esim.com.mm/sitemap.xml
 
+# RSS and Atom Feeds
+Allow: /feed.xml
+Allow: /atom.xml
+
+# API Documentation
+Allow: /api-docs.html
+
+# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
+# Disallow sensitive areas
 Disallow: /api/
 Disallow: /.next/
 Disallow: /scripts/
 Disallow: /compliance/
 Disallow: /power-bi/
+Disallow: /.deploy-trigger
 
+# Allow important pages
+Allow: /404.html
+Allow: /manifest.json
+
+# Host
 Host: https://esim.com.mm
+
+# Additional sitemaps
+Sitemap: https://esim.com.mm/feed.xml
+Sitemap: https://esim.com.mm/atom.xml

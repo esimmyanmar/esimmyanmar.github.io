@@ -1,0 +1,80 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "eSIM Myanmar Company Limited",
+  "alternateName": "eSIM Myanmar Entertainment Server",
+  "url": "https://esim.com.mm",
+  "logo": "https://esim.com.mm/images/logo.png",
+  "description": "Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN. Built exclusively with Microsoft technologies to serve 50 million users.",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Kaung Htet Paung"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Yangon",
+    "addressCountry": "Myanmar"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+95-9650000172",
+      "contactType": "technical support",
+      "email": "support@esim.com.mm"
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "info@esim.com.mm",
+      "contactType": "customer service"
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "sales@esim.com.mm",
+      "contactType": "sales"
+    }
+  ],
+  "sameAs": [
+    "https://github.com/esimmyanmar",
+    "https://twitter.com/eSIMMyanmar"
+  ],
+  "serviceArea": {
+    "@type": "Place",
+    "name": "Myanmar and ASEAN"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "eSIM Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "5G eSIM Connectivity",
+          "description": "Ultra-fast 5G connectivity up to 10Gbps"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Premium Streaming",
+          "description": "4K HDR streaming with Dolby Atmos audio"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "ASEAN Roaming",
+          "description": "Seamless roaming across 10 ASEAN countries"
+        }
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://esim.com.mm/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}

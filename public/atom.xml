@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>eSIM Myanmar Entertainment Server</title>
+    <subtitle>Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN</subtitle>
+    <link href="https://esim.com.mm/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://esim.com.mm" rel="alternate" type="text/html"/>
+    <id>https://esim.com.mm</id>
+    <updated>2025-01-15T18:00:00Z</updated>
+    <author>
+        <name>eSIM Myanmar Company Limited</name>
+        <email>info@esim.com.mm</email>
+        <uri>https://esim.com.mm</uri>
+    </author>
+    <rights>Copyright 2025 eSIM Myanmar Company Limited. All Rights Reserved.</rights>
+    <icon>https://esim.com.mm/favicon.ico</icon>
+    <logo>https://esim.com.mm/images/logo.png</logo>
+    <generator uri="https://esim.com.mm" version="2.0">eSIM Myanmar CMS</generator>
+    
+    <entry>
+        <title>eSIM Myanmar Entertainment Server Launch</title>
+        <link href="https://esim.com.mm" rel="alternate" type="text/html"/>
+        <id>https://esim.com.mm/entries/launch-2025</id>
+        <published>2025-01-15T18:00:00Z</published>
+        <updated>2025-01-15T18:00:00Z</updated>
+        <summary type="text">Premium 5G eSIM connectivity launches across Myanmar and ASEAN with Microsoft technology stack serving 50 million users</summary>
+        <content type="html"><![CDATA[
+            <h2>eSIM Myanmar Entertainment Server Now Live</h2>
+            <p>We are excited to announce the launch of eSIM Myanmar Entertainment Server, offering premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN.</p>
+            <h3>Microsoft Technology Stack</h3>
+            <ul>
+                <li>Azure Static Web Apps with global CDN</li>
+                <li>Azure Functions 5 with Durable Functions 4</li>
+                <li>Microsoft Graph Toolkit 4.5.0</li>
+                <li>Fluent UI React 10 with Acrylic and Mica Alt</li>
+                <li>Power Pages Pro for enterprise integration</li>
+            </ul>
+            <h3>Premium Features</h3>
+            <ul>
+                <li>Ultra-Fast 5G connectivity up to 10Gbps</li>
+                <li>4K HDR streaming with Dolby Atmos audio</li>
+                <li>Enterprise security with Microsoft Zero Trust</li>
+                <li>ASEAN-wide coverage across 10 countries</li>
+                <li>Instant QR code activation</li>
+                <li>Multi-device support</li>
+            </ul>
+        ]]></content>
+        <category term="launch" label="Product Launch"/>
+        <category term="5g" label="5G Technology"/>
+        <category term="esim" label="eSIM"/>
+        <category term="myanmar" label="Myanmar"/>
+        <category term="asean" label="ASEAN"/>
+    </entry>
+    
+    <entry>
+        <title>Bilingual Support with Myanmar Unicode</title>
+        <link href="https://esim.com.mm/?lang=my" rel="alternate" type="text/html"/>
+        <id>https://esim.com.mm/entries/bilingual-support</id>
+        <published>2025-01-15T17:30:00Z</published>
+        <updated>2025-01-15T17:30:00Z</updated>
+        <summary type="text">Complete bilingual support with native Myanmar Unicode rendering and Azure AI Translator integration</summary>
+        <content type="html"><![CDATA[
+            <h2>Native Myanmar Language Support</h2>
+            <p>eSIM Myanmar Entertainment Server now offers complete bilingual support with native Myanmar Unicode rendering using Leelawadee UI font family.</p>
+            <p>မြန်မာနိုင်ငံနှင့် အာဆီယံတစ်ဝှမ်းတွင် ပရီမီယံ 5G eSIM ချိတ်ဆက်မှုဖြင့် အရည်အသွေးမြင့် ဖျော်ဖြေရေးဝန်ဆောင်မှု</p>
+            <h3>Features</h3>
+            <ul>
+                <li>Real-time language switching</li>
+                <li>Azure AI Translator integration</li>
+                <li>Cultural context awareness</li>
+                <li>Cross-browser compatibility</li>
+            </ul>
+        ]]></content>
+        <category term="localization" label="Localization"/>
+        <category term="myanmar" label="Myanmar"/>
+        <category term="unicode" label="Unicode"/>
+    </entry>
+    
+    <entry>
+        <title>API Documentation and Developer Resources</title>
+        <link href="https://esim.com.mm/api-docs.html" rel="alternate" type="text/html"/>
+        <id>https://esim.com.mm/entries/api-docs</id>
+        <published>2025-01-15T17:00:00Z</published>
+        <updated>2025-01-15T17:00:00Z</updated>
+        <summary type="text">Comprehensive API documentation for developers integrating with eSIM Myanmar services</summary>
+        <content type="html"><![CDATA[
+            <h2>Developer API Documentation</h2>
+            <p>Complete API documentation is now available for developers looking to integrate with eSIM Myanmar Entertainment Server services.</p>
+            <h3>Available APIs</h3>
+            <ul>
+                <li>Coverage API - 5G network coverage maps</li>
+                <li>Speed Test API - Network performance testing</li>
+                <li>Activation API - eSIM profile activation</li>
+                <li>Device API - Compatible device listings</li>
+                <li>News API - Latest updates and announcements</li>
+            </ul>
+        ]]></content>
+        <category term="api" label="API"/>
+        <category term="documentation" label="Documentation"/>
+        <category term="developers" label="Developers"/>
+    </entry>
+</feed>
