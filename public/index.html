@@ -27,16 +27,56 @@
     <link rel="alternate" hreflang="en" href="https://esim.com.mm/">
     <link rel="alternate" hreflang="my" href="https://esim.com.mm/?lang=my">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' *.microsoft.com *.microsoftonline.com *.azure.com cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' *.microsoft.com; img-src 'self' data: *.microsoft.com *.microsoftonline.com *.azure.com; connect-src 'self' *.microsoft.com *.microsoftonline.com *.azure.com *.sharepoint.com; font-src 'self' *.microsoft.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=()">
     
     <title>eSIM Myanmar Entertainment Server - Premium 5G Streaming</title>
     
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "eSIM Myanmar Company Limited",
+        "alternateName": "eSIM Myanmar Entertainment Server",
+        "url": "https://esim.com.mm",
+        "logo": "https://esim.com.mm/images/logo.png",
+        "description": "Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN",
+        "foundingDate": "2024",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Yangon",
+            "addressCountry": "Myanmar"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+95-9650000172",
+            "contactType": "technical support",
+            "email": "support@esim.com.mm"
+        },
+        "serviceArea": {
+            "@type": "Place",
+            "name": "Myanmar and ASEAN"
+        }
+    }
+    </script>
+    
     <style>
+        :root {
+            --bg-primary: #1e2f3c;
+            --accent-pearl: #00ffff;
+            --neutral-silver: #c0c0c0;
+            --text-base: #ffffff;
+            --glass-bg: rgba(192, 192, 192, 0.1);
+            --glass-border: rgba(0, 255, 255, 0.2);
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -45,10 +85,11 @@
         
         body {
             font-family: 'Segoe UI Variable', -apple-system, BlinkMacSystemFont, 'Leelawadee UI', sans-serif;
-            background: #1e2f3c;
-            color: #ffffff;
+            background: var(--bg-primary);
+            color: var(--text-base);
             overflow-x: hidden;
             line-height: 1.6;
+            font-display: swap;
         }
         
         .background-3d {
@@ -58,7 +99,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, #1e2f3c 0%, #2a3f4f 50%, #1e2f3c 100%);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #2a3f4f 50%, var(--bg-primary) 100%);
+            will-change: transform;
         }
         
         .particle {
@@ -68,20 +110,12 @@
             background: rgba(0, 255, 255, 0.4);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite;
+            will-change: transform, opacity;
         }
         
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
             50% { transform: translateY(-30px) rotate(180deg); opacity: 0.9; }
-        }
-        
-        .glass-panel {
-            background: rgba(192, 192, 192, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 1rem 0;
         }
         
         .hero {
@@ -102,7 +136,7 @@
         .logo {
             width: 140px;
             height: 140px;
-            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
+            background: linear-gradient(135deg, var(--accent-pearl) 0%, rgba(0, 255, 255, 0.8) 100%);
             border-radius: 35px;
             display: flex;
             align-items: center;
@@ -110,7 +144,7 @@
             margin: 0 auto 2rem;
             font-size: 4rem;
             font-weight: bold;
-            color: #1e2f3c;
+            color: var(--bg-primary);
             box-shadow: 0 25px 50px rgba(0, 255, 255, 0.4);
             animation: logoGlow 3s ease-in-out infinite alternate;
         }
@@ -121,10 +155,10 @@
         }
         
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--accent-pearl) 0%, var(--text-base) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -137,7 +171,7 @@
         }
         
         .subtitle {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
             line-height: 1.7;
@@ -151,7 +185,7 @@
         
         .myanmar-text {
             font-family: 'Leelawadee UI', 'Myanmar Text', sans-serif;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             color: rgba(0, 255, 255, 0.95);
             margin: 1.5rem 0;
             animation: myanmarSlide 2s ease-out 0.6s both;
@@ -187,6 +221,8 @@
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
+            min-height: 44px;
+            min-width: 44px;
         }
         
         .btn::before {
@@ -200,26 +236,30 @@
             transition: left 0.5s;
         }
         
-        .btn:hover::before {
+        .btn:hover::before,
+        .btn:focus::before {
             left: 100%;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
-            color: #1e2f3c;
+            background: linear-gradient(135deg, var(--accent-pearl) 0%, rgba(0, 255, 255, 0.8) 100%);
+            color: var(--bg-primary);
             box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
         }
         
         .btn-secondary {
-            background: rgba(192, 192, 192, 0.2);
-            color: #ffffff;
-            border: 2px solid rgba(0, 255, 255, 0.4);
+            background: var(--glass-bg);
+            color: var(--text-base);
+            border: 2px solid var(--glass-border);
             backdrop-filter: blur(10px);
         }
         
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             transform: translateY(-4px);
             box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
+            outline: 2px solid var(--accent-pearl);
+            outline-offset: 2px;
         }
         
         .language-toggle {
@@ -229,18 +269,23 @@
             z-index: 1000;
             background: rgba(192, 192, 192, 0.15);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 255, 0.3);
+            border: 1px solid var(--glass-border);
             border-radius: 30px;
             padding: 0.8rem 1.5rem;
-            color: #ffffff;
+            color: var(--text-base);
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
+            min-height: 44px;
+            min-width: 44px;
         }
         
-        .language-toggle:hover {
+        .language-toggle:hover,
+        .language-toggle:focus {
             background: rgba(0, 255, 255, 0.2);
             transform: scale(1.05);
+            outline: 2px solid var(--accent-pearl);
+            outline-offset: 2px;
         }
         
         .sections {
@@ -254,10 +299,10 @@
         }
         
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 4vw, 3rem);
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--accent-pearl) 0%, var(--text-base) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -265,15 +310,15 @@
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
         
         .feature-card {
-            background: rgba(192, 192, 192, 0.08);
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.25);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 2.5rem;
             text-align: center;
@@ -289,7 +334,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #00ffff, rgba(0, 255, 255, 0.3));
+            background: linear-gradient(90deg, var(--accent-pearl), rgba(0, 255, 255, 0.3));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -307,7 +352,7 @@
         .feature-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.7) 100%);
+            background: linear-gradient(135deg, var(--accent-pearl) 0%, rgba(0, 255, 255, 0.7) 100%);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -315,7 +360,7 @@
             margin: 0 auto 1.5rem;
             font-size: 1.2rem;
             font-weight: bold;
-            color: #1e2f3c;
+            color: var(--bg-primary);
             transition: transform 0.3s ease;
         }
         
@@ -326,33 +371,12 @@
         .feature-title {
             font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: #00ffff;
+            color: var(--accent-pearl);
         }
         
         .feature-desc {
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .tech-card {
-            background: rgba(192, 192, 192, 0.06);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .tech-card:hover {
-            border-color: rgba(0, 255, 255, 0.4);
-            transform: translateY(-3px);
         }
         
         .contact-section {
@@ -366,7 +390,7 @@
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 3rem auto 0;
@@ -376,7 +400,7 @@
             padding: 1.5rem;
             border-radius: 15px;
             background: rgba(0, 255, 255, 0.08);
-            border: 1px solid rgba(0, 255, 255, 0.2);
+            border: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
         
@@ -385,135 +409,130 @@
             transform: translateY(-2px);
         }
         
-        .copilot-iframe {
-            width: 100%;
-            max-width: 400px;
-            height: 600px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(192, 192, 192, 0.1);
-            backdrop-filter: blur(10px);
-            margin: 2rem auto;
-            display: block;
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .subtitle { font-size: 1.3rem; }
-            .myanmar-text { font-size: 1.1rem; }
-            .cta-buttons { flex-direction: column; align-items: center; }
             .hero { padding: 1rem; }
             .sections { padding: 2rem 1rem; }
             .features-grid { grid-template-columns: 1fr; }
             .language-toggle { top: 1rem; right: 1rem; padding: 0.6rem 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
         }
         
         @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
             .logo { width: 100px; height: 100px; font-size: 3rem; }
-            .section-title { font-size: 2.2rem; }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #f8f9fa;
+                --text-base: #212529;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background-3d" id="background3d"></div>
+    <div class="background-3d" id="background3d" aria-hidden="true"></div>
     
-    <div class="language-toggle" onclick="toggleLanguage()" role="button" tabindex="0" aria-label="Toggle Language">
+    <button class="language-toggle" onclick="toggleLanguage()" 
+            aria-label="Toggle between English and Myanmar languages"
+            role="button" tabindex="0">
         <span id="langToggle">မြန်မာ</span>
-    </div>
+    </button>
     
     <main>
         <section class="hero" role="banner">
             <div class="hero-content">
-                <div class="logo" aria-label="eSIM Myanmar Logo">e</div>
+                <div class="logo" aria-label="eSIM Myanmar Logo">
+                    <span class="sr-only">eSIM Myanmar Entertainment Server Logo</span>
+                    e
+                </div>
                 <h1 id="heroTitle">eSIM Myanmar Entertainment Server</h1>
                 <p class="subtitle" id="heroSubtitle">Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN</p>
                 <p class="myanmar-text" id="myanmarSubtitle">မြန်မာနိုင်ငံနှင့် အာဆီယံတစ်ဝှမ်းတွင် ပရီမီယံ 5G eSIM ချိတ်ဆက်မှုဖြင့် အရည်အသွေးမြင့် ဖျော်ဖြေရေးဝန်ဆောင်မှု</p>
                 
                 <div class="cta-buttons">
-                    <a href="#features" class="btn btn-primary" id="btnExplore" aria-label="Explore Features">Explore Features</a>
-                    <a href="#contact" class="btn btn-secondary" id="btnContact" aria-label="Contact Us">Contact Us</a>
+                    <a href="#features" class="btn btn-primary" id="btnExplore" 
+                       aria-label="Explore premium features and services">Explore Features</a>
+                    <a href="#contact" class="btn btn-secondary" id="btnContact" 
+                       aria-label="Contact our support team">Contact Us</a>
                 </div>
             </div>
         </section>
         
         <div class="sections">
-            <section class="section" id="features" role="main">
+            <section class="section" id="features" role="main" aria-labelledby="featuresTitle">
                 <h2 class="section-title" id="featuresTitle">Premium Features</h2>
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-label="5G Network">5G</div>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-label="5G Network Technology">5G</div>
                         <h3 class="feature-title" id="feature1Title">Ultra-Fast 5G</h3>
                         <p class="feature-desc" id="feature1Desc">Lightning-fast 5G connectivity across Myanmar and ASEAN with speeds up to 10Gbps for seamless streaming</p>
-                    </div>
+                    </article>
                     
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-label="Premium Streaming">HD</div>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-label="Premium HD Streaming">HD</div>
                         <h3 class="feature-title" id="feature2Title">Premium Streaming</h3>
                         <p class="feature-desc" id="feature2Desc">4K HDR streaming with Dolby Atmos audio for the ultimate entertainment experience across all devices</p>
-                    </div>
+                    </article>
                     
-                    <div class="feature-card">
+                    <article class="feature-card">
                         <div class="feature-icon" aria-label="Enterprise Security">SEC</div>
                         <h3 class="feature-title" id="feature3Title">Enterprise Security</h3>
                         <p class="feature-desc" id="feature3Desc">Military-grade encryption with Microsoft Zero Trust architecture ensuring complete data protection</p>
-                    </div>
+                    </article>
                     
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-label="ASEAN Coverage">NET</div>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-label="ASEAN Network Coverage">NET</div>
                         <h3 class="feature-title" id="feature4Title">ASEAN Coverage</h3>
                         <p class="feature-desc" id="feature4Desc">Seamless roaming across all 10 ASEAN countries with local data rates and premium service quality</p>
-                    </div>
+                    </article>
                     
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-label="Instant Activation">QR</div>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-label="QR Code Activation">QR</div>
                         <h3 class="feature-title" id="feature5Title">Instant Activation</h3>
                         <p class="feature-desc" id="feature5Desc">QR code activation in seconds with Microsoft Graph integration for immediate connectivity</p>
-                    </div>
+                    </article>
                     
-                    <div class="feature-card">
+                    <article class="feature-card">
                         <div class="feature-icon" aria-label="Multi-Device Support">DEV</div>
                         <h3 class="feature-title" id="feature6Title">Multi-Device Support</h3>
                         <p class="feature-desc" id="feature6Desc">Compatible with smartphones, tablets, laptops, and IoT devices for comprehensive connectivity</p>
-                    </div>
+                    </article>
                 </div>
             </section>
             
-            <section class="section" id="technology">
-                <h2 class="section-title" id="technologyTitle">Microsoft Technology Stack</h2>
-                <div class="tech-grid">
-                    <div class="tech-card">
-                        <h3>Azure Static Web Apps</h3>
-                        <p>Global CDN with serverless functions and automatic scaling for optimal performance worldwide</p>
-                    </div>
-                    <div class="tech-card">
-                        <h3>Power Pages Pro</h3>
-                        <p>Enterprise-grade landing pages with integrated business applications and data connectivity</p>
-                    </div>
-                    <div class="tech-card">
-                        <h3>Microsoft Graph Toolkit</h3>
-                        <p>Advanced integration components for seamless Microsoft 365 and Azure services connectivity</p>
-                    </div>
-                    <div class="tech-card">
-                        <h3>Azure AI Translator</h3>
-                        <p>Real-time English to Myanmar Unicode translation with cultural context awareness</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="contact-section" id="contact" role="contentinfo">
+            <section class="contact-section" id="contact" role="contentinfo" aria-labelledby="contactTitle">
                 <h2 class="section-title" id="contactTitle">Contact Information</h2>
                 <div class="contact-grid">
                     <div class="contact-item">
                         <h3>Technical Support</h3>
-                        <p>support@esim.com.mm</p>
-                        <p>+95-9650000172</p>
+                        <p><a href="mailto:support@esim.com.mm" aria-label="Email technical support">support@esim.com.mm</a></p>
+                        <p><a href="tel:+959650000172" aria-label="Call technical support">+95-9650000172</a></p>
                     </div>
                     
                     <div class="contact-item">
                         <h3>Business Inquiries</h3>
-                        <p>info@esim.com.mm</p>
-                        <p>sales@esim.com.mm</p>
+                        <p><a href="mailto:info@esim.com.mm" aria-label="Email for general information">info@esim.com.mm</a></p>
+                        <p><a href="mailto:sales@esim.com.mm" aria-label="Email sales team">sales@esim.com.mm</a></p>
                     </div>
                     
                     <div class="contact-item">
@@ -524,26 +543,38 @@
                     
                     <div class="contact-item">
                         <h3>Digital Presence</h3>
-                        <p>esim.com.mm</p>
-                        <p>@eSIMMyanmar</p>
+                        <p><a href="https://esim.com.mm" aria-label="Visit our website">esim.com.mm</a></p>
+                        <p><a href="https://twitter.com/eSIMMyanmar" aria-label="Follow us on Twitter">@eSIMMyanmar</a></p>
                     </div>
                 </div>
-                
-                <iframe class="copilot-iframe" 
-                        src="about:blank" 
-                        title="eSIM Myanmar Copilot Assistant - Bilingual Support"
-                        aria-label="Customer Support Chat">
-                </iframe>
             </section>
         </div>
     </main>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" 
+            integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script>
+        // Performance monitoring
+        const perfObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+                if (entry.entryType === 'navigation') {
+                    console.log('Page Load Time:', entry.loadEventEnd - entry.fetchStart, 'ms');
+                }
+            }
+        });
+        
+        if ('PerformanceObserver' in window) {
+            perfObserver.observe({ entryTypes: ['navigation'] });
+        }
+        
         // 3D Background Animation System
         function createParticleSystem() {
             const background = document.getElementById('background3d');
+            if (!background) return;
+            
             const particleCount = window.innerWidth < 768 ? 30 : 60;
+            const fragment = document.createDocumentFragment();
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -552,19 +583,27 @@
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 8 + 's';
                 particle.style.animationDuration = (6 + Math.random() * 4) + 's';
-                background.appendChild(particle);
+                fragment.appendChild(particle);
             }
+            
+            background.appendChild(fragment);
         }
         
         // GSAP Advanced Animations
-        if (typeof gsap !== 'undefined') {
+        function initAnimations() {
+            if (typeof gsap === 'undefined') return;
+            
+            // Reduced motion check
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+            
             // Hero section entrance
-            gsap.timeline()
-                .from('.logo', { duration: 1.2, scale: 0, rotation: 180, ease: 'back.out(1.7)' })
-                .from('h1', { duration: 1, y: 60, opacity: 0, ease: 'power3.out' }, '-=0.5')
-                .from('.subtitle', { duration: 1, y: 40, opacity: 0, ease: 'power3.out' }, '-=0.7')
-                .from('.myanmar-text', { duration: 1, x: -50, opacity: 0, ease: 'power3.out' }, '-=0.5')
-                .from('.cta-buttons', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' }, '-=0.3');
+            const tl = gsap.timeline();
+            tl.from('.logo', { duration: 1.2, scale: 0, rotation: 180, ease: 'back.out(1.7)' })
+              .from('h1', { duration: 1, y: 60, opacity: 0, ease: 'power3.out' }, '-=0.5')
+              .from('.subtitle', { duration: 1, y: 40, opacity: 0, ease: 'power3.out' }, '-=0.7')
+              .from('.myanmar-text', { duration: 1, x: -50, opacity: 0, ease: 'power3.out' }, '-=0.5')
+              .from('.cta-buttons', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' }, '-=0.3');
             
             // Parallax particle movement
             gsap.to('.particle', {
@@ -579,22 +618,6 @@
                     from: 'random'
                 }
             });
-            
-            // Feature cards animation on scroll
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.from('.feature-card', {
-                scrollTrigger: {
-                    trigger: '.features-grid',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 80,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
         }
         
         // Bilingual Language System
@@ -606,7 +629,6 @@
                 btnExplore: 'Explore Features',
                 btnContact: 'Contact Us',
                 featuresTitle: 'Premium Features',
-                technologyTitle: 'Microsoft Technology Stack',
                 contactTitle: 'Contact Information',
                 feature1Title: 'Ultra-Fast 5G',
                 feature2Title: 'Premium Streaming',
@@ -623,7 +645,6 @@
                 btnExplore: 'ဝန်ဆောင်မှုများ ကြည့်ရှုရန်',
                 btnContact: 'ဆက်သွယ်ရန်',
                 featuresTitle: 'အထူးဝန်ဆောင်မှုများ',
-                technologyTitle: 'မိုက်ခရိုဆော့ဖ် နည်းပညာများ',
                 contactTitle: 'ဆက်သွယ်ရန် အချက်အလက်များ',
                 feature1Title: 'အမြန်ဆုံး 5G',
                 feature2Title: 'ပရီမီယံ ထုတ်လွှင့်မှု',
@@ -649,25 +670,17 @@
             });
             
             document.documentElement.lang = currentLang === 'mm' ? 'my' : 'en';
-            
-            // Update Copilot iframe for bilingual support
-            const iframe = document.querySelector('.copilot-iframe');
-            if (iframe) {
-                iframe.title = currentLang === 'mm' ? 
-                    'eSIM မြန်မာ Copilot အကူအညီ - နှစ်ဘာသာ ပံ့ပိုးမှု' : 
-                    'eSIM Myanmar Copilot Assistant - Bilingual Support';
-            }
         }
         
-        // Keyboard accessibility for language toggle
-        document.querySelector('.language-toggle').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.target.classList.contains('language-toggle') && (e.key === 'Enter' || e.key === ' ')) {
                 e.preventDefault();
                 toggleLanguage();
             }
         });
         
-        // Smooth scrolling for navigation
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -681,51 +694,36 @@
             });
         });
         
-        // Performance monitoring and analytics
-        window.addEventListener('load', () => {
-            // Core Web Vitals tracking
-            if ('performance' in window) {
-                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                console.log('Page load time:', loadTime + 'ms');
-                
-                // Report to Azure Application Insights (placeholder)
-                if (window.appInsights) {
-                    window.appInsights.trackMetric('PageLoadTime', loadTime);
-                }
-            }
-            
-            // Initialize particle system after load
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('Script error:', e.error);
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
             createParticleSystem();
+            
+            // Load GSAP animations after script loads
+            if (document.readyState === 'complete') {
+                initAnimations();
+            } else {
+                window.addEventListener('load', initAnimations);
+            }
         });
         
         // Responsive particle system
-        window.addEventListener('resize', () => {
-            const background = document.getElementById('background3d');
-            const particles = background.querySelectorAll('.particle');
-            particles.forEach(particle => particle.remove());
-            createParticleSystem();
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(function() {
+                const background = document.getElementById('background3d');
+                if (background) {
+                    const particles = background.querySelectorAll('.particle');
+                    particles.forEach(particle => particle.remove());
+                    createParticleSystem();
+                }
+            }, 250);
         });
-        
-        // Azure Application Insights integration (placeholder)
-        window.appInsights = window.appInsights || {
-            trackPageView: function() { console.log('Page view tracked'); },
-            trackEvent: function(name, properties) { console.log('Event tracked:', name, properties); },
-            trackMetric: function(name, value) { console.log('Metric tracked:', name, value); }
-        };
-        
-        // Track user interactions
-        document.addEventListener('click', (e) => {
-            if (e.target.matches('.btn, .feature-card, .language-toggle')) {
-                window.appInsights.trackEvent('UserInteraction', {
-                    element: e.target.className,
-                    language: currentLang
-                });
-            }
-        });
-        
-        // Initialize
-        createParticleSystem();
-        window.appInsights.trackPageView();
     </script>
 </body>
 </html>
