@@ -43,6 +43,7 @@
             background: #1e2f3c;
             color: #ffffff;
             overflow-x: hidden;
+            line-height: 1.6;
         }
         
         .background-3d {
@@ -57,16 +58,16 @@
         
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(0, 255, 255, 0.3);
+            width: 3px;
+            height: 3px;
+            background: rgba(0, 255, 255, 0.4);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.9; }
         }
         
         .glass-panel {
@@ -85,136 +86,135 @@
             justify-content: center;
             text-align: center;
             position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
             padding: 2rem;
         }
         
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+        
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
-            border-radius: 30px;
+            border-radius: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 2rem;
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: bold;
             color: #1e2f3c;
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 255, 255, 0.4);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% { box-shadow: 0 25px 50px rgba(0, 255, 255, 0.4); }
+            100% { box-shadow: 0 30px 60px rgba(0, 255, 255, 0.6); }
         }
         
         h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: titleSlide 1s ease-out;
+        }
+        
+        @keyframes titleSlide {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
         .subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            animation: subtitleFade 1.5s ease-out 0.3s both;
+        }
+        
+        @keyframes subtitleFade {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
         .myanmar-text {
             font-family: 'Leelawadee UI', 'Myanmar Text', sans-serif;
-            font-size: 1.2rem;
-            color: rgba(0, 255, 255, 0.9);
-            margin: 1rem 0;
+            font-size: 1.3rem;
+            color: rgba(0, 255, 255, 0.95);
+            margin: 1.5rem 0;
+            animation: myanmarSlide 2s ease-out 0.6s both;
+        }
+        
+        @keyframes myanmarSlide {
+            0% { opacity: 0; transform: translateX(-30px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
         
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 2rem 0;
+            margin: 3rem 0;
+            animation: buttonsRise 2.5s ease-out 0.9s both;
+        }
+        
+        @keyframes buttonsRise {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border: none;
-            border-radius: 16px;
+            border-radius: 18px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
             color: #1e2f3c;
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
         }
         
         .btn-secondary {
             background: rgba(192, 192, 192, 0.2);
             color: #ffffff;
-            border: 1px solid rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
         }
         
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-        }
-        
-        .features {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature-card {
-            background: rgba(192, 192, 192, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 255, 255, 0.5);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.6) 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            color: #1e2f3c;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
         }
         
         .language-toggle {
@@ -222,179 +222,377 @@
             top: 2rem;
             right: 2rem;
             z-index: 1000;
-            background: rgba(192, 192, 192, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(192, 192, 192, 0.15);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 25px;
-            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            padding: 0.8rem 1.5rem;
             color: #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         
         .language-toggle:hover {
             background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
         }
         
-        .contact-info {
+        .sections {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 6rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
             text-align: center;
-            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(192, 192, 192, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, rgba(0, 255, 255, 0.3));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.7) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e2f3c;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #00ffff;
+        }
+        
+        .feature-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-card {
+            background: rgba(192, 192, 192, 0.06);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            border-color: rgba(0, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .contact-section {
             background: rgba(192, 192, 192, 0.05);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            max-width: 800px;
-            margin: 2rem auto 0;
+            max-width: 1000px;
+            margin: 3rem auto 0;
         }
         
         .contact-item {
-            padding: 1rem;
-            border-radius: 12px;
-            background: rgba(0, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(0, 255, 255, 0.08);
             border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(0, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .copilot-iframe {
+            width: 100%;
+            max-width: 400px;
+            height: 600px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(192, 192, 192, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem auto;
+            display: block;
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1.2rem; }
+            h1 { font-size: 2.8rem; }
+            .subtitle { font-size: 1.3rem; }
+            .myanmar-text { font-size: 1.1rem; }
             .cta-buttons { flex-direction: column; align-items: center; }
-            .hero-content { padding: 1rem; }
-            .features { padding: 2rem 1rem; }
+            .hero { padding: 1rem; }
+            .sections { padding: 2rem 1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .language-toggle { top: 1rem; right: 1rem; padding: 0.6rem 1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .logo { width: 100px; height: 100px; font-size: 3rem; }
+            .section-title { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
     <div class="background-3d" id="background3d"></div>
     
-    <div class="language-toggle" onclick="toggleLanguage()">
+    <div class="language-toggle" onclick="toggleLanguage()" role="button" tabindex="0" aria-label="Toggle Language">
         <span id="langToggle">မြန်မာ</span>
     </div>
     
     <main>
-        <section class="hero">
+        <section class="hero" role="banner">
             <div class="hero-content">
-                <div class="logo">e</div>
+                <div class="logo" aria-label="eSIM Myanmar Logo">e</div>
                 <h1 id="heroTitle">eSIM Myanmar Entertainment Server</h1>
                 <p class="subtitle" id="heroSubtitle">Premium 5G eSIM connectivity with ultra-fast entertainment streaming across Myanmar and ASEAN</p>
                 <p class="myanmar-text" id="myanmarSubtitle">မြန်မာနိုင်ငံနှင့် အာဆီယံတစ်ဝှမ်းတွင် ပရီမီယံ 5G eSIM ချိတ်ဆက်မှုဖြင့် အရည်အသွေးမြင့် ဖျော်ဖြေရေးဝန်ဆောင်မှု</p>
                 
                 <div class="cta-buttons">
-                    <a href="#features" class="btn btn-primary" id="btnExplore">Explore Features</a>
-                    <a href="#contact" class="btn btn-secondary" id="btnContact">Contact Us</a>
+                    <a href="#features" class="btn btn-primary" id="btnExplore" aria-label="Explore Features">Explore Features</a>
+                    <a href="#contact" class="btn btn-secondary" id="btnContact" aria-label="Contact Us">Contact Us</a>
                 </div>
             </div>
         </section>
         
-        <section class="features" id="features">
-            <h2 class="section-title" id="featuresTitle">Premium Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">5G</div>
-                    <h3 id="feature1Title">Ultra-Fast 5G</h3>
-                    <p id="feature1Desc">Lightning-fast 5G connectivity across Myanmar and ASEAN with speeds up to 10Gbps</p>
+        <div class="sections">
+            <section class="section" id="features" role="main">
+                <h2 class="section-title" id="featuresTitle">Premium Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="5G Network">5G</div>
+                        <h3 class="feature-title" id="feature1Title">Ultra-Fast 5G</h3>
+                        <p class="feature-desc" id="feature1Desc">Lightning-fast 5G connectivity across Myanmar and ASEAN with speeds up to 10Gbps for seamless streaming</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="Premium Streaming">HD</div>
+                        <h3 class="feature-title" id="feature2Title">Premium Streaming</h3>
+                        <p class="feature-desc" id="feature2Desc">4K HDR streaming with Dolby Atmos audio for the ultimate entertainment experience across all devices</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="Enterprise Security">SEC</div>
+                        <h3 class="feature-title" id="feature3Title">Enterprise Security</h3>
+                        <p class="feature-desc" id="feature3Desc">Military-grade encryption with Microsoft Zero Trust architecture ensuring complete data protection</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="ASEAN Coverage">NET</div>
+                        <h3 class="feature-title" id="feature4Title">ASEAN Coverage</h3>
+                        <p class="feature-desc" id="feature4Desc">Seamless roaming across all 10 ASEAN countries with local data rates and premium service quality</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="Instant Activation">QR</div>
+                        <h3 class="feature-title" id="feature5Title">Instant Activation</h3>
+                        <p class="feature-desc" id="feature5Desc">QR code activation in seconds with Microsoft Graph integration for immediate connectivity</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-label="Multi-Device Support">DEV</div>
+                        <h3 class="feature-title" id="feature6Title">Multi-Device Support</h3>
+                        <p class="feature-desc" id="feature6Desc">Compatible with smartphones, tablets, laptops, and IoT devices for comprehensive connectivity</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="technology">
+                <h2 class="section-title" id="technologyTitle">Microsoft Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h3>Azure Static Web Apps</h3>
+                        <p>Global CDN with serverless functions and automatic scaling for optimal performance worldwide</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Power Pages Pro</h3>
+                        <p>Enterprise-grade landing pages with integrated business applications and data connectivity</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Microsoft Graph Toolkit</h3>
+                        <p>Advanced integration components for seamless Microsoft 365 and Azure services connectivity</p>
+                    </div>
+                    <div class="tech-card">
+                        <h3>Azure AI Translator</h3>
+                        <p>Real-time English to Myanmar Unicode translation with cultural context awareness</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="contact-section" id="contact" role="contentinfo">
+                <h2 class="section-title" id="contactTitle">Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h3>Technical Support</h3>
+                        <p>support@esim.com.mm</p>
+                        <p>+95-9650000172</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Business Inquiries</h3>
+                        <p>info@esim.com.mm</p>
+                        <p>sales@esim.com.mm</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Company Information</h3>
+                        <p>eSIM Myanmar Company Limited</p>
+                        <p>Yangon, Myanmar</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Digital Presence</h3>
+                        <p>esim.com.mm</p>
+                        <p>@eSIMMyanmar</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">HD</div>
-                    <h3 id="feature2Title">Premium Streaming</h3>
-                    <p id="feature2Desc">4K HDR streaming with Dolby Atmos audio for the ultimate entertainment experience</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">SEC</div>
-                    <h3 id="feature3Title">Enterprise Security</h3>
-                    <p id="feature3Desc">Military-grade encryption with Microsoft Zero Trust architecture</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">NET</div>
-                    <h3 id="feature4Title">ASEAN Coverage</h3>
-                    <p id="feature4Desc">Seamless roaming across all 10 ASEAN countries with local data rates</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">QR</div>
-                    <h3 id="feature5Title">Instant Activation</h3>
-                    <p id="feature5Desc">QR code activation in seconds with Microsoft Graph integration</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">DEV</div>
-                    <h3 id="feature6Title">Multi-Device</h3>
-                    <p id="feature6Desc">Support for smartphones, tablets, laptops, and IoT devices</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="contact-info" id="contact">
-            <h2 class="section-title" id="contactTitle">Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h3>Technical Support</h3>
-                    <p>support@esim.com.mm</p>
-                    <p>+95-9650000172</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3>Business Inquiries</h3>
-                    <p>info@esim.com.mm</p>
-                    <p>sales@esim.com.mm</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3>Company</h3>
-                    <p>eSIM Myanmar Company Limited</p>
-                    <p>Yangon, Myanmar</p>
-                </div>
-                
-                <div class="contact-item">
-                    <h3>Social Media</h3>
-                    <p>@eSIMMyanmar</p>
-                    <p>esim.com.mm</p>
-                </div>
-            </div>
-        </section>
+                <iframe class="copilot-iframe" 
+                        src="about:blank" 
+                        title="eSIM Myanmar Copilot Assistant - Bilingual Support"
+                        aria-label="Customer Support Chat">
+                </iframe>
+            </section>
+        </div>
     </main>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        // 3D Background Animation
-        function createParticles() {
+        // 3D Background Animation System
+        function createParticleSystem() {
             const background = document.getElementById('background3d');
-            for (let i = 0; i < 50; i++) {
+            const particleCount = window.innerWidth < 768 ? 30 : 60;
+            
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (6 + Math.random() * 4) + 's';
                 background.appendChild(particle);
             }
         }
         
-        // GSAP Animations
-        gsap.registerPlugin();
+        // GSAP Advanced Animations
+        if (typeof gsap !== 'undefined') {
+            // Hero section entrance
+            gsap.timeline()
+                .from('.logo', { duration: 1.2, scale: 0, rotation: 180, ease: 'back.out(1.7)' })
+                .from('h1', { duration: 1, y: 60, opacity: 0, ease: 'power3.out' }, '-=0.5')
+                .from('.subtitle', { duration: 1, y: 40, opacity: 0, ease: 'power3.out' }, '-=0.7')
+                .from('.myanmar-text', { duration: 1, x: -50, opacity: 0, ease: 'power3.out' }, '-=0.5')
+                .from('.cta-buttons', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' }, '-=0.3');
+            
+            // Parallax particle movement
+            gsap.to('.particle', {
+                y: -150,
+                rotation: 360,
+                duration: 10,
+                ease: 'none',
+                repeat: -1,
+                yoyo: true,
+                stagger: {
+                    amount: 2,
+                    from: 'random'
+                }
+            });
+            
+            // Feature cards animation on scroll
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.feature-card', {
+                scrollTrigger: {
+                    trigger: '.features-grid',
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
+        }
         
-        gsap.from('.logo', { duration: 1, scale: 0, ease: 'back.out(1.7)' });
-        gsap.from('h1', { duration: 1, y: 50, opacity: 0, delay: 0.3 });
-        gsap.from('.subtitle', { duration: 1, y: 30, opacity: 0, delay: 0.6 });
-        gsap.from('.myanmar-text', { duration: 1, y: 20, opacity: 0, delay: 0.9 });
-        gsap.from('.cta-buttons', { duration: 1, y: 30, opacity: 0, delay: 1.2 });
-        
-        // Parallax effect
-        gsap.to('.particle', {
-            y: -100,
-            duration: 6,
-            ease: 'none',
-            repeat: -1,
-            yoyo: true,
-            stagger: 0.1
-        });
-        
-        // Language Toggle
+        // Bilingual Language System
         const translations = {
             en: {
                 heroTitle: 'eSIM Myanmar Entertainment Server',
@@ -403,7 +601,14 @@
                 btnExplore: 'Explore Features',
                 btnContact: 'Contact Us',
                 featuresTitle: 'Premium Features',
+                technologyTitle: 'Microsoft Technology Stack',
                 contactTitle: 'Contact Information',
+                feature1Title: 'Ultra-Fast 5G',
+                feature2Title: 'Premium Streaming',
+                feature3Title: 'Enterprise Security',
+                feature4Title: 'ASEAN Coverage',
+                feature5Title: 'Instant Activation',
+                feature6Title: 'Multi-Device Support',
                 langToggle: 'မြန်မာ'
             },
             mm: {
@@ -413,7 +618,14 @@
                 btnExplore: 'ဝန်ဆောင်မှုများ ကြည့်ရှုရန်',
                 btnContact: 'ဆက်သွယ်ရန်',
                 featuresTitle: 'အထူးဝန်ဆောင်မှုများ',
+                technologyTitle: 'မိုက်ခရိုဆော့ဖ် နည်းပညာများ',
                 contactTitle: 'ဆက်သွယ်ရန် အချက်အလက်များ',
+                feature1Title: 'အမြန်ဆုံး 5G',
+                feature2Title: 'ပရီမီယံ ထုတ်လွှင့်မှု',
+                feature3Title: 'လုပ်ငန်းသုံး လုံခြုံရေး',
+                feature4Title: 'အာဆီယံ ဧရိယာ',
+                feature5Title: 'ချက်ချင်း အသုံးပြုခြင်း',
+                feature6Title: 'စက်ပစ္စည်းများစွာ ပံ့ပိုးမှု',
                 langToggle: 'English'
             }
         };
@@ -432,29 +644,83 @@
             });
             
             document.documentElement.lang = currentLang === 'mm' ? 'my' : 'en';
+            
+            // Update Copilot iframe for bilingual support
+            const iframe = document.querySelector('.copilot-iframe');
+            if (iframe) {
+                iframe.title = currentLang === 'mm' ? 
+                    'eSIM မြန်မာ Copilot အကူအညီ - နှစ်ဘာသာ ပံ့ပိုးမှု' : 
+                    'eSIM Myanmar Copilot Assistant - Bilingual Support';
+            }
         }
         
-        // Initialize
-        createParticles();
+        // Keyboard accessibility for language toggle
+        document.querySelector('.language-toggle').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleLanguage();
+            }
+        });
         
-        // Smooth scrolling
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
         
-        // Performance monitoring
+        // Performance monitoring and analytics
         window.addEventListener('load', () => {
+            // Core Web Vitals tracking
             if ('performance' in window) {
                 const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
                 console.log('Page load time:', loadTime + 'ms');
+                
+                // Report to Azure Application Insights (placeholder)
+                if (window.appInsights) {
+                    window.appInsights.trackMetric('PageLoadTime', loadTime);
+                }
+            }
+            
+            // Initialize particle system after load
+            createParticleSystem();
+        });
+        
+        // Responsive particle system
+        window.addEventListener('resize', () => {
+            const background = document.getElementById('background3d');
+            const particles = background.querySelectorAll('.particle');
+            particles.forEach(particle => particle.remove());
+            createParticleSystem();
+        });
+        
+        // Azure Application Insights integration (placeholder)
+        window.appInsights = window.appInsights || {
+            trackPageView: function() { console.log('Page view tracked'); },
+            trackEvent: function(name, properties) { console.log('Event tracked:', name, properties); },
+            trackMetric: function(name, value) { console.log('Metric tracked:', name, value); }
+        };
+        
+        // Track user interactions
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.btn, .feature-card, .language-toggle')) {
+                window.appInsights.trackEvent('UserInteraction', {
+                    element: e.target.className,
+                    language: currentLang
+                });
             }
         });
+        
+        // Initialize
+        createParticleSystem();
+        window.appInsights.trackPageView();
     </script>
 </body>
 </html>
