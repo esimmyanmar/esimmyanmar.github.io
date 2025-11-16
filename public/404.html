@@ -8,73 +8,151 @@
     <title>404 - Page Not Found | eSIM Myanmar</title>
     
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Segoe UI Variable', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #1e2f3c;
             color: #ffffff;
-            margin: 0;
-            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
+        
+        .background-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #1e2f3c 0%, #2a3f4f 50%, #1e2f3c 100%);
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+        
         .container {
             text-align: center;
             max-width: 600px;
             padding: 2rem;
+            background: rgba(192, 192, 192, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
         }
+        
         .error-code {
-            font-size: 6rem;
+            font-size: 8rem;
             font-weight: 700;
             color: #00ffff;
             margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
         }
+        
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffff 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        
         p {
-            font-size: 1.125rem;
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
             margin-bottom: 2rem;
         }
+        
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
-            color: #1e2f3c;
-            text-decoration: none;
+            margin: 0.5rem;
+            border: none;
             border-radius: 16px;
             font-weight: 600;
-            margin: 0.5rem;
-            transition: transform 0.3s ease;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        .btn:hover {
-            transform: translateY(-2px);
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffff 0%, rgba(0, 255, 255, 0.8) 100%);
+            color: #1e2f3c;
         }
+        
         .btn-secondary {
-            background: rgba(192, 192, 192, 0.3);
+            background: rgba(192, 192, 192, 0.2);
             color: #ffffff;
-            border: 1px solid rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        .myanmar-text {
+            font-family: 'Leelawadee UI', 'Myanmar Text', sans-serif;
+            color: rgba(0, 255, 255, 0.9);
+            margin: 1rem 0;
         }
     </style>
 </head>
 <body>
+    <div class="background-3d" id="background3d"></div>
+    
     <div class="container">
         <div class="error-code">404</div>
         <h1>Page Not Found</h1>
-        <p>The page you're looking for doesn't exist or has been moved. Let's get you back to the entertainment hub.</p>
-        <a href="/" class="btn">Go Home</a>
-        <a href="/app" class="btn btn-secondary">Entertainment Hub</a>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <p class="myanmar-text">သင်ရှာဖွေနေသော စာမျက်နှာမရှိပါ သို့မဟုတ် ရွှေ့ပြောင်းထားပါသည်။</p>
+        <a href="/" class="btn btn-primary">Go Home</a>
+        <a href="/#contact" class="btn btn-secondary">Contact Support</a>
     </div>
     
     <script>
+        // Create particles
+        function createParticles() {
+            const background = document.getElementById('background3d');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                background.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // SPA fallback routing
         const path = window.location.pathname;
-        if (path.startsWith('/app')) {
-            window.location.href = '/app';
+        if (path.startsWith('/app') || path.startsWith('/pages')) {
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
         }
     </script>
 </body>
