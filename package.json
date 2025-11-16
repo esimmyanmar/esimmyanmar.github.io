@@ -16,7 +16,8 @@
     "security-scan": "echo 'Security scan complete'",
     "accessibility": "echo 'Accessibility check complete'",
     "deploy": "echo 'Deployment ready'",
-    "production-deploy": "npm run scan-no-emoji && npm run check-case && npm run validate-files"
+    "production-deploy": "npm run scan-no-emoji && npm run check-case && npm run validate-files",
+    "complete-error-check": "node scripts/complete-error-check.js"
   },
   "dependencies": {},
   "devDependencies": {},
