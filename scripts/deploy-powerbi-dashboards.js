@@ -454,10 +454,10 @@ class PowerBIDashboardDeployer {
                         reportId: report.id
                     });
                     
-                    console.log(`✓ Successfully deployed: ${dashboardConfig.name}`);
+                    console.log(` Successfully deployed: ${dashboardConfig.name}`);
                     
                 } catch (error) {
-                    console.error(`✗ Failed to deploy ${dashboardConfig.name}:`, error.message);
+                    console.error(` Failed to deploy ${dashboardConfig.name}:`, error.message);
                     deploymentResults.push({
                         dashboard: dashboardConfig.name,
                         status: 'Failed',
@@ -497,7 +497,7 @@ class PowerBIDashboardDeployer {
                 process.exit(1);
             }
             
-            console.log('\n✓ All dashboards deployed successfully!');
+            console.log('\n All dashboards deployed successfully!');
             
         } catch (error) {
             console.error('Dashboard deployment failed:', error.message);

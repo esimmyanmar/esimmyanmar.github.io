@@ -57,30 +57,10 @@ npm run production-deploy
 ```
 esimmyanmar.github.io/
 ├── app/                    # Next.js App Router pages
-│   ├── company/           # Company information pages
-│   ├── coverage/          # Network coverage pages
-│   ├── technology/        # Technology details pages
-│   └── page.tsx          # Main app entry point
 ├── pages/                 # Next.js Pages Router (legacy support)
-│   ├── entertainment/     # Entertainment hub
-│   ├── speed-test/       # 5G speed testing
-│   ├── coverage/         # Coverage maps
-│   ├── devices/          # Device compatibility
-│   └── support/          # Customer support
 ├── components/            # Reusable React components
-│   ├── layout/           # Layout components
-│   ├── ui/               # UI components
-│   └── entertainment/    # Entertainment-specific components
 ├── public/               # Static assets
-│   ├── images/           # Optimized images
-│   ├── icons/            # Icon assets
-│   ├── manifest.json     # PWA manifest
-│   ├── sitemap.xml       # SEO sitemap
-│   ├── robots.txt        # Search engine directives
-│   └── _headers          # Security headers
 ├── styles/               # CSS and styling
-│   ├── globals.css       # Global styles
-│   └── design-system.css # Design system tokens
 ├── lib/                  # Utility libraries
 ├── scripts/              # Deployment and automation scripts
 └── .github/workflows/    # CI/CD pipelines
@@ -100,12 +80,6 @@ esimmyanmar.github.io/
 - **Myanmar**: Leelawadee UI - Native Myanmar script support
 - **Chinese**: Microsoft YaHei UI - Simplified Chinese characters
 - **Monospace**: Cascadia Code - Developer-focused typeface
-
-### Visual Effects
-- **Glass Morphism** - 8-layer pearl glass overlay system
-- **Backdrop Filter** - `blur(20px)` with `brightness(1.1)` enhancement
-- **iOS 26 Design** - Minimalist, edge-to-edge layouts with fluid motion
-- **Depth Layers** - Premium spatial hierarchy with shadow systems
 
 ## Development Scripts
 
@@ -130,19 +104,14 @@ npm run test:coverage    # Test coverage report
 
 ### Validation & Testing
 ```bash
-npm run lighthouse       # Performance testing
+npm run scan-no-emoji    # Zero emoji enforcement
+npm run check-case       # Lowercase filename validation
+npm run validate-files   # File structure validation
 npm run security-scan    # Security vulnerability scan
 npm run accessibility    # Accessibility testing
 npm run link-check       # Internal link validation
 npm run validate-html    # HTML validation
 npm run optimize-images  # Image optimization
-```
-
-### Maintenance
-```bash
-npm run clean            # Clean build artifacts
-npm run pre-commit       # Run pre-commit hooks
-npm run prepare          # Setup Husky hooks
 ```
 
 ## Security Configuration
@@ -162,12 +131,6 @@ connect-src 'self' *.microsoft.com *.microsoftonline.com *.azure.com *.sharepoin
 - **X-Content-Type-Options**: `nosniff`
 - **Referrer-Policy**: `strict-origin-when-cross-origin`
 
-### Content Protection
-- Right-click prevention and text selection blocking
-- Developer tools restriction (F12, inspect element disabled)
-- Image download prevention and print functionality control
-- Military-grade encryption for all entertainment content
-
 ## Performance Optimization
 
 ### Core Web Vitals Targets
@@ -181,13 +144,6 @@ connect-src 'self' *.microsoft.com *.microsoftonline.com *.azure.com *.sharepoin
 - **Accessibility**: 100/100
 - **Best Practices**: 100/100
 - **SEO**: 100/100
-
-### Optimization Features
-- Image optimization with WebP/AVIF formats
-- Code splitting and lazy loading
-- Service worker for offline functionality
-- CDN caching with proper cache headers
-- Minification and compression
 
 ## Deployment
 
@@ -207,14 +163,6 @@ npm run production-deploy
 
 # Quick deployment
 npm run deploy
-```
-
-### Environment Variables
-```bash
-NEXT_PUBLIC_MICROSOFT_CLIENT_ID=your-client-id
-NEXT_PUBLIC_MICROSOFT_TENANT_ID=your-tenant-id
-NEXT_PUBLIC_DATAVERSE_URL=https://prod-esim-myanmar.crm5.dynamics.com
-NEXT_PUBLIC_SHAREPOINT_SITE=https://esimmyanmar.sharepoint.com
 ```
 
 ## Quality Assurance
@@ -251,26 +199,6 @@ NEXT_PUBLIC_SHAREPOINT_SITE=https://esimmyanmar.sharepoint.com
 - Color contrast ratios > 7:1
 - Focus management
 - Alternative text for images
-
-### Multi-language Support
-- **English** - Primary language
-- **Myanmar** - Native language with proper fonts
-- **Chinese** - Simplified Chinese support
-- **RTL Support** - Right-to-left text layout ready
-
-## Monitoring & Analytics
-
-### Performance Monitoring
-- **Application Insights** - Real-time performance tracking
-- **Core Web Vitals** - User experience metrics
-- **Error Tracking** - Exception logging and alerting
-- **Custom Metrics** - Business-specific KPIs
-
-### Security Monitoring
-- **Microsoft Sentinel** - Security information and event management
-- **Vulnerability Scanning** - Automated security assessments
-- **Compliance Monitoring** - Regulatory adherence tracking
-- **Audit Logging** - Comprehensive activity logging
 
 ## Support & Contact
 

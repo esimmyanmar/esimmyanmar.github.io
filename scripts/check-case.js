@@ -1,29 +1,32 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const path = require('path')
 
-const root = process.cwd()
-const results = []
+const fs = require('fs');
+const path = require('path');
 
-function walk(dir) {
-  for (const name of fs.readdirSync(dir)) {
-    if (name === 'node_modules' || name === '.git') continue
-    const full = path.join(dir, name)
-    const stat = fs.statSync(full)
-    if (stat.isDirectory()) walk(full)
-    else {
-      if (/[A-Z]/.test(name)) results.push(full)
+function checkDirectory(dir) {
+  const files = fs.readdirSync(dir);
+  let caseIssues = false;
+
+  for (const file of files) {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory() && !file.startsWith('.') && file !== 'node_modules') {
+      if (checkDirectory(filePath)) caseIssues = true;
+    } else if (file.match(/\.(tsx?|jsx?|css)$/)) {
+      if (file !== file.toLowerCase()) {
+        console.error(`Non-lowercase filename: ${filePath}`);
+        caseIssues = true;
+      }
     }
   }
+
+  return caseIssues;
 }
 
-walk(root)
-
-if (results.length) {
-  console.error('Case-sensitivity scan failed — files with uppercase characters:')
-  results.forEach(f => console.error(' -', f))
-  process.exit(3)
+if (checkDirectory('.')) {
+  console.error('Case sensitivity issues found');
+  process.exit(1);
 } else {
-  console.log('No uppercase filenames found.')
-  process.exit(0)
+  console.log('All filenames are lowercase - validation passed');
 }

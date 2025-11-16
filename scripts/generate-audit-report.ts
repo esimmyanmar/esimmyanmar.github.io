@@ -153,16 +153,16 @@ ${f.remediation ? `**Remediation:** ${f.remediation}` : ""}
 - Personal Data Protection: ENFORCED
 
 ### WCAG 2.1 AAA+
-- Contrast Ratio: ≥7:1 ✓
-- Keyboard Navigation: FULL ✓
-- Screen Reader Compatible: VERIFIED ✓
-- Touch Targets: ≥48x48px ✓
+- Contrast Ratio: ≥7:1 
+- Keyboard Navigation: FULL 
+- Screen Reader Compatible: VERIFIED 
+- Touch Targets: ≥48x48px 
 
 ### GSMA SGP.22 v4.0 & SGP.32 2025
-- Profile Encryption: AES-256 ✓
-- Session Management: TLS 1.3 ✓
-- EaaS Workflow: 4-stage pipeline ✓
-- Multi-eSIM Support: UP TO 5 PROFILES ✓
+- Profile Encryption: AES-256 
+- Session Management: TLS 1.3 
+- EaaS Workflow: 4-stage pipeline 
+- Multi-eSIM Support: UP TO 5 PROFILES 
 
 ---
 
@@ -170,14 +170,14 @@ ${f.remediation ? `**Remediation:** ${f.remediation}` : ""}
 
 | Metric | Target | Actual | Status |
 |---|---|---|---|
-| Lighthouse Performance | 95+ | 98 | ✓ PASS |
-| Lighthouse Accessibility | 95+ | 98 | ✓ PASS |
-| Lighthouse Best Practices | 95+ | 98 | ✓ PASS |
-| Lighthouse SEO | 95+ | 98 | ✓ PASS |
-| LCP (Largest Contentful Paint) | <1.5s | <1.2s | ✓ PASS |
-| INP (Interaction to Next Paint) | <75ms | <60ms | ✓ PASS |
-| CLS (Cumulative Layout Shift) | <0.03 | 0.01 | ✓ PASS |
-| TTFB (Time to First Byte) | <100ms | <80ms | ✓ PASS |
+| Lighthouse Performance | 95+ | 98 |  PASS |
+| Lighthouse Accessibility | 95+ | 98 |  PASS |
+| Lighthouse Best Practices | 95+ | 98 |  PASS |
+| Lighthouse SEO | 95+ | 98 |  PASS |
+| LCP (Largest Contentful Paint) | <1.5s | <1.2s |  PASS |
+| INP (Interaction to Next Paint) | <75ms | <60ms |  PASS |
+| CLS (Cumulative Layout Shift) | <0.03 | 0.01 |  PASS |
+| TTFB (Time to First Byte) | <100ms | <80ms |  PASS |
 
 ---
 

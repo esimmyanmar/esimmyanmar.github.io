@@ -1,25 +1,14 @@
 User-agent: *
-Disallow:
-Sitemap: https://esim.com.mm/sitemap.xml
-User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://esim.com.mm/sitemap.xml
 
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Disallow sensitive areas
 Disallow: /api/
 Disallow: /.next/
 Disallow: /scripts/
 Disallow: /compliance/
 Disallow: /power-bi/
 
-# Allow important pages
-Allow: /app/
-Allow: /public/
-
-# Host
 Host: https://esim.com.mm

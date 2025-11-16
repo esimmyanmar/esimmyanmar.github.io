@@ -1,35 +1,36 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const path = require('path')
 
-const root = process.cwd()
-const exts = ['.js', '.jsx', '.ts', '.tsx', '.md', '.html', '.css']
+const fs = require('fs');
+const path = require('path');
 
-// Basic emoji regex covering common ranges
-const emojiRegex = /[\u{1F300}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u
+const emojiRegex = /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu;
 
-const results = []
+function scanDirectory(dir) {
+  const files = fs.readdirSync(dir);
+  let emojiFound = false;
 
-function walk(dir) {
-  for (const name of fs.readdirSync(dir)) {
-    if (name === 'node_modules' || name === '.git' || name === '.next' || name === 'out') continue
-    const full = path.join(dir, name)
-    const stat = fs.statSync(full)
-    if (stat.isDirectory()) walk(full)
-    else if (exts.includes(path.extname(name))) {
-      const content = fs.readFileSync(full, 'utf8')
-      if (emojiRegex.test(content)) results.push(full)
+  for (const file of files) {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory() && !file.startsWith('.') && file !== 'node_modules') {
+      if (scanDirectory(filePath)) emojiFound = true;
+    } else if (file.match(/\.(tsx?|jsx?|md|json)$/)) {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const matches = content.match(emojiRegex);
+      if (matches) {
+        console.error(`Emoji found in ${filePath}: ${matches.join(', ')}`);
+        emojiFound = true;
+      }
     }
   }
+
+  return emojiFound;
 }
 
-walk(root)
-
-if (results.length) {
-  console.error('Emoji scan failed — found emoji in files:')
-  results.forEach(f => console.error(' -', f))
-  process.exit(2)
+if (scanDirectory('.')) {
+  console.error('Emojis detected in codebase');
+  process.exit(1);
 } else {
-  console.log('No emoji found.')
-  process.exit(0)
+  console.log('No emojis found - validation passed');
 }

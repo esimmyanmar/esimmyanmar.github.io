@@ -1,0 +1,94 @@
+name: Complete Audit and Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  audit-and-validate:
+    name: Complete Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Emoji scan
+        run: npm run scan-no-emoji
+
+      - name: Case sensitivity check
+        run: npm run check-case
+
+      - name: File validation
+        run: npm run validate-files
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: TypeScript check
+        run: npm run type-check
+
+      - name: Stylelint
+        run: npm run lint:css
+
+      - name: Security audit
+        run: npm run security-scan
+
+      - name: Build
+        run: npm run build
+
+      - name: Export
+        run: npm run export
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: out/
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: audit-and-validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run production-deploy
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          cname: esim.com.mm
+
+      - name: Verify deployment
+        run: |
+          sleep 30
+          curl -f https://esim.com.mm || exit 1
