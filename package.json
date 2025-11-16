@@ -1,65 +1,48 @@
 {
-  "name": "esim-myanmar-company-profile",
-  "version": "3.0.0",
-  "description": "300-page premium company profile and information website built exclusively with Microsoft 2025 November stack",
+  "name": "esim-myanmar-300-pages",
+  "version": "1.0.0",
+  "description": "300-page premium eSIM Myanmar website - 100% Microsoft stack serving 50M+ ASEAN users",
   "private": true,
   "scripts": {
-    "dev": "echo 'Static site - use live server'",
-    "build": "echo 'Static build complete'",
-    "start": "echo 'Static site ready'",
-    "lint": "echo 'Linting complete'",
-    "scan-no-emoji": "node scripts/scan-no-emoji.js",
-    "check-case": "node scripts/check-case.js",
-    "validate-files": "node scripts/validate-files.js",
-    "complete-audit": "node scripts/production-audit.js",
-    "production-deploy": "npm run scan-no-emoji && npm run check-case && npm run validate-files && npm run complete-audit"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export",
+    "deploy": "npm run export && gh-pages -d out",
+    "lint": "next lint",
+    "generate-pages": "node scripts/generate-pages.js && node scripts/generate-remaining-pages.js && node scripts/complete-300-pages.js"
   },
-  "dependencies": {},
-  "devDependencies": {},
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.5",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "gh-pages": "^6.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  },
+  "keywords": [
+    "eSIM",
+    "Myanmar",
+    "5G",
+    "Microsoft",
+    "Azure",
+    "ASEAN",
+    "Telecom",
+    "Zero-Trust",
+    "Enterprise"
+  ],
+  "author": "eSIM Myanmar Company Limited",
+  "license": "PROPRIETARY",
+  "homepage": "https://esim.com.mm",
   "repository": {
     "type": "git",
     "url": "https://github.com/esimmyanmar/esimmyanmar.github.io.git"
-  },
-  "keywords": [
-    "esim",
-    "myanmar",
-    "company-profile",
-    "5g",
-    "microsoft",
-    "azure",
-    "power-platform",
-    "asean",
-    "zero-emoji",
-    "300-pages"
-  ],
-  "author": {
-    "name": "eSIM Myanmar Company Limited",
-    "email": "info@esim.com.mm",
-    "url": "https://esim.com.mm"
-  },
-  "license": "PROPRIETARY",
-  "homepage": "https://esim.com.mm",
-  "microsoft": {
-    "stack": "November 2025",
-    "components": [
-      "Azure Static Web Apps",
-      "Azure Functions 5",
-      "Microsoft Graph Toolkit 6.2",
-      "Power Pages Pro",
-      "Copilot Studio",
-      "Microsoft Fabric",
-      "Entra ID",
-      "Power BI Embedded"
-    ],
-    "compliance": {
-      "zeroEmoji": true,
-      "wcag": "2.2 AAA",
-      "security": "OWASP Top 10",
-      "performance": "Core Web Vitals"
-    }
   }
 }
