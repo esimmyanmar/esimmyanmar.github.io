@@ -214,8 +214,8 @@ remainingPages.forEach((slug, index) => {
   currentCount++
 })
 
-console.log(`\n🚀 DEPLOYMENT COMPLETE: ${currentCount}/300 pages generated!`)
-console.log(`📊 Microsoft Stack: 100% Compliant`)
-console.log(`🔒 Zero Emoji: Enforced`)
-console.log(`🌏 ASEAN Ready: 50M+ Users`)
-console.log(`✅ Production Status: LIVE`)
+console.log(`\n DEPLOYMENT COMPLETE: ${currentCount}/300 pages generated!`)
+console.log(` Microsoft Stack: 100% Compliant`)
+console.log(` Zero Emoji: Enforced`)
+console.log(` ASEAN Ready: 50M+ Users`)
+console.log(` Production Status: LIVE`)
