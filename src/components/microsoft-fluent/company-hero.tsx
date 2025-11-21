@@ -102,7 +102,7 @@ export const CompanyProfileFlyer: React.FC = () => {
       <div className="flyer-content">
         <div className="flyer-section">
           <h3>Company Overview</h3>
-          <p>Myanmar's leading enterprise eSIM provider with GSMA SGP.22 compliance, serving 2M+ customers across all 14 regions with 98.5% network coverage.</p>
+          <p>Myanmar&apos;s leading enterprise eSIM provider with GSMA SGP.22 compliance, serving 2M+ customers across all 14 regions with 98.5% network coverage.</p>
         </div>
 
         <div className="flyer-section">
